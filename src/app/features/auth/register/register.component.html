@@ -1,0 +1,91 @@
+<div
+  class="bg-gradient-to-br from-blue-50 via-white to-purple-50 min-h-screen flex items-center justify-center p-4 relative">
+
+  <!-- Home Button -->
+  <a routerLink="/app-home"
+    class="absolute top-10 left-10 px-4 py-2 bg-white font-bold border border-gray-300 text-sm text-gray-700 gap-3 shadow-md hover:bg-gray-100 transition">
+    <i class="fa-solid fa-house-crack p-2"></i>Home
+  </a>
+
+  <div class="w-full max-w-md">
+    <div
+      class="bg-white/80 backdrop-blur-lg rounded-2xl shadow-2xl p-8 space-y-8 transition-all duration-500 hover:shadow-xl animate-fadeIn">
+      <div class="text-center">
+        <h2 class="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          Create Account
+        </h2>
+        <p class="text-gray-500 mt-2">Join us by creating your account</p>
+      </div>
+
+      <form class="space-y-6" #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
+
+        <!-- Full Name -->
+        <div class="relative" [ngClass]="{ 'animate-shake': nameInvalid }">
+          <label for="name" class="block text-gray-700 text-sm font-medium mb-2">Full Name</label>
+          <div class="relative">
+            <i data-lucide="user" class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5"></i>
+            <input type="text" id="name" placeholder="Enter your full name" required minlength="3" [(ngModel)]="name"
+              name="name" #nameField="ngModel" class="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 text-black focus:outline-none 
+                     focus:ring-2 focus:ring-blue-500 bg-white transition-all duration-200"
+              [class.border-red-500]="nameField.invalid && nameField.touched">
+          </div>
+          <p *ngIf="nameField.invalid && nameField.touched" class="text-red-500 text-xs mt-1">
+            Name must be at least 3 characters long.
+          </p>
+        </div>
+
+        <!-- Email -->
+        <div class="relative" [ngClass]="{ 'animate-shake': emailInvalid }">
+          <label for="email" class="block text-gray-700 text-sm font-medium mb-2">Email Address</label>
+          <div class="relative">
+            <i data-lucide="mail" class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5"></i>
+            <input type="email" id="email" placeholder="Enter your email" required email [(ngModel)]="email"
+              name="email" #emailField="ngModel" class="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 text-black focus:outline-none 
+                     focus:ring-2 focus:ring-blue-500 bg-white transition-all duration-200"
+              [class.border-red-500]="emailField.invalid && emailField.touched">
+          </div>
+          <p *ngIf="emailField.invalid && emailField.touched" class="text-red-500 text-xs mt-1">
+            Please enter a valid email address.
+          </p>
+        </div>
+
+        <!-- Password -->
+        <div class="relative" [ngClass]="{ 'animate-shake': passwordInvalid }">
+          <label for="password" class="block text-gray-700 text-sm font-medium mb-2">Password</label>
+          <div class="relative">
+            <i data-lucide="lock" class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5"></i>
+            <input type="password" id="password" placeholder="Enter password" required minlength="6"
+              [(ngModel)]="password" name="password" #passwordField="ngModel" class="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 text-black focus:outline-none 
+                     focus:ring-2 focus:ring-blue-500 bg-white transition-all duration-200"
+              [class.border-red-500]="passwordField.invalid && passwordField.touched">
+          </div>
+          <p *ngIf="passwordField.invalid && passwordField.touched" class="text-red-500 text-xs mt-1">
+            Password must be at least 6 characters long.
+          </p>
+        </div>
+
+        <!-- Terms -->
+        <div class="flex items-start gap-2">
+          <input type="checkbox" id="terms" required
+            class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+          <label for="terms" class="text-gray-600 text-sm">
+            I agree to the <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">Terms & Conditions</a>
+          </label>
+        </div>
+
+        <!-- Button -->
+        <button type="submit"
+          class="w-full border border-black text-black py-3 rounded-xl hover:opacity-90 transition duration-300 transform hover:-translate-y-0.5 shadow-lg hover:shadow-xl"
+          [disabled]="registerForm.invalid">
+          Sign in
+        </button>
+      </form>
+        
+      <p class="text-center text-sm text-gray-600">
+        Already have an account?
+        <a routerLink="/app-login"
+          class="text-blue-600 hover:text-blue-800 font-semibold transition-colors duration-200">Sign in</a>
+      </p>
+    </div>
+  </div>
+</div>

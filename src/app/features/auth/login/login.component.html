@@ -1,0 +1,110 @@
+<div
+    class="bg-gradient-to-br from-blue-50 via-white to-purple-50 min-h-screen flex items-center justify-center p-4 relative">
+
+    <!-- 🏠 Home Button (Top Left Corner) -->
+    <a routerLink="/app-home"
+        class="absolute top-10 left-10 px-4 py-2 bg-white font-bold border border-gray-300 text-sm text-gray-700 gap-3 shadow-md hover:bg-gray-100 transition">
+        <i class="fa-solid fa-house-crack p-2"></i>Home
+    </a>
+
+    <div class="w-full max-w-md">
+
+        <!-- Login Card -->
+        <div
+            class="bg-white/80 backdrop-blur-lg rounded-2xl shadow-2xl p-8 space-y-8 transition-all duration-500 hover:shadow-xl">
+            <div class="text-center">
+                <h2
+                    class="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                    Welcome</h2>
+                <p class="text-gray-500 mt-2">Please sign in to continue</p>
+            </div>
+
+            <form class="space-y-6" (ngSubmit)="onSubmit()">
+                <!-- Email Input -->
+                <div class="relative">
+                    <label class="block text-gray-700 text-sm font-medium mb-2" for="email">
+                        Email Address
+                    </label>
+                    <div class="relative">
+                        <i data-lucide="mail"
+                            class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5"></i>
+                        <input
+                            class="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 text-black focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-white"
+                            type="email" placeholder="Enter your email" required [(ngModel)]="email" name="email" />
+                    </div>
+                </div>
+
+                <!-- Password Input -->
+                <!-- Password Input -->
+                <div class="relative">
+                    <label class="block text-gray-700 text-sm font-medium mb-2" for="password">
+                        Password
+                    </label>
+                    <div class="relative">
+
+
+                        <!-- Password Field -->
+                        <input [type]="showPassword ? 'text' : 'password'"
+                            class="w-full pl-10 pr-10 py-3 rounded-xl border border-gray-200 text-black focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-white"
+                            placeholder="Enter your password" required [(ngModel)]="password" name="password" />
+
+                        <!-- 👁️ Eye Icon Button -->
+                        <button type="button" (click)="showPassword = !showPassword"
+                            class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700">
+                            <i [ngClass]="showPassword ? 'fa-regular fa-eye-slash' : 'fa-regular fa-eye'"
+                                class="text-lg"></i>
+                        </button>
+                    </div>
+                </div>
+
+
+                <!-- Remember Me & Forgot Password -->
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center">
+                        <input type="checkbox" id="remember"
+                            class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                        <label class="ml-2 text-gray-600 text-sm" for="remember">
+                            Remember me
+                        </label>
+                    </div>
+                    <a href="#"
+                        class="text-sm text-blue-600 hover:text-blue-800 font-medium transition-colors duration-200">Forgot
+                        password?</a>
+                </div>
+
+                <!-- Sign In Button -->
+                <button type="submit"
+                    class="w-full border border-black text-black py-3 rounded-xl hover:opacity-90 transition duration-200 transform hover:-translate-y-0.5 shadow-lg hover:shadow-xl">
+                    Sign In
+                </button>
+
+                <!-- 
+                    Divider
+                    <div class="relative">
+                   <div class="absolute inset-0 flex items-center">
+                      <div class="w-full border-t border-gray-200"></div>
+                  </div>
+                 <div class="relative flex justify-center text-sm">
+                        <span class="px-4 bg-white/80 text-gray-500">Or continue with</span>
+                </div>
+                </div>
+
+            Fingerprint Button 
+            <button type="button" routerLink="/app-register"
+             class="w-full border border-white flex items-center justify-center gap-3 py-3 bg-black border border-gray-200 rounded-xl hover:bg-gray-50 transition duration-200 transform hover:-translate-y-0.5 shadow-md hover:shadow-lg group">
+                 Login
+                </button>
+                -->
+
+            </form>
+
+            <!-- Sign Up Link -->
+            <p class="text-center text-sm text-gray-600">
+                Don't have an account?
+                <a routerLink="/app-register"
+                    class="text-blue-600 hover:text-blue-800 font-semibold transition-colors duration-200">Sign
+                    up</a>
+            </p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,5 @@
+:host {
+  display: block;
+  background-color: #000000; /* dark gray / blackish */
+  color: white; /* optional, to make text readable */
+}

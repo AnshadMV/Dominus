@@ -1,0 +1,25 @@
+<!-- Navbar (simulated) -->
+<!-- Hero Section -->
+<div class="relative w-full h-[90vh] sm:h-screen overflow-hidden">
+    <!-- Background Video -->
+    <video #bgVideo autoplay muted loop playsinline preload="auto"
+        class="absolute top-0 left-0 w-full h-full object-cover opacity-0 transition-opacity duration-700"
+        (canplaythrough)="onVideoLoaded()">
+        <source src="./../../../assets/videos/iPhone16Pro.webm" type="video/webm" />
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Overlay -->
+    <div class="absolute inset-0 bg-black/40"></div>
+
+    <!-- Foreground content -->
+    <div class="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-4">
+        <img src="./../../../../assets/images/Dominus_white.png" class="w-40 sm:w-56 md:w-64 logo" alt="Logo" />
+        <p id="bltext" class="text-sm sm:text-lg mt-4">Fresh groceries, every day.</p>
+    </div>
+</div>
+
+
+
+
+

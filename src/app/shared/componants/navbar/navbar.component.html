@@ -1,0 +1,99 @@
+<section class="fixed top-0 w-full z-50">
+  <app-top-navbar></app-top-navbar>
+</section>
+<div class="fixed top-7 w-full z-50 transition-all duration-500 ease-in-out  backdrop-blur-md" [ngClass]="{
+    'opacity-0 pointer-events-none translate-y-[-10px]': isScrollingDown, 
+    'opacity-100 translate-y-0': !isScrollingDown
+  }">
+  <div class="grid xl:grid-cols-0 grid-cols-1">
+    <div class="px-4 py-0">
+      <div class="py-2 px-2 rounded-xl border w-full bg-transparent pt-7">
+        <div class="flex justify-between items-center">
+          <div class="flex justify-items-center items-center gap-3">
+            <i class="fa-solid fa-bars-staggered pl-5 " (click)="toggleModal()"></i>
+            <app-menu-modal [isOpen]="isModalOpen"></app-menu-modal>
+
+            <img src="./../../../../assets/images/Dominus_white.png" class="logo">
+
+
+            <nav class="hidden lg:flex gap-6 ml-6 text-white ">
+              <a routerLink="/app-home" class="hover:text-yellow-400 transition-colors">Home</a>
+              <a routerLink="./app-product-list" class="hover:text-yellow-400 transition-colors">Shop</a>
+              <a routerLink="/app-about" class="hover:text-yellow-400 transition-colors">About Us</a>
+            </nav>
+
+            <div class="relative">
+              <input
+                class="rounded-3xl py-3 px-3 w-[400px] bg-transparent text-white placeholder-gray-300 outline-none border border-gradient-to-r from-[#FFD700] via-[#E6C200] to-[#B8860B] focus:ring-1 hidden md:block lg:block xl:block"
+                placeholder="Search for Grocery, Stores, Vegetable, or Meat" />
+              <i
+                class="fa-solid fa-magnifying-glass text-white absolute right-3 top-1/2 transform -translate-y-1/2 hidden md:block lg:block"></i>
+            </div>
+          </div>
+
+          <div class="flex justify-items-center items-center gap-2">
+            <!-- Icons and profile -->
+            <div class="pl-3 group cursor- hidden lg:flex md:flex">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor"
+                class="w-8 h-8 text-white rounded-full ring-2 ring-white p-1 relative transition-all duration-300 group-hover:ring-yellow-500 group-hover:stroke-yellow-500">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+              </svg>
+            </div>
+            <div class="pl-3 group cursor-pointer hidden lg:flex ">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                class="w-8 h-8 text-white rounded-full ring-2 ring-white p-1 relative transition-all duration-300 group-hover:ring-yellow-500 group-hover:stroke-yellow-500">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+              </svg>
+            </div>
+            <div class="relative">
+              <!-- User Avatar -->
+              <div class="px-3">
+                <img class="inline-block w-8 h-8 rounded-full ring-2 ring-white cursor-pointer backdrop-blur-md"
+                  src="https://plus.unsplash.com/premium_vector-1744204734772-9e4d0c1f41da?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  alt="User Avatar" (click)="toggleProfileDropdown()" />
+              </div>
+
+              <!-- Dropdown Menu -->
+              <div *ngIf="showProfileDropdown" class="absolute right-0 mt-2 w-48 rounded-lg shadow-lg py-2 z-50
+           bg-white/10 backdrop-blur-md border border-white/20 text-black">
+                <a routerLink="/profile" class="flex items-center gap-3 px-4 py-2 hover:bg-gray-100 transition-colors"
+                  (click)="closeProfileDropdown()">
+                  <i class="fa-solid fa-user text-sm"></i>
+                  <span>Profile</span>
+                </a>
+
+                <a routerLink="/orders" class="flex items-center gap-3 px-4 py-2 hover:bg-gray-100 transition-colors"
+                  (click)="closeProfileDropdown()">
+                  <i class="fa-solid fa-bag-shopping text-sm"></i>
+                  <span>Orders</span>
+                </a>
+                <a routerLink="/app-register" class="flex items-center gap-3 px-4 py-2 hover:bg-gray-100 transition-colors"
+                  (click)="closeProfileDropdown()">
+                  <i class="fa-solid fa-bag-shopping text-sm"></i>
+                  <span>Regster</span>
+                </a>
+                <a routerLink="/app-login" class="flex items-center gap-3 px-4 py-2 hover:bg-gray-100 transition-colors"
+                  (click)="closeProfileDropdown()">
+                  <i class="fa-solid fa-bag-shopping text-sm"></i>
+                  <span>Login</span>
+                </a>
+
+                <hr class="my-2" />
+
+                <button (click)="handleLogout()"
+                  class="flex items-center gap-3 px-4 py-2 hover:bg-red-50 text-red-600 transition-colors w-full text-left">
+                  <i class="fa-solid fa-right-from-bracket text-sm"></i>
+                  <span>Logout</span>
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

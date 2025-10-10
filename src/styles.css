@@ -1,0 +1,63 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css');
+@import url('https://db.onlinewebfonts.com/c/a2c48a3809e72f399b6c01daa53a05a3?family=Celias+Bold');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer utilities {
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+}
+
+
+@font-face {
+  font-family: 'Celias';
+  src: url('/assets/fonts/Celias.woff2') format('woff2'),
+    url('/assets/fonts/Celias.woff') format('woff'),
+    url('/assets/fonts/Celias.eot');
+  /* EOT is used for older IE support */
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Celias';
+  src: url('/assets/fonts/Celias-Bold.woff2') format('woff2'),
+    url('/assets/fonts/Celias-Bold.woff') format('woff'),
+    url('/assets/fonts/Celias-Bold.eot');
+  /* EOT is used for older IE support */
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Additional weights or styles */
+@font-face {
+  font-family: 'Celias';
+  src: url('/assets/fonts/Celias-Italic.woff2') format('woff2'),
+    url('/assets/fonts/Celias-Italic.woff') format('woff'),
+    url('/assets/fonts/Celias-Italic.eot');
+  font-weight: normal;
+  font-style: italic;
+}
+
+/* Additional weights or styles */
+@font-face {
+  font-family: 'Celias';
+  src: url('/assets/fonts/Celias-Thin.woff') format('woff'),
+    url('/assets/fonts/Celias-Thin.woff2') format('woff2');
+  font-weight: normal;
+  font-style: Thin;
+}
+
+
+
+*{
+  font-family: 'Celias', serif;
+  font-style: Thin;
+}

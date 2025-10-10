@@ -1,0 +1,155 @@
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  /* .btn-primary {
+      @apply py-1.5 px-3 text-center bg-blue-700 rounded-md text-white;
+  } */
+}
+
+
+.container{
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 20px;
+    position: relative;
+    z-index: 10;
+    border-bottom: 5px solid rgba(255, 255, 255, 0.3);
+    border-left: 5px solid rgba(255, 255, 255, 0.3);
+}
+
+.container:hover{
+    transform-origin: 20px;
+    transition: cubic-bezier(0.215, 0.610, 0.355, 1);
+    transition: ease-in-out;
+    box-shadow: #035711;
+}
+
+
+.your-name, article, h1{
+    background-color: rgba(0, 0, 0, 0);
+}
+.your-name{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+
+p{
+    background-color: rgba(0, 0, 0, 0);
+}
+.name-u{
+    background-color: rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    font-size: 25px;
+    font-weight: normal;
+    line-height: 40px;
+}
+
+ #passport{
+    width: 120px;
+    border-radius: 50%;
+    border: 5px solid white;
+    margin-bottom: 20px;
+    animation: passport 5s linear 4s infinite alternate none running;
+}
+input{
+    width: 90%;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: #ffffff;
+    font-size: 22px;
+}
+form, .form-container{
+    background-color: rgba(0, 0, 0, .1);
+}
+input:focus{
+    background-color: rgb(0, 0, 0, 0);
+    color: rgb(255, 255, 255);
+    font-style: italic;
+}
+
+.bottom-pink{
+    background: linear-gradient(-45deg, #753a88, #cc2b5e);
+    animation: bottom-pink 4s linear 2s infinite normal none running;       
+   
+}
+.top-orange{
+    background: linear-gradient( rgb(131, 9, 11), tomato);
+    animation: top-orange 4s linear 2s infinite normal none running;
+ }
+
+.top-blue{
+    animation: top-blue 4s linear 2s infinite normal none running;
+ }
+
+ form{
+    margin-top: 40px;
+    background-color: rgba(9, 149, 53, 0);
+ }
+
+ @keyframes passport{
+    0%{
+        border: 5px solid #cc2b5e;
+    }
+    25%{
+        border: 5px solid rebeccapurple;
+    }
+    50%{
+        border: 5px solid tomato;
+    }
+    75%{
+        border: 5px solid yellow;
+    }
+    100%{
+        border: 5px solid green;
+    }
+ }
+
+
+@keyframes top-blue{
+    0%{
+        left: 50%;
+        top: 7%;
+        opacity: 1.0;        
+    }
+    20%{
+        left: 50%;
+        top: 30%;
+        opacity: 0.7;        
+    }
+    40%{
+        left: 50%;
+        top: 50%;
+        opacity: 0.4;
+    }
+    
+    50%{
+        left: 50%;
+        top: 70%;
+        opacity: 0.1;
+    }
+
+    60%{
+        left: 50%;
+        top: 50%;
+        opacity: 0.4;
+    }
+    80%{
+        left: 50%;
+        top: 30%;
+        opacity: 0.7;
+    }
+    100%{
+        left: 50%;
+        top: 5%;
+        opacity: 1.0;
+    }    
+}
+
+@keyframes bottom-pink{
+   
+}

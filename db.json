@@ -1,0 +1,345 @@
+{
+  "website_assets": [
+    {
+      "logo_black": "src/assets/images/Dominus_black.png",
+      "id": "7c7c"
+    }
+  ],
+  "users": [
+    {
+      "id": "d49f",
+      "name": "Anshad Muhammed",
+      "email": "anshadvelladath123@gmail.com",
+      "password": "121212",
+      "createdAt": "2025-10-10T00:44:25Z",
+      "role": "user"
+    },
+    {
+      "id": "7448",
+      "name": "shinas",
+      "email": "shinas@gmail.com",
+      "password": "123123123",
+      "createdAt": "2025-10-10T08:37:15Z",
+      "role": "user"
+    },
+    {
+      "id": "4411",
+      "name": "sinan",
+      "email": "sinan123@gmail.com",
+      "password": "121212",
+      "createdAt": "2025-10-10T08:58:37Z",
+      "role": "user"
+    }
+  ],
+  "products": [
+    {
+      "id": "p1",
+      "name": "iPhone 17 Pro Max",
+      "price": 229900,
+      "images": [
+        "https://images.unsplash.com/photo-1688780074342-7dddd9b5f582?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1759203302534-c6e71c93e886?q=80&w=765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1759588071781-2c3ba9128497?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGlQaG9uZSUyMDE3fGVufDB8fDB8fHww",
+        "https://images.unsplash.com/photo-1757709608566-4b9fd41a7af5?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGlQaG9uZSUyMDE3fGVufDB8fDB8fHww"
+      ],
+      "isStock": true,
+      "colors": [
+        "silver",
+        "graphite",
+        "gold",
+        "blue"
+      ],
+      "topSelling": true,
+      "stock": 15,
+      "category": "mobile",
+      "slug": "iphone-17-pro-max",
+      "description": "Flagship iPhone 17 Pro Max with A-series chip, triple camera system, etc."
+    },
+    {
+      "id": "p2",
+      "name": "iPhone 17",
+      "price": 82900,
+      "images": [
+        "https://images.unsplash.com/photo-1668184162572-4d21d85d8026?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8aVBob25lJTIwMTclMjBpbWFnZXN8ZW58MHx8MHx8fDA%3D",
+        "https://images.unsplash.com/photo-1655022389582-f831f2128886?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1655022389582-f831f2128886?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1690220928060-a32811e39f54?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      ],
+      "isStock": true,
+      "colors": [
+        "black",
+        "white",
+        "red",
+        "green"
+      ],
+      "topSelling": true,
+      "stock": 25,
+      "category": "mobile",
+      "slug": "iphone-17",
+      "description": "iPhone 17, the standard variant, with dual camera, enhanced features."
+    },
+    {
+      "id": "p3",
+      "name": "iPhone 16 Pro Max",
+      "price": 69900,
+      "images": [
+        "https://images.unsplash.com/photo-1666702737580-a927434257d5?w=300&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE4fHx8ZW58MHx8fHx8",
+        "https://images.unsplash.com/photo-1611791485440-24e8239a0377?w=300&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDI1fHx8ZW58MHx8fHx8",
+        "https://images.unsplash.com/photo-1607936854279-55e8a4c64888?w=300&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDQxfHx8ZW58MHx8fHx8",
+        "https://images.unsplash.com/photo-1687170468658-6181f15f400e?q=80&w=627&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1663551419713-c4bc4052425f?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1658494603398-2def8bb2742a?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      ],
+      "isStock": true,
+      "colors": [
+        "black",
+        "white",
+        "purple",
+        "yellow"
+      ],
+      "topSelling": false,
+      "stock": 30,
+      "category": "mobile",
+      "slug": "iphone-16",
+      "description": "iPhone 16 with improved battery, camera and processor."
+    },
+    {
+      "id": "p4",
+      "name": "iPad Air (6th Gen)",
+      "price": 59900,
+      "images": [
+        "https://images.unsplash.com/photo-1661340272675-f6829791246e?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1678153239379-8fd431752437?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1682427286841-1f3ff788752b?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      ],
+      "isStock": true,
+      "colors": [
+        "space gray",
+        "starlight",
+        "purple",
+        "pink"
+      ],
+      "topSelling": true,
+      "stock": 20,
+      "category": "tablet",
+      "slug": "ipad-air-6",
+      "description": "iPad Air (6th Gen) with M-series chip, Ultra Wide camera, etc."
+    },
+    {
+      "id": "p5",
+      "name": "MacBook Air M4 (13-inch)",
+      "price": 99900,
+      "images": [
+        "https://images.unsplash.com/photo-1514342959091-2bffd8a7c4ba?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1651241680016-cc9e407e7dc3?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1717839669697-21b401b56e63?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1514826786317-59744fe2a548?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      ],
+      "isStock": true,
+      "colors": [
+        "silver",
+        "space gray",
+        "midnight",
+        "starlight"
+      ],
+      "topSelling": true,
+      "stock": 10,
+      "category": "laptop",
+      "slug": "macbook-air-m4-13",
+      "description": "Lightweight MacBook Air with M4 chip, long battery life."
+    },
+    {
+      "id": "p6",
+      "name": "AirPods Pro (2nd Gen)",
+      "price": 24900,
+      "images": [
+        "https://images.unsplash.com/photo-1588423771073-b8903fbb85b5?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YWlycG9kcyUyMHByb3xlbnwwfHwwfHx8MA%3D%3D",
+        "https://images.unsplash.com/photo-1623788736363-55d36908ab21?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGFpcnBvZHMlMjBwcm98ZW58MHx8MHx8fDA%3D"
+      ],
+      "isStock": true,
+      "colors": [
+        "white"
+      ],
+      "topSelling": true,
+      "stock": 50,
+      "category": "accessory",
+      "slug": "airpods-pro-2",
+      "description": "AirPods Pro second generation with active noise cancellation."
+    },
+    {
+      "id": "p7",
+      "name": "AirPods (3rd Gen)",
+      "price": 15900,
+      "images": [
+        "https://images.unsplash.com/photo-1623788736363-55d36908ab21?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGFpcnBvZHMlMjBwcm98ZW58MHx8MHx8fDA%3D",
+        "https://images.unsplash.com/photo-1624258919367-5dc28f5dc293?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGFpcnBvZHMlMjBwcm98ZW58MHx8MHx8fDA%3D"
+      ],
+      "isStock": true,
+      "colors": [
+        "white"
+      ],
+      "topSelling": false,
+      "stock": 40,
+      "category": "accessory",
+      "slug": "airpods-3",
+      "description": "AirPods 3rd generation with spatial audio and better battery."
+    },
+    {
+      "id": "p8",
+      "name": "MagSafe Charger",
+      "price": 3900,
+      "images": [
+        "https://plus.unsplash.com/premium_photo-1673891211303-825d15617a11?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8TWFnU2FmZSUyMENoYXJnZXJ8ZW58MHx8MHx8fDA%3D",
+        "https://images.unsplash.com/photo-1615526675159-e248c3021d3f?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8TWFnU2FmZSUyMENoYXJnZXJ8ZW58MHx8MHx8fDA%3D",
+        "https://images.unsplash.com/photo-1615526675272-6b6a7f6501e0?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fE1hZ1NhZmUlMjBDaGFyZ2VyfGVufDB8fDB8fHww"
+      ],
+      "isStock": true,
+      "colors": [
+        "white"
+      ],
+      "topSelling": false,
+      "stock": 100,
+      "category": "accessory",
+      "slug": "magsafe-charger",
+      "description": "MagSafe wireless charger for iPhones and accessories."
+    },
+    {
+      "id": "p9",
+      "name": "USB-C 20W Power Adapter",
+      "price": 1900,
+      "images": [
+        "https://images.unsplash.com/photo-1603539502876-75859a1c75ec?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YXBwbGUlMjBhZGFwdGVyfGVufDB8fDB8fHww"
+      ,"https://plus.unsplash.com/premium_photo-1759741924768-e13db5197f80?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fGFwcGxlJTIwYWRhcHRlcnxlbnwwfHwwfHx8MA%3D%3D"],
+      "isStock": true,
+      "colors": [
+        "white"
+      ],
+      "topSelling": false,
+      "stock": 200,
+      "category": "accessory",
+      "slug": "usb-c-20w-adapter",
+      "description": "Compact USB-C 20W charger for iPhones and iPads."
+    },
+    {
+      "id": "p10",
+      "name": "iPhone Leather Case",
+      "price": 5900,
+      "images": [
+        "https://images.unsplash.com/photo-1657731739208-0ffaa0495286?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aVBob25lJTIwTGVhdGhlciUyMENhc2V8ZW58MHx8MHx8fDA%3D",
+        "https://images.unsplash.com/photo-1628489479633-fefb4059474f?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8aVBob25lJTIwTGVhdGhlciUyMENhc2V8ZW58MHx8MHx8fDA%3D"
+      ],
+      "isStock": true,
+      "colors": [
+        "black",
+        "brown",
+        "saddle brown"
+      ],
+      "topSelling": false,
+      "stock": 60,
+      "category": "accessory",
+      "slug": "iphone-leather-case",
+      "description": "Genuine leather case for iPhone, protective and elegant."
+    },
+    {
+      "id": "p11",
+      "name": "Apple Pencil (USB-C)",
+      "price": 11900,
+      "images": [
+        "https://images.unsplash.com/photo-1625300172673-f864c823d214?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fEFwcGxlJTIwUGVuY2lsJTIwKFVTQi1DKXxlbnwwfHwwfHx8MA%3D%3D",
+        "https://plus.unsplash.com/premium_photo-1705907790736-db77c45cf78b?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      ],
+      "isStock": true,
+      "colors": [
+        "white"
+      ],
+      "topSelling": false,
+      "stock": 30,
+      "category": "accessory",
+      "slug": "apple-pencil-usbc",
+      "description": "Second generation Apple Pencil with USB-C charging."
+    },
+    {
+      "id": "p12",
+      "name": "MagSafe Battery Pack",
+      "price": 10900,
+      "images": [
+        "https://images.unsplash.com/photo-magsafe-battery-1",
+        "https://images.unsplash.com/photo-magsafe-battery-2"
+      ],
+      "isStock": true,
+      "colors": [
+        "white"
+      ],
+      "topSelling": false,
+      "stock": 45,
+      "category": "accessory",
+      "slug": "magsafe-battery-pack",
+      "description": "Portable MagSafe battery pack for wireless charging on the go."
+    },
+    {
+      "id": "p13",
+      "name": "iPad Pro 12.9 (M4)",
+      "price": 119900,
+      "images": [
+        "https://images.unsplash.com/photo-ipad-pro-12-9-1",
+        "https://images.unsplash.com/photo-ipad-pro-12-9-2"
+      ],
+      "isStock": true,
+      "colors": [
+        "space gray",
+        "silver"
+      ],
+      "topSelling": true,
+      "stock": 12,
+      "category": "tablet",
+      "slug": "ipad-pro-12-9-m4",
+      "description": "iPad Pro 12.9-inch with M4 chip, Liquid Retina XDR display."
+    },
+    {
+      "id": "p14",
+      "name": "MacBook Pro 14 (M4)",
+      "price": 149900,
+      "images": [
+        "https://images.unsplash.com/photo-macbook-pro-14-1",
+        "https://images.unsplash.com/photo-macbook-pro-14-2"
+      ],
+      "isStock": true,
+      "colors": [
+        "space gray",
+        "silver"
+      ],
+      "topSelling": true,
+      "stock": 8,
+      "category": "laptop",
+      "slug": "macbook-pro-14-m4",
+      "description": "MacBook Pro 14-inch with M4 chip and ProMotion display."
+    }
+  ],
+  "categories": [
+    {
+      "id": "mobile",
+      "name": "Mobile Phones"
+    },
+    {
+      "id": "tablet",
+      "name": "Tablets"
+    },
+    {
+      "id": "laptop",
+      "name": "Laptops"
+    },
+    {
+      "id": "accessory",
+      "name": "Accessories"
+    }
+  ],
+  "cart": [],
+  "wishlist": [],
+  "orders": [],
+  "topNavText": [
+    {
+      "text": "New iPhone 17 Pro Max launched — preorder now!",
+      "id": "4971"
+    }
+  ]
+}
