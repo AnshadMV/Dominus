@@ -3,9 +3,9 @@
   <div class="modal-container" (click)="$event.stopPropagation()">
     <button class="close-btn" (click)="closeModal()">&times;</button>
 
-    <h2 class="modal-title">Navigation</h2>
+    <h2 class="modal-title">Menu</h2>
     <ul class="modal-nav">
-      <li *ngFor="let item of navItems">
+      <li *ngFor="let item of navItems" (click)="method()">
         <a [routerLink]="item.link">{{ item.label }}</a>
       </li>
     </ul>

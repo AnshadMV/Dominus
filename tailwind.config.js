@@ -17,5 +17,7 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  // plugins: [
+  //   require('tailwind-scrollbar-hide')  // npm install tailwind-scrollbar-hide
+  // ],
 };

@@ -2,14 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { WebsiteAssetsService } from '../services/website-assets.service';
-import { UserService } from 'src/app/core/services/user.service';
+import { User, UserService } from 'src/app/core/services/user.service';
 import { ToastService } from 'src/app/core/services/toast.service';
-
-interface User {
-  id?: number;
-  email: string;
-  password: string;
-}
+import { website_constants } from 'src/app/core/constants/app.constant';
 
 @Component({
   selector: 'app-login',
@@ -22,8 +17,8 @@ export class LoginComponent implements OnInit {
   email = '';
   password = '';
   showPassword: boolean = false;
-  private apiUrl = 'http://localhost:3000/users';
-  userData: any;
+    private apiUrl = website_constants.API.USERURL;
+
   constructor(
     private userService: UserService,
     private http: HttpClient,
@@ -44,9 +39,16 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    // Validate input
-    if (!this.email || !this.password) {
+    const currentTime = new Date().toISOString();
+    if (!this.email && !this.password) {
       this.toast.error('Please enter email and password');
+      return;
+    }
+    if (!this.password) {
+      this.toast.error('Please enter password');
+      return;
+    } if (!this.email) {
+      this.toast.error('Please enter password');
       return;
     }
 
@@ -61,20 +63,14 @@ export class LoginComponent implements OnInit {
             id: user.id,
             name: (user as any).name,   // if your User interface doesn't have name yet
             email: user.email,
-            password: user.password,
-            role: (user as any).role || 'user'
+            
+            role: (user as any).role || 'user',
+            signedTime: currentTime
+
           };
-          // for globally acceing currentUser in console.log
-          this.userData = {
-            id: user.id,
-            name: (user as any).name,
-            email: user.email,
-            password: user.password,
-            role: (user as any).role || 'user'
-          };
+
           localStorage.setItem('currentUser', JSON.stringify(currentUser));
           console.log('Logged in user:', currentUser);
-          console.log('Logged in user:', user);
           this.router.navigate(['/app-home']);
         } else {
           this.toast.error('Invalid email or password!');
@@ -85,7 +81,7 @@ export class LoginComponent implements OnInit {
         this.toast.error('Something went wrong. Try again later.');
       }
     });
-    
+
 
   }
 

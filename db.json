@@ -7,28 +7,207 @@
   ],
   "users": [
     {
-      "id": "d49f",
+      "id": "3cd6",
+      "name": "shinas2",
+      "email": "shinas2@gmail.com",
+      "password": "123456789",
+      "createdAt": "10/11/2025, 2:06:35 PM",
+      "role": "user",
+      "wishlist": [],
+      "orders": [],
+      "cart": [
+        {
+          "productId": "p1"
+        },
+        {
+          "productId": "p2"
+        }
+      ]
+    },
+    {
+      "id": "d831",
       "name": "Anshad Muhammed",
       "email": "anshadvelladath123@gmail.com",
-      "password": "121212",
-      "createdAt": "2025-10-10T00:44:25Z",
-      "role": "user"
-    },
-    {
-      "id": "7448",
-      "name": "shinas",
-      "email": "shinas@gmail.com",
       "password": "123123123",
-      "createdAt": "2025-10-10T08:37:15Z",
-      "role": "user"
+      "createdAt": "10/11/2025, 2:30:53 PM",
+      "role": "user",
+      "cart": [
+        {
+          "productId": "p1"
+        },
+        {
+          "productId": "p2"
+        }
+      ],
+      "wishlist": [],
+      "orders": [
+        {
+          "id": "order_1760416573400",
+          "userId": "d831",
+          "orderId": "ORD1760416573400XNUF6",
+          "orderDate": "October 14, 2025 at 10:06 AM",
+          "items": [
+            {
+              "productId": "p6",
+              "name": "AirPods Pro (2nd Gen)",
+              "price": 24900,
+              "quantity": 1,
+              "image": "https://images.unsplash.com/photo-1588423771073-b8903fbb85b5?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YWlycG9kcyUyMHByb3xlbnwwfHwwfHx8MA%3D%3D",
+              "color": "white",
+              "category": "accessory"
+            }
+          ],
+          "shippingDetails": {
+            "fullName": "Anshad Muhammed",
+            "address": "Not specified",
+            "city": "Not specified",
+            "state": "Not specified",
+            "pincode": "000000",
+            "phone": "Not specified",
+            "email": "anshadvelladath123@gmail.com"
+          },
+          "paymentMethod": "Online Payment",
+          "totalAmount": 24900,
+          "status": "confirmed",
+          "estimatedDelivery": "October 21, 2025"
+        },
+        {
+          "id": "order_1760416512123",
+          "userId": "d831",
+          "orderId": "ORD1760416512123LCPB2",
+          "orderDate": "October 14, 2025 at 10:05 AM",
+          "items": [
+            {
+              "productId": "p7",
+              "name": "AirPods (3rd Gen)",
+              "price": 15900,
+              "quantity": 1,
+              "image": "https://images.unsplash.com/photo-1623788736363-55d36908ab21?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGFpcnBvZHMlMjBwcm98ZW58MHx8MHx8fDA%3D",
+              "color": "white",
+              "category": "accessory"
+            }
+          ],
+          "shippingDetails": {
+            "fullName": "Anshad Muhammed",
+            "address": "Not specified",
+            "city": "Not specified",
+            "state": "Not specified",
+            "pincode": "000000",
+            "phone": "Not specified",
+            "email": "anshadvelladath123@gmail.com"
+          },
+          "paymentMethod": "Online Payment",
+          "totalAmount": 15900,
+          "status": "cancelled",
+          "estimatedDelivery": "October 21, 2025"
+        },
+        {
+          "id": "order_1760416685524",
+          "userId": "d831",
+          "orderId": "ORD1760416685524U5SEE",
+          "orderDate": "October 14, 2025 at 10:08 AM",
+          "items": [
+            {
+              "productId": "p4",
+              "name": "iPad Air (6th Gen)",
+              "price": 59900,
+              "quantity": 2,
+              "image": "https://images.unsplash.com/photo-1661340272675-f6829791246e?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+              "color": "space gray",
+              "category": "tablet"
+            },
+            {
+              "productId": "p12",
+              "name": "MagSafe Battery Pack",
+              "price": 10900,
+              "quantity": 2,
+              "image": "https://media.istockphoto.com/id/2193310043/photo/damaged-electronic-device-with-exposed-battery.jpg?s=612x612&w=0&k=20&c=gOW4b2HgDlnetuRXVl4Hi_qmYo5DH6115vJ6tzXN1L8=",
+              "color": "white",
+              "category": "accessory"
+            }
+          ],
+          "shippingDetails": {
+            "fullName": "Anshad Muhammed",
+            "address": "Not specified",
+            "city": "Not specified",
+            "state": "Not specified",
+            "pincode": "000000",
+            "phone": "Not specified",
+            "email": "anshadvelladath123@gmail.com"
+          },
+          "paymentMethod": "Online Payment",
+          "totalAmount": 141600,
+          "status": "confirmed",
+          "estimatedDelivery": "October 21, 2025"
+        },
+        {
+          "id": "order_1760424296794",
+          "userId": "d831",
+          "orderId": "ORD17604242967943W3NO",
+          "orderDate": "October 14, 2025 at 12:14 PM",
+          "items": [
+            {
+              "productId": "p1",
+              "name": "iPhone 17 Pro Max",
+              "price": 229900,
+              "quantity": 1,
+              "image": "https://images.unsplash.com/photo-1574737308581-1eb78bf8fbc1?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTJ8fGFwcGxlJTIwZ2FkZ2V0c3xlbnwwfDB8MHx8fDA%3D&auto=format&fit=crop&q=60&w=400",
+              "color": "silver",
+              "category": "mobile"
+            },
+            {
+              "productId": "p2",
+              "name": "iPhone 17",
+              "price": 82900,
+              "quantity": 1,
+              "image": "https://images.unsplash.com/photo-1655022389582-f831f2128886?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+              "color": "black",
+              "category": "mobile"
+            }
+          ],
+          "shippingDetails": {
+            "fullName": "Anshad Muhammed",
+            "address": "Not specified",
+            "city": "Not specified",
+            "state": "Not specified",
+            "pincode": "000000",
+            "phone": "Not specified",
+            "email": "anshadvelladath123@gmail.com"
+          },
+          "paymentMethod": "Online Payment",
+          "totalAmount": 312800,
+          "status": "confirmed",
+          "estimatedDelivery": "October 21, 2025"
+        }
+      ]
     },
     {
-      "id": "4411",
-      "name": "sinan",
-      "email": "sinan123@gmail.com",
-      "password": "121212",
-      "createdAt": "2025-10-10T08:58:37Z",
-      "role": "user"
+      "id": "92bd",
+      "name": "asas",
+      "email": "asas@gmail.com",
+      "password": "asasasas",
+      "createdAt": "10/12/2025, 1:49:10 PM",
+      "role": "user",
+      "wishlist": [],
+      "orders": [],
+      "cart": [
+        {
+          "productId": "p1"
+        },
+        {
+          "productId": "p2"
+        }
+      ]
+    },
+    {
+      "id": "5193",
+      "name": "Anshad Muhammed",
+      "email": "anshadvelladath123@gmail.com",
+      "password": "123412341234",
+      "createdAt": "10/14/2025, 12:16:17 PM",
+      "role": "user",
+      "wishlist": [],
+      "orders": []
     }
   ],
   "products": [
@@ -37,7 +216,7 @@
       "name": "iPhone 17 Pro Max",
       "price": 229900,
       "images": [
-        "https://images.unsplash.com/photo-1688780074342-7dddd9b5f582?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1574737308581-1eb78bf8fbc1?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTJ8fGFwcGxlJTIwZ2FkZ2V0c3xlbnwwfDB8MHx8fDA%3D&auto=format&fit=crop&q=60&w=400",
         "https://images.unsplash.com/photo-1759203302534-c6e71c93e886?q=80&w=765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         "https://images.unsplash.com/photo-1759588071781-2c3ba9128497?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGlQaG9uZSUyMDE3fGVufDB8fDB8fHww",
         "https://images.unsplash.com/photo-1757709608566-4b9fd41a7af5?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGlQaG9uZSUyMDE3fGVufDB8fDB8fHww"
@@ -50,7 +229,7 @@
         "blue"
       ],
       "topSelling": true,
-      "stock": 15,
+      "stock": 4,
       "category": "mobile",
       "slug": "iphone-17-pro-max",
       "description": "Flagship iPhone 17 Pro Max with A-series chip, triple camera system, etc."
@@ -60,8 +239,6 @@
       "name": "iPhone 17",
       "price": 82900,
       "images": [
-        "https://images.unsplash.com/photo-1668184162572-4d21d85d8026?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8aVBob25lJTIwMTclMjBpbWFnZXN8ZW58MHx8MHx8fDA%3D",
-        "https://images.unsplash.com/photo-1655022389582-f831f2128886?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         "https://images.unsplash.com/photo-1655022389582-f831f2128886?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         "https://images.unsplash.com/photo-1690220928060-a32811e39f54?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
       ],
@@ -73,7 +250,7 @@
         "green"
       ],
       "topSelling": true,
-      "stock": 25,
+      "stock": 1,
       "category": "mobile",
       "slug": "iphone-17",
       "description": "iPhone 17, the standard variant, with dual camera, enhanced features."
@@ -98,7 +275,7 @@
         "yellow"
       ],
       "topSelling": false,
-      "stock": 30,
+      "stock": null,
       "category": "mobile",
       "slug": "iphone-16",
       "description": "iPhone 16 with improved battery, camera and processor."
@@ -120,7 +297,7 @@
         "pink"
       ],
       "topSelling": true,
-      "stock": 20,
+      "stock": 13,
       "category": "tablet",
       "slug": "ipad-air-6",
       "description": "iPad Air (6th Gen) with M-series chip, Ultra Wide camera, etc."
@@ -143,7 +320,7 @@
         "starlight"
       ],
       "topSelling": true,
-      "stock": 10,
+      "stock": null,
       "category": "laptop",
       "slug": "macbook-air-m4-13",
       "description": "Lightweight MacBook Air with M4 chip, long battery life."
@@ -161,7 +338,7 @@
         "white"
       ],
       "topSelling": true,
-      "stock": 50,
+      "stock": null,
       "category": "accessory",
       "slug": "airpods-pro-2",
       "description": "AirPods Pro second generation with active noise cancellation."
@@ -179,7 +356,7 @@
         "white"
       ],
       "topSelling": false,
-      "stock": 40,
+      "stock": 9,
       "category": "accessory",
       "slug": "airpods-3",
       "description": "AirPods 3rd generation with spatial audio and better battery."
@@ -198,7 +375,7 @@
         "white"
       ],
       "topSelling": false,
-      "stock": 100,
+      "stock": 98,
       "category": "accessory",
       "slug": "magsafe-charger",
       "description": "MagSafe wireless charger for iPhones and accessories."
@@ -208,8 +385,9 @@
       "name": "USB-C 20W Power Adapter",
       "price": 1900,
       "images": [
-        "https://images.unsplash.com/photo-1603539502876-75859a1c75ec?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YXBwbGUlMjBhZGFwdGVyfGVufDB8fDB8fHww"
-      ,"https://plus.unsplash.com/premium_photo-1759741924768-e13db5197f80?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fGFwcGxlJTIwYWRhcHRlcnxlbnwwfHwwfHx8MA%3D%3D"],
+        "https://images.unsplash.com/photo-1603539502876-75859a1c75ec?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YXBwbGUlMjBhZGFwdGVyfGVufDB8fDB8fHww",
+        "https://plus.unsplash.com/premium_photo-1759741924768-e13db5197f80?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fGFwcGxlJTIwYWRhcHRlcnxlbnwwfHwwfHx8MA%3D%3D"
+      ],
       "isStock": true,
       "colors": [
         "white"
@@ -235,7 +413,7 @@
         "saddle brown"
       ],
       "topSelling": false,
-      "stock": 60,
+      "stock": 9,
       "category": "accessory",
       "slug": "iphone-leather-case",
       "description": "Genuine leather case for iPhone, protective and elegant."
@@ -253,7 +431,7 @@
         "white"
       ],
       "topSelling": false,
-      "stock": 30,
+      "stock": 25,
       "category": "accessory",
       "slug": "apple-pencil-usbc",
       "description": "Second generation Apple Pencil with USB-C charging."
@@ -263,15 +441,15 @@
       "name": "MagSafe Battery Pack",
       "price": 10900,
       "images": [
-        "https://images.unsplash.com/photo-magsafe-battery-1",
-        "https://images.unsplash.com/photo-magsafe-battery-2"
+        "https://media.istockphoto.com/id/2193310043/photo/damaged-electronic-device-with-exposed-battery.jpg?s=612x612&w=0&k=20&c=gOW4b2HgDlnetuRXVl4Hi_qmYo5DH6115vJ6tzXN1L8=",
+        "https://media.istockphoto.com/id/1450625314/photo/apple-iphone-13-pro-max-with-magsafe-wallet-and-12-pro-with-magsafe-battery.jpg?s=612x612&w=0&k=20&c=stQFTxRP8BQPS9ak7biHOxrhIf82GK7FQM-fBY8tlAk="
       ],
       "isStock": true,
       "colors": [
         "white"
       ],
       "topSelling": false,
-      "stock": 45,
+      "stock": 43,
       "category": "accessory",
       "slug": "magsafe-battery-pack",
       "description": "Portable MagSafe battery pack for wireless charging on the go."
@@ -281,8 +459,8 @@
       "name": "iPad Pro 12.9 (M4)",
       "price": 119900,
       "images": [
-        "https://images.unsplash.com/photo-ipad-pro-12-9-1",
-        "https://images.unsplash.com/photo-ipad-pro-12-9-2"
+        "https://media.istockphoto.com/id/519895684/photo/apple-ipad-pro-12-9-wifi-32gb-gold-with-original-box.jpg?s=612x612&w=0&k=20&c=qCzxDlhLIrpe5NT7uiBg7q7baqZw25esRoUxmBX00xo=",
+        "https://media.istockphoto.com/id/519922030/photo/apple-ipad-pro-12-9-gold-in-modern-living-room.jpg?s=612x612&w=0&k=20&c=dpN1_wzVB-UxhA9m-NRVoiR-66A8yHb7T34dqytOTnM="
       ],
       "isStock": true,
       "colors": [
@@ -290,7 +468,7 @@
         "silver"
       ],
       "topSelling": true,
-      "stock": 12,
+      "stock": 11,
       "category": "tablet",
       "slug": "ipad-pro-12-9-m4",
       "description": "iPad Pro 12.9-inch with M4 chip, Liquid Retina XDR display."
@@ -300,8 +478,9 @@
       "name": "MacBook Pro 14 (M4)",
       "price": 149900,
       "images": [
-        "https://images.unsplash.com/photo-macbook-pro-14-1",
-        "https://images.unsplash.com/photo-macbook-pro-14-2"
+        "https://media.istockphoto.com/id/1478610778/photo/hcmc-vietnam-macbook-pro-14-inches-m2.jpg?s=612x612&w=0&k=20&c=Rl05e5NYO0YS9DuvgeE4AUmjJw-FgD37_mpTCKVyeng=",
+        "https://media.istockphoto.com/id/1478610481/photo/hcmc-vietnam-macbook-pro-14-inches-m2.jpg?s=612x612&w=0&k=20&c=3ONmth80rRlzQGnl881vpZBb60YRbLocuZZ5hGVL3_Y=",
+        "https://media.istockphoto.com/id/1358386252/photo/apple-macbook-pro.jpg?s=612x612&w=0&k=20&c=BVRY3cIczTA1QRPaLfqyXwyER8ZGP2TO5B4u9_RsyKY="
       ],
       "isStock": true,
       "colors": [
@@ -313,12 +492,30 @@
       "category": "laptop",
       "slug": "macbook-pro-14-m4",
       "description": "MacBook Pro 14-inch with M4 chip and ProMotion display."
+    },
+    {
+      "id": "p15",
+      "name": "Apple Watch Series 11",
+      "price": 4690,
+      "images": [
+        "https://images.unsplash.com/photo-1558126319-c9feecbf57ee?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      ],
+      "isStock": true,
+      "colors": [
+        "space gray",
+        "silver"
+      ],
+      "topSelling": true,
+      "stock": 3,
+      "category": "watch",
+      "slug": "Apple Watch Series 11",
+      "description": "The ultimate watch for a healthy life."
     }
   ],
   "categories": [
     {
       "id": "mobile",
-      "name": "Mobile Phones"
+      "name": "Mobile"
     },
     {
       "id": "tablet",
@@ -331,15 +528,52 @@
     {
       "id": "accessory",
       "name": "Accessories"
+    },
+    {
+      "id": "watch",
+      "name": "Watches"
     }
   ],
-  "cart": [],
   "wishlist": [],
   "orders": [],
   "topNavText": [
     {
       "text": "New iPhone 17 Pro Max launched — preorder now!",
       "id": "4971"
+    }
+  ],
+  "VideoServices": [
+    {
+      "id": "1",
+      "title": "Apple Detailing",
+      "description": "Professional car detailing services",
+      "videoUrl": "https://www.youtube.com/embed/f36QRp24F5c?autoplay=1&mute=1&controls=0&showinfo=0&rel=0&modestbranding=1&loop=1&playlist=f36QRp24F5c",
+      "learnMoreLink": "/services/detailing",
+      "thumbnail": "./../../../assets/images/detailing.jpg"
+    },
+    {
+      "id": "2",
+      "title": "Modification & Upgrade",
+      "description": "Custom car modifications and upgrades",
+      "videoUrl": "https://www.youtube.com/embed/70gCxCTpvBg?autoplay=1&mute=1&controls=0&showinfo=0&rel=0&modestbranding=1&loop=1&playlist=70gCxCTpvBg",
+      "learnMoreLink": "/services/modification",
+      "thumbnail": "src/assets/images/Dominus_black.png"
+    },
+    {
+      "id": "3",
+      "title": "Performance Tuning",
+      "description": "Engine performance optimization",
+      "videoUrl": "https://www.youtube.com/embed/7B-rzR2avR0?autoplay=1&mute=1&controls=0&showinfo=0&rel=0&modestbranding=1&loop=1&playlist=7B-rzR2avR0",
+      "learnMoreLink": "/services/tuning",
+      "thumbnail": "src/assets/images/Dominus_black.png"
+    },
+    {
+      "id": "4",
+      "title": "Interior Customization",
+      "description": "Premium interior upgrades",
+      "videoUrl": "https://www.youtube.com/embed/f36QRp24F5c?autoplay=1&mute=1&controls=0&showinfo=0&rel=0&modestbranding=1&loop=1&playlist=f36QRp24F5c",
+      "learnMoreLink": "/services/interior",
+      "thumbnail": "src/assets/images/Dominus_black.png"
     }
   ]
 }

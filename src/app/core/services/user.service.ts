@@ -1,15 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { User } from '../models/user.model';
 
-export interface User {
-  id?: number;
-  name: string;
-  email: string;
-  password: string;
-  createdAt: string;
-  role: string;
-}
 
 @Injectable({
   providedIn: 'root'
@@ -23,3 +16,5 @@ export class UserService {
     return this.http.post<User>(this.apiUrl, user);
   }
 }
+export { User };
+

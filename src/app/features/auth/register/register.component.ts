@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastService } from 'src/app/core/services/toast.service';
 import { User, UserService } from 'src/app/core/services/user.service';
 
 @Component({
@@ -16,9 +17,12 @@ export class RegisterComponent {
   emailInvalid = false;
   passwordInvalid = false;
 
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(private userService: UserService, private router: Router, private toast: ToastService) { }
 
   onSubmit(form: any) {
+
+
+
     if (form.invalid) {
       this.nameInvalid = form.controls.name?.invalid;
       this.emailInvalid = form.controls.email?.invalid;
@@ -36,17 +40,22 @@ export class RegisterComponent {
       email: this.email,
       password: this.password,
       createdAt: new Date().toLocaleString(),
-      role: 'user'
+      role: 'user',
+      // cart:[],
+      wishlist: [],
+      orders: []
+
     };
 
     this.userService.registerUser(newUser).subscribe({
       next: () => {
-        alert('🎉 Registration successful!');
+        this.toast.success("Registration Succesfull")
         this.router.navigate(['/app-login']);
       },
-      error: () => {
-        alert('❌ Something went wrong. Please try again.');
+      error: (error) => {
+        this.toast.error(" Something went wrong. Please try again.",error)
       }
     });
+    
   }
 }

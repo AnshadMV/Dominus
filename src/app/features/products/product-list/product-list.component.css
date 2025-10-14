@@ -1,0 +1,55 @@
+.hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+/* Smooth transitions for all interactive elements */
+button, select, input {
+    transition: all 0.3s ease;
+}
+
+/* Custom hover effects */
+.product-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.product-card:hover {
+    transform: translateY(-4px);
+}
+.line-clamp-1 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+
+/* Compact scrollbar */
+.compact-scrollbar::-webkit-scrollbar {
+    height: 4px;
+}
+
+.compact-scrollbar::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 2px;
+}
+
+.compact-scrollbar::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 2px;
+}
+
+.compact-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+/* Horizontal scroll for categories */
+.hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}

@@ -1,4 +1,4 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,12 +12,18 @@ export class MenuModalComponent {
   navItems = [
     { label: 'Home', link: '/app-home' },
     { label: 'Products', link: './app-product-list' },
-    { label: 'Cart', link: '/cart' },
-    { label: 'Wishlist', link: '/wishlist' },
-    { label: 'About', link: '/app-about' }
+    { label: 'Cart', link: '/app-cart' },
+    { label: 'Wishlist', link: '/app-wishlist' },
+    { label: 'About', link: '/app-about' },
+    { label: 'Logout', link: '/app-login' ,  }
   ];
+  @Output() handleLogout = new EventEmitter<string>();
 
   closeModal() {
     this.isOpen = false;
+  }
+  method(){
+    this.handleLogout
+    this.isOpen=false
   }
 }

@@ -1,13 +1,21 @@
-<div class="fixed top-5 right-5 flex flex-col gap-2 z-50">
-  <div *ngFor="let toast of toasts"
-       [ngClass]="{
-         'bg-green-500': toast.type === 'success',
-         'bg-red-500': toast.type === 'error',
-         'bg-blue-500': toast.type === 'info',
-         'bg-yellow-400': toast.type === 'warning'
-       }"
-       class="text-white px-4 py-2 rounded shadow-lg flex items-center justify-between animate-slideIn">
-    <span>{{ toast.message }}</span>
-    <button (click)="remove(toast.id)" class="ml-3 font-bold">✖</button>
+<div class="fixed right-3 bottom-7 flex flex-col gap-2 z-50 p-4">
+  <div *ngFor="let toast of toasts" class="toast-card animate-slideIn" [ngClass]="toast.type">
+
+    <div class="flex items-start gap-3">
+      <div class="icon-circle">
+        <span *ngIf="toast.type === 'success'">✔️</span>
+        <!-- You can add other icons for 'error', 'info', etc. -->
+      </div>
+      <div class="ml-3 text-message font-bold">
+        {{ toast.message }}
+      </div>
+      <button (click)="remove(toast.id)" class="ml-auto text-red-600 hover:text-gray-800 ">✖</button>
+      
+    </div>
+    <div class="progress-bar-background">
+        <div class="progress-bar" [style.width.%]="toast.progress"></div>
+        
+      </div>
+      
   </div>
 </div>

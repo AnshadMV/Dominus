@@ -1,0 +1,13 @@
+/* Optional: hide scrollbar for horizontal scrollable sections */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none; 
+  scrollbar-width: none; 
+}
+.break-word {
+  word-wrap: break-word; /* Ensure long words wrap to the next line */
+  overflow-wrap: break-word; /* This property also ensures word breaking in overflow */
+  white-space: normal; /* Allow the text to wrap normally */
+}

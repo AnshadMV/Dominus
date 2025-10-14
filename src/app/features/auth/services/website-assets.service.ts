@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, catchError, map, of } from 'rxjs';
+import { website_constants } from 'src/app/core/constants/app.constant';
 
 @Injectable({
   providedIn: 'root'
 })
 export class WebsiteAssetsService {
 
-  private apiUrl = 'http://localhost:3000/website_assets'; // JSON Server URL
+  private apiUrl = website_constants.API.ASSET_URL; // JSON Server URL
 
   constructor(private http: HttpClient) {}
 

@@ -57,7 +57,13 @@
 
 
 
-*{
+* {
   font-family: 'Celias', serif;
-  font-style: Thin;
+  font-style: italic;
+  scrollbar-width: none;
+}
+
+
+body::-webkit-scrollbar {
+  display: none;
 }

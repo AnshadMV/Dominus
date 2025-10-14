@@ -1,5 +1,10 @@
-<app-navbar *ngIf="showHeaderFooter"></app-navbar>
-<router-outlet></router-outlet>
+<div *ngIf="showNavbarPadding">
+    <div *ngFor="let item of [1,2]" class="py-8"></div>
+</div>
+<app-navbar *ngIf="showHeader"></app-navbar>
+<router-outlet />
 
 <!-- This for setting toast available globally. -->
-<app-toast></app-toast>
+<app-toast />
+
+<app-footer *ngIf="showFooter"></app-footer>

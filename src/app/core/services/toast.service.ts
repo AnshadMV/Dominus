@@ -12,41 +12,40 @@ export class ToastService {
   toastState$ = this.toastSubject.asObservable();
   private counter = 0;
 
-  constructor() {}
+  constructor() { }
 
   show(message: string, type: Toast['type'] = 'info', duration = 3000) {
     const toast: Toast = {
       id: ++this.counter,
       message,
       type,
-      duration
+      duration,
+      progress: 0
     };
     this.toasts.push(toast);
     this.toastSubject.next(this.toasts);
 
-    // Auto-remove after duration
     setTimeout(() => this.remove(toast.id), duration);
   }
 
   remove(id: number) {
     this.toasts = this.toasts.filter(t => t.id !== id);
     this.toastSubject.next(this.toasts);
-  }
-
-  // Shortcut helpers
+  } 
   success(msg: string, duration?: number) {
     this.show(msg, 'success', duration);
   }
-
   error(msg: string, duration?: number) {
     this.show(msg, 'error', duration);
   }
-
   info(msg: string, duration?: number) {
     this.show(msg, 'info', duration);
   }
 
   warning(msg: string, duration?: number) {
+    this.show(msg, 'warning', duration);
+  }
+  interval(msg: string, duration?: number) {
     this.show(msg, 'warning', duration);
   }
 }

@@ -5,4 +5,6 @@ export interface Toast {
   message: string;
   type: ToastType;
   duration?: number; // in ms
+  interval?:number;
+  progress:number
 }
