@@ -7,204 +7,26 @@
   ],
   "users": [
     {
-      "id": "3cd6",
-      "name": "shinas2",
-      "email": "shinas2@gmail.com",
-      "password": "123456789",
-      "createdAt": "10/11/2025, 2:06:35 PM",
-      "role": "user",
-      "wishlist": [],
-      "orders": [],
-      "cart": [
-        {
-          "productId": "p1"
-        },
-        {
-          "productId": "p2"
-        }
-      ]
-    },
-    {
-      "id": "d831",
-      "name": "Anshad Muhammed",
-      "email": "anshadvelladath123@gmail.com",
+      "id": "fb4e",
+      "name": "shinas",
+      "email": "shinas@gmail.com",
       "password": "123123123",
-      "createdAt": "10/11/2025, 2:30:53 PM",
-      "role": "user",
-      "cart": [
-        {
-          "productId": "p1"
-        },
-        {
-          "productId": "p2"
-        }
-      ],
-      "wishlist": [],
-      "orders": [
-        {
-          "id": "order_1760416573400",
-          "userId": "d831",
-          "orderId": "ORD1760416573400XNUF6",
-          "orderDate": "October 14, 2025 at 10:06 AM",
-          "items": [
-            {
-              "productId": "p6",
-              "name": "AirPods Pro (2nd Gen)",
-              "price": 24900,
-              "quantity": 1,
-              "image": "https://images.unsplash.com/photo-1588423771073-b8903fbb85b5?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YWlycG9kcyUyMHByb3xlbnwwfHwwfHx8MA%3D%3D",
-              "color": "white",
-              "category": "accessory"
-            }
-          ],
-          "shippingDetails": {
-            "fullName": "Anshad Muhammed",
-            "address": "Not specified",
-            "city": "Not specified",
-            "state": "Not specified",
-            "pincode": "000000",
-            "phone": "Not specified",
-            "email": "anshadvelladath123@gmail.com"
-          },
-          "paymentMethod": "Online Payment",
-          "totalAmount": 24900,
-          "status": "confirmed",
-          "estimatedDelivery": "October 21, 2025"
-        },
-        {
-          "id": "order_1760416512123",
-          "userId": "d831",
-          "orderId": "ORD1760416512123LCPB2",
-          "orderDate": "October 14, 2025 at 10:05 AM",
-          "items": [
-            {
-              "productId": "p7",
-              "name": "AirPods (3rd Gen)",
-              "price": 15900,
-              "quantity": 1,
-              "image": "https://images.unsplash.com/photo-1623788736363-55d36908ab21?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGFpcnBvZHMlMjBwcm98ZW58MHx8MHx8fDA%3D",
-              "color": "white",
-              "category": "accessory"
-            }
-          ],
-          "shippingDetails": {
-            "fullName": "Anshad Muhammed",
-            "address": "Not specified",
-            "city": "Not specified",
-            "state": "Not specified",
-            "pincode": "000000",
-            "phone": "Not specified",
-            "email": "anshadvelladath123@gmail.com"
-          },
-          "paymentMethod": "Online Payment",
-          "totalAmount": 15900,
-          "status": "cancelled",
-          "estimatedDelivery": "October 21, 2025"
-        },
-        {
-          "id": "order_1760416685524",
-          "userId": "d831",
-          "orderId": "ORD1760416685524U5SEE",
-          "orderDate": "October 14, 2025 at 10:08 AM",
-          "items": [
-            {
-              "productId": "p4",
-              "name": "iPad Air (6th Gen)",
-              "price": 59900,
-              "quantity": 2,
-              "image": "https://images.unsplash.com/photo-1661340272675-f6829791246e?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-              "color": "space gray",
-              "category": "tablet"
-            },
-            {
-              "productId": "p12",
-              "name": "MagSafe Battery Pack",
-              "price": 10900,
-              "quantity": 2,
-              "image": "https://media.istockphoto.com/id/2193310043/photo/damaged-electronic-device-with-exposed-battery.jpg?s=612x612&w=0&k=20&c=gOW4b2HgDlnetuRXVl4Hi_qmYo5DH6115vJ6tzXN1L8=",
-              "color": "white",
-              "category": "accessory"
-            }
-          ],
-          "shippingDetails": {
-            "fullName": "Anshad Muhammed",
-            "address": "Not specified",
-            "city": "Not specified",
-            "state": "Not specified",
-            "pincode": "000000",
-            "phone": "Not specified",
-            "email": "anshadvelladath123@gmail.com"
-          },
-          "paymentMethod": "Online Payment",
-          "totalAmount": 141600,
-          "status": "confirmed",
-          "estimatedDelivery": "October 21, 2025"
-        },
-        {
-          "id": "order_1760424296794",
-          "userId": "d831",
-          "orderId": "ORD17604242967943W3NO",
-          "orderDate": "October 14, 2025 at 12:14 PM",
-          "items": [
-            {
-              "productId": "p1",
-              "name": "iPhone 17 Pro Max",
-              "price": 229900,
-              "quantity": 1,
-              "image": "https://images.unsplash.com/photo-1574737308581-1eb78bf8fbc1?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTJ8fGFwcGxlJTIwZ2FkZ2V0c3xlbnwwfDB8MHx8fDA%3D&auto=format&fit=crop&q=60&w=400",
-              "color": "silver",
-              "category": "mobile"
-            },
-            {
-              "productId": "p2",
-              "name": "iPhone 17",
-              "price": 82900,
-              "quantity": 1,
-              "image": "https://images.unsplash.com/photo-1655022389582-f831f2128886?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-              "color": "black",
-              "category": "mobile"
-            }
-          ],
-          "shippingDetails": {
-            "fullName": "Anshad Muhammed",
-            "address": "Not specified",
-            "city": "Not specified",
-            "state": "Not specified",
-            "pincode": "000000",
-            "phone": "Not specified",
-            "email": "anshadvelladath123@gmail.com"
-          },
-          "paymentMethod": "Online Payment",
-          "totalAmount": 312800,
-          "status": "confirmed",
-          "estimatedDelivery": "October 21, 2025"
-        }
-      ]
-    },
-    {
-      "id": "92bd",
-      "name": "asas",
-      "email": "asas@gmail.com",
-      "password": "asasasas",
-      "createdAt": "10/12/2025, 1:49:10 PM",
+      "createdAt": "10/15/2025, 8:21:05 AM",
       "role": "user",
       "wishlist": [],
       "orders": [],
       "cart": [
         {
-          "productId": "p1"
-        },
-        {
           "productId": "p2"
         }
       ]
     },
     {
-      "id": "5193",
+      "id": "d262",
       "name": "Anshad Muhammed",
       "email": "anshadvelladath123@gmail.com",
-      "password": "123412341234",
-      "createdAt": "10/14/2025, 12:16:17 PM",
+      "password": "123123",
+      "createdAt": "10/15/2025, 8:36:01 AM",
       "role": "user",
       "wishlist": [],
       "orders": []

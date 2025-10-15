@@ -12,7 +12,6 @@ import { ProfileComponent } from './features/profile/profile.component';
 import { ProductBuyComponent } from './features/products/product-buy/product-buy.component';
 import { ProductDetailComponent } from './features/products/product-detail/product-detail.component';
 import { OrdersComponent } from './features/orders/orders.component';
-import { AuthGuard } from './core/guards/auth.guards';
 
 const routes: Routes = [
   {
@@ -71,6 +70,7 @@ const routes: Routes = [
     component: ProfileComponent,
 
   },
+  
   { path: '', redirectTo: '/app-login', pathMatch: 'full' },
   {
     path: '**',

@@ -18,6 +18,8 @@ export class LoginComponent implements OnInit {
   password = '';
   showPassword: boolean = false;
     private apiUrl = website_constants.API.USERURL;
+passwordInvalid: any;
+nameInvalid: any;
 
   constructor(
     private userService: UserService,

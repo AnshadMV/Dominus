@@ -16,6 +16,7 @@ export class RegisterComponent {
   nameInvalid = false;
   emailInvalid = false;
   passwordInvalid = false;
+  showPassword: any;
 
   constructor(private userService: UserService, private router: Router, private toast: ToastService) { }
 
@@ -53,9 +54,9 @@ export class RegisterComponent {
         this.router.navigate(['/app-login']);
       },
       error: (error) => {
-        this.toast.error(" Something went wrong. Please try again.",error)
+        this.toast.error(" Something went wrong. Please try again.", error)
       }
     });
-    
+
   }
 }

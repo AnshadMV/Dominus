@@ -1,8 +1,7 @@
 :host {
   display: block;
-  background-color: #000000; 
+  background-color: #000000;
   color: white;
   user-select: none;
-    background: linear-gradient(to right, #ec4899, #f87171, #facc15); 
-
+  background: linear-gradient(to right, #ec4899, #f87171, #facc15);
 }
