@@ -14,8 +14,7 @@
             <app-menu-modal [isOpen]="isModalOpen"></app-menu-modal>
 
             <img src="./../../../../assets/images/Dominus_white.png" class="logo">
-   
-            
+
 
             <nav class="hidden lg:flex gap-6 ml-6 text-white ">
               <a routerLink="/app-home" class="hover:text-yellow-400 transition-colors">Home</a>
@@ -41,6 +40,7 @@
           </div>
 
           <div class="flex justify-items-center items-center gap-2">
+            <!-- Icons and profile -->
             <div class="pl-3 group cursor-pointer hidden lg:flex md:flex relative" routerLink="/app-cart">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                 class="w-8 h-8 text-white rounded-full ring-2 ring-white p-1 relative transition-all duration-300 group-hover:ring-yellow-500 group-hover:stroke-yellow-500">
@@ -65,6 +65,7 @@
                   d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
               </svg>
 
+              <!-- Badge -->
               <span *ngIf="wishListItemCount > 0"
                 class="absolute -top-1 -right-1 bg-red-400 text-black text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
                 {{ wishListItemCount }}
@@ -72,12 +73,14 @@
             </div>
 
             <div class="relative">
+              <!-- User Avatar -->
               <div class="px-3" (click)="toggleProfileDropdown()">
                 <img class="inline-block w-8 h-8 rounded-full ring-2 ring-white cursor-pointer backdrop-blur-md"
                   src="https://plus.unsplash.com/premium_vector-1745915292293-f52e77ccb147?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=880"
                   alt="User Avatar" />
               </div>
 
+              <!-- Dropdown Menu -->
               <div *ngIf="showProfileDropdown"
                 class="absolute right-0 mt-2 w-48 rounded-lg shadow-lg py-2 z-50 bg-white/50 backdrop-blur-md border border-white/20 text-black">
                 <a routerLink="/app-profile"
