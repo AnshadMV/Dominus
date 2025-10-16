@@ -16,6 +16,7 @@ export class ProfileComponent implements OnInit {
   userPassword: string = ''
   userSignedTime: string = ''
   showModal: boolean = false;
+  showPasswordModal: boolean = false;
 
   constructor(private router: Router, private toast: ToastService) { }
   ngOnInit() {
@@ -37,18 +38,53 @@ export class ProfileComponent implements OnInit {
   openModal() {
     this.showModal = true;
   }
+  openPasswordModal() {
+    this.showPasswordModal = true
+  }
   closeModal() {
     this.showModal = false;
   }
+  closePasswordModal() {
+    this.showPasswordModal = false
+  }
   onUserUpdate(updatedUser: any) {
+    // Update localStorage immediately
     this.userData = updatedUser;
+    console.log(updatedUser)
     localStorage.setItem('currentUser', JSON.stringify(updatedUser));
-
+    console.log(this.userData)
     // Update local state
     this.userName = updatedUser.name;
     this.userEmail = updatedUser.email;
     this.userPassword = updatedUser.password;
     this.toast.success('Profile updated successfully!');
-  }
 
+    // Update in db.json via HTTP request
+    this.updateUserInDatabase(updatedUser);
+  }
+  
+  private updateUserInDatabase(updatedUser: any) {
+    // Make PUT request to update user in db.json
+    fetch(`http://localhost:3000/users/${updatedUser.id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(updatedUser)
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Failed to update user in database');
+        }
+        return response.json();
+      })
+      .then(updatedUserFromServer => {
+        console.log('User updated in database:', updatedUserFromServer);
+        this.toast.success('Profile updated successfully!');
+      })
+      .catch(error => {
+        console.error('Error updating user in database:', error);
+        this.toast.error('Failed to update profile in database');
+      });
+  }
 }

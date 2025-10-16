@@ -13,11 +13,116 @@
       "password": "123123123",
       "createdAt": "10/15/2025, 8:21:05 AM",
       "role": "user",
-      "wishlist": [],
-      "orders": [],
-      "cart": [
+      "wishlist": [
+        {
+          "productId": "p3"
+        },
+        {
+          "productId": "p1"
+        },
         {
           "productId": "p2"
+        },
+        {
+          "productId": "p4"
+        },
+        {
+          "productId": "p7"
+        },
+        {
+          "productId": "p6"
+        },
+        {
+          "productId": "p5"
+        }
+      ],
+      "orders": [
+        {
+          "id": "order_1760543325796",
+          "userId": "fb4e",
+          "orderId": "ORD1760543325796TBWBP",
+          "orderDate": "October 15, 2025 at 09:18 PM",
+          "items": [
+            {
+              "productId": "p4",
+              "name": "iPad Air (6th Gen)",
+              "price": 59900,
+              "quantity": 1,
+              "image": "https://images.unsplash.com/photo-1661340272675-f6829791246e?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+              "color": "space gray",
+              "category": "tablet"
+            }
+          ],
+          "shippingDetails": {
+            "fullName": "shinas",
+            "address": "Not specified",
+            "city": "Not specified",
+            "state": "Not specified",
+            "pincode": "000000",
+            "phone": "Not specified",
+            "email": "shinas@gmail.com"
+          },
+          "paymentMethod": "Online Payment",
+          "totalAmount": 59900,
+          "status": "confirmed",
+          "estimatedDelivery": "October 22, 2025"
+        },
+        {
+          "id": "order_1760543872606",
+          "userId": "fb4e",
+          "orderId": "ORD17605438726066SXFN",
+          "orderDate": "October 15, 2025 at 09:27 PM",
+          "items": [
+            {
+              "productId": "p7",
+              "name": "AirPods (3rd Gen)",
+              "price": 15900,
+              "quantity": 1,
+              "image": "https://images.unsplash.com/photo-1623788736363-55d36908ab21?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGFpcnBvZHMlMjBwcm98ZW58MHx8MHx8fDA%3D",
+              "color": "white",
+              "category": "accessory"
+            }
+          ],
+          "shippingDetails": {
+            "fullName": "shinas",
+            "address": "Not specified",
+            "city": "Not specified",
+            "state": "Not specified",
+            "pincode": "000000",
+            "phone": "Not specified",
+            "email": "shinas@gmail.com"
+          },
+          "paymentMethod": "Online Payment",
+          "totalAmount": 15900,
+          "status": "confirmed",
+          "estimatedDelivery": "October 22, 2025"
+        }
+      ],
+      "cart": [
+        {
+          "productId": "p2",
+          "quantity": 5
+        },
+        {
+          "productId": "p11"
+        },
+        {
+          "productId": "p10"
+        },
+        {
+          "productId": "p9"
+        },
+        {
+          "productId": "p12"
+        },
+        {
+          "productId": "p15"
+        },
+        {
+          "productId": "p14"
+        },
+        {
+          "productId": "p13"
         }
       ]
     },
@@ -30,6 +135,25 @@
       "role": "user",
       "wishlist": [],
       "orders": []
+    },
+    {
+      "id": "748f",
+      "name": "shinas2",
+      "email": "sinan123@gmail.com",
+      "password": "123123123",
+      "createdAt": "10/15/2025, 2:01:44 PM",
+      "role": "user",
+      "wishlist": [
+        {
+          "productId": "p1"
+        }
+      ],
+      "orders": [],
+      "cart": [
+        {
+          "productId": "p1"
+        }
+      ]
     }
   ],
   "products": [
@@ -51,7 +175,7 @@
         "blue"
       ],
       "topSelling": true,
-      "stock": 4,
+      "stock": null,
       "category": "mobile",
       "slug": "iphone-17-pro-max",
       "description": "Flagship iPhone 17 Pro Max with A-series chip, triple camera system, etc."
@@ -119,7 +243,7 @@
         "pink"
       ],
       "topSelling": true,
-      "stock": 13,
+      "stock": null,
       "category": "tablet",
       "slug": "ipad-air-6",
       "description": "iPad Air (6th Gen) with M-series chip, Ultra Wide camera, etc."
@@ -178,7 +302,7 @@
         "white"
       ],
       "topSelling": false,
-      "stock": 9,
+      "stock": null,
       "category": "accessory",
       "slug": "airpods-3",
       "description": "AirPods 3rd generation with spatial audio and better battery."

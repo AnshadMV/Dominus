@@ -13,11 +13,6 @@
         <input [(ngModel)]="user.email" name="email" type="email" class="input w-full border border-black-1 rounded-1xl "  required />
       </div>
 
-      <div>
-        <label class="block mb-1 text-sm font-medium text-gray-700">Password:</label>
-        <input [(ngModel)]="user.password" name="password" class="input w-full border border-black-1 rounded-1xl " required />
-      </div>
-
       <div class="flex justify-end pt-2 space-x-2">
         <button type="button" (click)="close()" class="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400 transition">
           Cancel

@@ -26,6 +26,7 @@ import { ProfileComponent } from './features/profile/profile.component';
 import { ProfileEditComponent } from './features/profile/profile-edit-model/profile-edit.component';
 import { ProductBuyComponent } from './features/products/product-buy/product-buy.component';
 import { OrdersComponent } from './features/orders/orders.component';
+import { ContactUsComponent } from './features/contact-us/contact-us.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,7 @@ import { OrdersComponent } from './features/orders/orders.component';
     AboutComponent,
     TopNavbarComponent,
     MenuModalComponent,
-    ToastComponent, SafeUrlPipe, ProfileComponent, ProfileEditComponent, ProductBuyComponent, OrdersComponent
+    ToastComponent, SafeUrlPipe, ProfileComponent, ProfileEditComponent, ProductBuyComponent, OrdersComponent, ContactUsComponent
   ],
   imports: [
     BrowserModule,

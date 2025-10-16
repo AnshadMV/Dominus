@@ -1,7 +1,12 @@
 :host {
-  display: block;
   background-color: #000000;
   color: white;
   user-select: none;
-  background: linear-gradient(to right, #ec4899, #f87171, #facc15);
+}
+:host ::ng-deep .hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+:host ::ng-deep .hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

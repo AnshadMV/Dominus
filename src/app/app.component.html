@@ -1,6 +1,9 @@
-<div *ngIf="showNavbarPadding">
+<section class="fixed top-0 w-full z-50">
+  <app-top-navbar />
+</section>
+<!-- <div *ngIf="showNavbarPadding">
     <div *ngFor="let item of [1,2]" class="py-8"></div>
-</div>
+</div> -->
 <app-navbar *ngIf="showHeader"></app-navbar>
 <router-outlet />
 <app-toast />

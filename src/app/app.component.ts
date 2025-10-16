@@ -14,7 +14,7 @@ export class AppComponent {
   showHeader = true;
   showFooter=true;
   showNavbarPadding=true;
-  hideOnRoutes_header = ['/app-login', '/app-register']; // routes where navbar should hide
+  hideOnRoutes_header = ['/app-login', '/app-register','','**']; // routes where navbar should hide
   showOnRoutes_footer = ['/app-home','/app-about','/app-profile']; // routes where navbarshould hide
   hideOnRoutes_navbarPadding = ['/app-login', '/app-register','/app-home','/app-not-found']; 
   constructor(private router: Router) { }
@@ -23,9 +23,12 @@ export class AppComponent {
     navigationEndFilter(this.router.events)
       .subscribe(event => {
         const navEnd = event as NavigationEnd;
-        this.showHeader= !this.hideOnRoutes_header.includes(navEnd.urlAfterRedirects);
-        this.showFooter= this.showOnRoutes_footer.includes(navEnd.urlAfterRedirects)
-        this.showNavbarPadding = !this.hideOnRoutes_navbarPadding.includes(navEnd.urlAfterRedirects);
+        // Extract base route without query parameters
+        const baseRoute = navEnd.urlAfterRedirects.split('?')[0];
+        
+        this.showHeader= !this.hideOnRoutes_header.includes(baseRoute);
+        this.showFooter= this.showOnRoutes_footer.includes(baseRoute);
+        this.showNavbarPadding = !this.hideOnRoutes_navbarPadding.includes(baseRoute);
       });
   }
 }

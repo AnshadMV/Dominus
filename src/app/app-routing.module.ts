@@ -12,6 +12,8 @@ import { ProfileComponent } from './features/profile/profile.component';
 import { ProductBuyComponent } from './features/products/product-buy/product-buy.component';
 import { ProductDetailComponent } from './features/products/product-detail/product-detail.component';
 import { OrdersComponent } from './features/orders/orders.component';
+import { AuthGuard } from './core/guards/auth.guards';
+import { ContactUsComponent } from './features/contact-us/contact-us.component';
 
 const routes: Routes = [
   {
@@ -36,39 +38,45 @@ const routes: Routes = [
   {
     path: 'app-product-list',
     component: ProductListComponent,
-
+canActivate: [AuthGuard] 
   },
   {
     path: 'app-orders',
     component: OrdersComponent,
-
+canActivate: [AuthGuard] 
   },
 
   {
     path: 'app-wishlist',
     component: WishlistComponent,
-
+canActivate: [AuthGuard] 
   },
   {
     path: 'app-cart',
     component: CartComponent,
-
+canActivate: [AuthGuard] 
   },
   {
     path: 'app-product-buy',
     component: ProductBuyComponent,
     // canActivate: [AuthGuard] 
-
+canActivate: [AuthGuard] 
+  },
+  {
+    path: 'app-contact-us',
+    component: ContactUsComponent,
+    // canActivate: [AuthGuard] 
+canActivate: [AuthGuard] 
   },
   {
     path: 'app-product-detail/:id',
     component: ProductDetailComponent,
-
+canActivate: [AuthGuard] 
   },
   {
     path: 'app-profile',
     component: ProfileComponent,
-
+canActivate: [AuthGuard] 
   },
   
   { path: '', redirectTo: '/app-login', pathMatch: 'full' },

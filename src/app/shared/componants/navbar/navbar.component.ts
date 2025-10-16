@@ -43,6 +43,9 @@ export class NavbarComponent implements OnInit {
   cartItemCount: number = 0;
   wishListItemCount: number = 0;
   searchTerm: string = '';
+  role: string = 'admin';
+  fetchUserData = JSON.parse(localStorage.getItem("currentUser") || '{}');
+
   ngOnInit() {
     this.cartBadgeService.cartItemCount$.subscribe(count => {
       this.cartItemCount = count;
@@ -119,7 +122,7 @@ export class NavbarComponent implements OnInit {
   }
   naviagteToOrder() {
     this.router.navigate(['/app-orders']);
-     this.showProfileDropdown = false;
+    this.showProfileDropdown = false;
   }
 
   handleLogout() {

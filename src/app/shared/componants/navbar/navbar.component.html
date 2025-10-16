@@ -1,7 +1,139 @@
-<section class="fixed top-0 w-full z-50">
-  <app-top-navbar />
-</section>
-<div class="fixed top-7 w-full z-50 transition-all duration-500 ease-in-out  backdrop-blur-md" [ngClass]="{
+<nav class="flex items-center justify-between px-4 sm:px-6 md:px-10 py-4 bg-white relative">
+  <!-- Logo & Toggle -->
+  <div class="flex items-center justify-between w-full md:w-auto">
+    <a href="/app-home">
+      <h1 class="text-2xl font-bold text-gray-900">Dominus</h1>
+    </a>
+    <!-- Mobile Menu Button -->
+    <button
+      class="md:hidden flex items-center justify-center w-10 h-10 rounded-md text-gray-700 hover:bg-gray-100 transition"
+      (click)="isMenuOpen = !isMenuOpen">
+      <i class="fa-solid fa-align-right" [ngClass]="isMenuOpen ? 'fa-xmark' : 'fa-bars'"></i>
+    </button>
+  </div>
+  <!-- Desktop Nav Links -->
+  <ul class="hidden md:flex items-center gap-6 text-sm font-medium px-4 text-black flex-shrink-0">
+    <li><a routerLink="./app-product-list" class="hover:text-yellow-500 transition">Shop</a></li>
+    <li><a routerLink="./app-contact-us" class="hover:text-yellow-500 transition">Contact</a></li>
+    <li><a routerLink="/app-about" class="hover:text-yellow-500 transition">About Us</a></li>
+  </ul>
+  <!-- Search Bar (Desktop only) -->
+  <div class="hidden md:flex items-center gap-4 flex-1 justify-center">
+    <div class="relative w-full max-w-lg">
+      <input
+        class="rounded-full py-2 pl-4 pr-10 w-full bg-gray-50 border border-gray-300 placeholder-gray-500 focus:ring-2 focus:ring-yellow-400 focus:outline-none"
+        placeholder="Search for iPhones, Macbook, Airpods..." />
+      <i class="fa-solid fa-magnifying-glass absolute right-4 top-1/2 -translate-y-1/2 text-gray-600"></i>
+    </div>
+  </div>
+
+  <!-- Right Section -->
+  <div class="hidden md:flex xl:flex items-center gap-6">
+
+    <!-- Language Switch -->
+    <div 
+    
+    class="flex border rounded-full overflow-hidden text-sm font-medium ml-2">
+      <button class="px-3 py-1 bg-black text-white">En</button>
+      <button class="px-3 py-1 text-gray-700 hover:bg-gray-100">Es</button>
+    </div>
+    <div class="flex justify-items-center items-center gap-2">
+      <div class="pl-3 group cursor-pointer hidden lg:flex md:flex relative" routerLink="/app-cart">
+        <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+        class="w-8 h-8 text-white rounded-full ring-2 ring-white p-1 relative transition-all duration-300 group-hover:ring-yellow-500 group-hover:stroke-yellow-500">
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+      </svg> -->
+        <i class="fa-brands fa-opencart fa-bounce text-black hover:text-blue-600 transition-colors duration-300"></i>
+        <span *ngIf="cartItemCount > 0"
+          class="absolute -top-3 -right-2 bg-red-400 text-black text-xs rounded-full h-4 w-4 flex items-center justify-center">
+          {{ cartItemCount }}
+        </span>
+      </div>
+      <div class="pl-3 group cursor-pointer hidden lg:flex md:flex relative" routerLink="/app-wishlist">
+
+        <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+        class="w-8 h-8 text-white rounded-full ring-2 ring-white p-1 relative transition-all duration-300 group-hover:ring-yellow-500 group-hover:stroke-yellow-500">
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+      </svg> -->
+        <i class="fa-regular fa-heart fa-bounce" style="color: #000000;"></i> <span *ngIf="wishListItemCount > 0"
+          class="absolute -top-3 -right-2 bg-red-400 text-black text-xs rounded-full h-4 w-4 flex items-center justify-center">
+          {{ wishListItemCount }}
+        </span>
+      </div>
+
+      <div class="relative" *ngIf="fetchUserData.id">
+        <div class="px-3" (click)="toggleProfileDropdown()">
+          <img class="inline-block w-8 h-8 rounded-full ring-2 ring-white cursor-pointer backdrop-blur-md"
+            src="https://plus.unsplash.com/premium_vector-1745915292293-f52e77ccb147?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=880"
+            alt="User Avatar" />
+        </div>
+        <div *ngIf="showProfileDropdown"
+          class="absolute right-0 mt-2 w-48 rounded-lg shadow-lg py-2 z-50 bg-white/50 backdrop-blur-md border border-white/20 text-black">
+          <a routerLink="/app-profile" class="flex items-center gap-3 px-4 py-2 hover:bg-gray-100 transition-colors"
+            (click)="closeProfileDropdown()">
+            <i class="fa-solid fa-user text-sm"></i>
+            <span>Profile</span>
+          </a>
+
+          <a routerLink="/app-orders" class="flex items-center gap-3 px-4 py-2 hover:bg-gray-100 transition-colors"
+            (click)="naviagteToOrder()">
+            <i class="fa-solid fa-bag-shopping text-sm"></i>
+            <span>Orders</span>
+          </a>
+
+
+          <hr class="my-2" />
+
+          <button (click)="handleLogout()"
+            class="flex items-center gap-3 px-4 py-2 hover:bg-red-50 text-red-600 transition-colors w-full text-left">
+            <i class="fa-solid fa-right-from-bracket text-sm"></i>
+            <span>Logout</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- Register -->
+    <button *ngIf="!fetchUserData.id"
+      class="border border-gray-300 rounded-full px-5 py-1.5 text-sm hover:bg-gray-100 transition text-black"
+      routerLink="/app-login">
+      Sign In
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div *ngIf="isMenuOpen"
+    class="absolute top-full left-0 w-full bg-white border-t shadow-md md:hidden flex flex-col items-start px-6 py-4 space-y-3 z-50">
+    <div class="relative w-full mb-3">
+      <input
+        class="rounded-full py-2 pl-4 pr-10 w-full bg-gray-50 border border-gray-300 placeholder-gray-500 focus:ring-2 focus:ring-yellow-400 focus:outline-none"
+        placeholder="Search..." />
+      <i class="fa-solid fa-magnifying-glass absolute right-4 top-1/2 -translate-y-1/2 text-gray-600"></i>
+    </div>
+
+    <a routerLink="/app-product-list" class="block text-gray-700 hover:text-yellow-500">Shop</a>
+    <a routerLink="/app-contact-us" class="block text-gray-700 hover:text-yellow-500">Contact Us</a>
+    <a routerLink="/app-about" class="block text-gray-700 hover:text-yellow-500">About Us</a>
+
+    <div class="flex items-center justify-between w-full mt-3">
+      <div class="flex border rounded-full overflow-hidden text-sm font-medium">
+        <button class="px-3 py-1 bg-black text-white">En</button>
+        <button class="px-3 py-1 text-gray-700 hover:bg-gray-100">Es</button>
+      </div>
+
+      <button class="border border-gray-300 rounded-full px-5 py-1.5 text-sm hover:bg-gray-100 transition">
+        Register
+      </button>
+    </div>
+  </div>
+</nav>
+
+
+<!-- <div class="fixed top-7 w-full z-50 transition-all duration-500 ease-in-out  backdrop-blur-md" [ngClass]="{
     'opacity-0 pointer-events-none translate-y-[-10px]': isScrollingDown, 
     'opacity-100 translate-y-0': !isScrollingDown
   }">
@@ -40,7 +172,6 @@
           </div>
 
           <div class="flex justify-items-center items-center gap-2">
-            <!-- Icons and profile -->
             <div class="pl-3 group cursor-pointer hidden lg:flex md:flex relative" routerLink="/app-cart">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                 class="w-8 h-8 text-white rounded-full ring-2 ring-white p-1 relative transition-all duration-300 group-hover:ring-yellow-500 group-hover:stroke-yellow-500">
@@ -48,7 +179,6 @@
                   d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
               </svg>
 
-              <!-- Badge -->
               <span *ngIf="cartItemCount > 0"
                 class="absolute -top-1 -right-1 bg-red-400 text-black text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
                 {{ cartItemCount }}
@@ -65,7 +195,6 @@
                   d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
               </svg>
 
-              <!-- Badge -->
               <span *ngIf="wishListItemCount > 0"
                 class="absolute -top-1 -right-1 bg-red-400 text-black text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
                 {{ wishListItemCount }}
@@ -73,13 +202,11 @@
             </div>
 
             <div class="relative">
-              <!-- User Avatar -->
               <div class="px-3" (click)="toggleProfileDropdown()">
                 <img class="inline-block w-8 h-8 rounded-full ring-2 ring-white cursor-pointer backdrop-blur-md"
                   src="https://plus.unsplash.com/premium_vector-1745915292293-f52e77ccb147?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=880"
                   alt="User Avatar" />
               </div>
-              <!-- Dropdown Menu -->
               <div *ngIf="showProfileDropdown"
                 class="absolute right-0 mt-2 w-48 rounded-lg shadow-lg py-2 z-50 bg-white/50 backdrop-blur-md border border-white/20 text-black">
                 <a routerLink="/app-profile"
@@ -112,4 +239,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
