@@ -20,7 +20,7 @@ export class WishlistComponent implements OnInit {
 
   WishlistItems: WishlistItems[] = [];
   products: Product[] = [];
-
+  showCart:boolean= false
   loading: boolean = true;
   userId: string = '';
   product: any;
@@ -160,5 +160,8 @@ export class WishlistComponent implements OnInit {
   }
   clearWishlist() {
     this.WishlistItems = [];
+  }
+  goBack() {
+    this.router.navigate(['/app-product-list']);
   }
 }

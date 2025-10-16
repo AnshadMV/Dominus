@@ -24,6 +24,8 @@ export class ProductBuyComponent implements OnInit {
   TotalAmountofSelectedProduct: number = 0;
   userId: string = '';
   isProcessing: boolean = false;
+  isLoading = false;
+  showBuy:boolean= false
 
   constructor(
     private router: Router,
@@ -70,20 +72,20 @@ export class ProductBuyComponent implements OnInit {
       this.toast.error("No products to purchase");
       return;
     }
-    
+
     const outOfStockProducts = this.products.filter(product => {
-    const availableStock = product.stock || 0;
-    const requestedQuantity = product.quantity || 1;
-    return availableStock < requestedQuantity;
-  });
+      const availableStock = product.stock || 0;
+      const requestedQuantity = product.quantity || 1;
+      return availableStock < requestedQuantity;
+    });
 
-  if (outOfStockProducts.length > 0) {
-    const productNames = outOfStockProducts.map(p => p.name).join(', ');
-    this.toast.error(`Insufficient stock for: ${productNames}`);
-    return;
-  }
+    if (outOfStockProducts.length > 0) {
+      const productNames = outOfStockProducts.map(p => p.name).join(', ');
+      this.toast.error(`Insufficient stock for: ${productNames}`);
+      return;
+    }
 
-  
+
     this.isProcessing = true;
 
     // Create an array of update requests for each product
@@ -218,5 +220,9 @@ export class ProductBuyComponent implements OnInit {
         this.isProcessing = false;
       }
     });
+  }
+
+  goBack() {
+    this.router.navigate(['/app-product-list']);
   }
 }

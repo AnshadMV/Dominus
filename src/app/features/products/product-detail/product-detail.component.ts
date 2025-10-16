@@ -21,7 +21,7 @@ export class ProductDetailComponent implements OnInit {
   product: Product | null = null;
   selectedImageIndex = 0;
   isLoading = true;
-
+  showRelatedProducts: boolean = true;
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       const productId = params.get('id');

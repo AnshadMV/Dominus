@@ -4,7 +4,7 @@ import { website_constants } from 'src/app/core/constants/app.constant';
 import { VideoServices } from 'src/app/core/models/homevideoservice.model';
 import { Product } from 'src/app/core/models/product.model';
 import { HomeVideoService } from 'src/app/core/services/homevideo.service';
-import {  ProductService } from 'src/app/core/services/product.service';
+import { ProductService } from 'src/app/core/services/product.service';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +15,8 @@ export class HomeComponent implements OnInit {
 
   videoError = false;
   isLoading = true;
-
+  isMenuOpen = false;
+  screenWidth = window.innerWidth;
   private productService = inject(ProductService);
   private HomeVideoService = inject(HomeVideoService);
   productCount: number = website_constants.HomePage.FeatureProductCount;
@@ -24,7 +25,10 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.loadProducts();
-    this.loadVideoServices();
+    this.loadVideoServices(); if (this.screenWidth >= 768) this.isMenuOpen = true;
+  }
+  toggleMenu(): void {
+    this.isMenuOpen = !this.isMenuOpen;
   }
 
   loadProducts() {
@@ -46,7 +50,7 @@ export class HomeComponent implements OnInit {
   loadVideoServices() {
     this.HomeVideoService.getFeaturedVideoServices(4).subscribe({
       next: (VideoServices) => {
-        console.log('Services loaded:', VideoServices); 
+        console.log('Services loaded:', VideoServices);
 
         this.services = VideoServices;
       },
@@ -67,5 +71,12 @@ export class HomeComponent implements OnInit {
       video.classList.add('opacity-100');
     }
 
+  } onResize(event: Event) {
+    this.screenWidth = window.innerWidth;
+    if (this.screenWidth >= 768) {
+      this.isMenuOpen = true;
+    } else {
+      this.isMenuOpen = false;
+    }
   }
 }

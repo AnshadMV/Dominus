@@ -1,26 +1,29 @@
-<!-- About Us Page -->
-<section class="relative bg-black text-white overflow-hidden pt-24 pb-32">
+<!-- About Us Page with Animations -->
+<section class="relative bg-white text-black overflow-hidden pt-24 pb-32">
   <!-- Background Gradient Overlay -->
-  <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/80 z-0"></div>
+  <div class="absolute inset-0 z-0 bg-gradient-to-tr from-yellow-50 via-white to-green-50"></div>
 
   <!-- Main Content -->
-  <div class="relative z-10 container mx-auto px-6 lg:px-8">
+  <div class="relative z-10 container mx-auto px-6 lg:px-8 space-y-24">
+
     <!-- Heading Section -->
-    <div class="text-center max-w-3xl mx-auto mb-16">
-      <h1 class="text-4xl md:text-5xl font-bold mb-4">About <span class="bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 bg-clip-text text-transparent">Dominus</span></h1>
-      <p class="text-lg text-gray-300">Redefining technology retail with innovation, style, and customer obsession.</p>
+    <div class="text-center max-w-3xl mx-auto mb-16 animate-fadeIn">
+      <h1 class="text-3xl md:text-4xl font-bold mb-4">
+        About <span class="bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 bg-clip-text text-transparent">Dominus</span>
+      </h1>
+      <p class="text-sm text-black">Redefining technology retail with innovation, style, and customer obsession.</p>
     </div>
 
-    <!-- Our Mission & Vision -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20 ">
-      <div class=" border border-1 p-6 rounded-2xl">
-        <h2 class="text-2xl font-semibold mb-4">Our Mission</h2>
+    <!-- Mission & Vision -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
+      <div class="border border-gray-200 p-6 rounded-2xl transform transition-transform duration-500 hover:scale-105 hover:shadow-lg animate-slideUp">
+        <h2 class="text-xl font-semibold mb-4">Our Mission</h2>
         <p class="text-gray-400 leading-relaxed">
           At Dominus, our mission is to make premium Apple products accessible and desirable. We empower customers through innovation, providing unmatched quality, transparency, and service.
         </p>
       </div>
-      <div class=" border border-1 p-6 rounded-2xl">
-        <h2 class="text-2xl font-semibold mb-4">Our Vision</h2>
+      <div class="border border-gray-200 p-6 rounded-2xl transform transition-transform duration-500 hover:scale-105 hover:shadow-lg animate-slideUp delay-100">
+        <h2 class="text-xl font-semibold mb-4">Our Vision</h2>
         <p class="text-gray-400 leading-relaxed">
           To be the most trusted Apple partner brand globally, curating top-tier experiences that transform how customers engage with technology in their everyday lives.
         </p>
@@ -29,39 +32,58 @@
 
     <!-- Stats Section -->
     <div class="grid grid-cols-1 sm:grid-cols-3 text-center gap-10 mb-24">
-      <div>
-        <h3 class="text-4xl font-bold text-yellow-400">10K+</h3>
-        <p class="text-gray-400 mt-2">Happy Customers</p>
+      <div class="animate-fadeInUp">
+        <h3 class="text-4xl font-bold text-blue-400 transition-transform duration-500 transform hover:scale-110">10K+</h3>
+        <p class="text-black mt-2">Happy Customers</p>
       </div>
-      <div>
-        <h3 class="text-4xl font-bold text-yellow-400">50+</h3>
-        <p class="text-gray-400 mt-2">Products & Accessories</p>
+      <div class="animate-fadeInUp delay-100">
+        <h3 class="text-4xl font-bold text-red-400 transition-transform duration-500 transform hover:scale-110">50+</h3>
+        <p class="text-black mt-2">Products & Accessories</p>
       </div>
-      <div>
-        <h3 class="text-4xl font-bold text-yellow-400">24/7</h3>
-        <p class="text-gray-400 mt-2">Support & Service</p>
+      <div class="animate-fadeInUp delay-200">
+        <h3 class="text-4xl font-bold text-green-400 transition-transform duration-500 transform hover:scale-110">24/7</h3>
+        <p class="text-black mt-2">Support & Service</p>
+      </div>
+    </div>
+
+    <!-- Our Story -->
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center p-6 mb-12">
+      <div class="space-y-4 animate-fadeInLeft">
+        <h2 class="text-3xl font-bold text-gray-900 mb-2">Our Story</h2>
+        <p class="text-gray-600 leading-relaxed">
+          Founded with a passion for innovation and quality, Dominus has been redefining modern shopping experiences. Our mission is to provide top-quality products that enhance your lifestyle while keeping design, sustainability, and customer satisfaction at the forefront of everything we do.
+        </p>
+        <p class="text-gray-600 leading-relaxed">
+          Our dedicated team continually pushes boundaries to bring you the best — from technology to craftsmanship — ensuring excellence in every detail.
+        </p>
+      </div>
+      <div class="relative w-full h-80 rounded-2xl overflow-hidden shadow-lg animate-fadeInRight">
+        <img src="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?q=80&w=1000" alt="Our Story"
+          class="object-cover w-full h-full hover:scale-105 transition-transform duration-700" />
       </div>
     </div>
 
     <!-- Team Section -->
     <div class="text-center mb-16">
-      <h2 class="text-3xl md:text-4xl font-bold mb-4">Meet Our Team</h2>
-      <p class="text-gray-400 mb-10">Passionate people building seamless Apple experiences.</p>
+      <h2 class="text-3xl md:text-4xl font-bold mb-4 animate-fadeIn">Meet Our Team</h2>
+      <p class="text-gray-400 mb-10 animate-fadeIn delay-100">Passionate people building seamless Apple experiences.</p>
 
-      <!-- Team Members Grid -->
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
-        <div class="bg-gray-900 p-6 rounded-xl">
-          <img src="https://plus.unsplash.com/premium_vector-1745915292293-f52e77ccb147?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=880" alt="CEO" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover" />
+        <div class="border border-gray-200 p-6 rounded-xl transform transition-transform duration-500 hover:scale-105 hover:shadow-lg animate-fadeInUp">
+          <img src="https://plus.unsplash.com/premium_vector-1745915292293-f52e77ccb147?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=880" alt="CEO"
+            class="w-24 h-24 rounded-full mx-auto mb-4 object-cover" />
           <h3 class="text-xl font-semibold">ANSHAD MUHAMMED</h3>
           <p class="text-sm text-gray-400">Founder & CEO</p>
         </div>
-        <div class="bg-gray-900 p-6 rounded-xl">
-          <img src="https://plus.unsplash.com/premium_vector-1745915292293-f52e77ccb147?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=880" alt="CTO" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover" />
+        <div class="border border-gray-200 p-6 rounded-xl transform transition-transform duration-500 hover:scale-105 hover:shadow-lg animate-fadeInUp delay-100">
+          <img src="https://plus.unsplash.com/premium_vector-1745915292293-f52e77ccb147?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=880" alt="CTO"
+            class="w-24 h-24 rounded-full mx-auto mb-4 object-cover" />
           <h3 class="text-xl font-semibold">ANSHAD MUHAMMED</h3>
           <p class="text-sm text-gray-400">Chief Technology Officer</p>
         </div>
-        <div class="bg-gray-900 p-6 rounded-xl">
-          <img src="https://plus.unsplash.com/premium_vector-1745915292293-f52e77ccb147?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=880" alt="Design Lead" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover" />
+        <div class="border border-gray-200 p-6 rounded-xl transform transition-transform duration-500 hover:scale-105 hover:shadow-lg animate-fadeInUp delay-200">
+          <img src="https://plus.unsplash.com/premium_vector-1745915292293-f52e77ccb147?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=880" alt="Design Lead"
+            class="w-24 h-24 rounded-full mx-auto mb-4 object-cover" />
           <h3 class="text-xl font-semibold">ANSHAD MUHAMMED</h3>
           <p class="text-sm text-gray-400">Design Lead</p>
         </div>
@@ -69,12 +91,14 @@
     </div>
 
     <!-- Call to Action -->
-    <div class="text-center">
+    <div class="text-center animate-fadeInUp delay-200">
       <h2 class="text-3xl font-semibold mb-4">Join the Dominus Revolution</h2>
       <p class="text-gray-400 mb-6">Be a part of a community that's shaping the future of tech experiences.</p>
-      <a href="/app-product-list" class="bg-white text-black px-8 py-3 rounded-full font-medium hover:bg-yellow-400 transition-all duration-300">
+      <a href="/app-product-list"
+        class="bg-white text-black px-8 py-3 rounded-full font-medium hover:bg-yellow-400 transition-all duration-300 transform hover:scale-105">
         Explore Our Collection
       </a>
     </div>
+
   </div>
 </section>

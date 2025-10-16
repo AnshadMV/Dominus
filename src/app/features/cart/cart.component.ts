@@ -23,6 +23,7 @@ export class CartComponent implements OnInit {
   cartItems: CartItem[] = [];
   userId: string = '';
   loading: boolean = true;
+  showRelated: boolean = false;
   TotalAmountofAllProduct: number = 0;
 
   constructor(private http: HttpClient, private toast: ToastService, private router: Router, private cartBadgeService: CartBadgeService) { }
@@ -194,5 +195,9 @@ export class CartComponent implements OnInit {
           }
         });
     }
+  }
+
+  goBack() {
+    this.router.navigate(['/app-product-list']);
   }
 }

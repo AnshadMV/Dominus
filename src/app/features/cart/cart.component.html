@@ -1,90 +1,150 @@
 <section class="bg-white py-8">
   <div class="container mx-auto px-4">
-    <div class=" mb-2 ">
-      <h1 class="text-2xl font-bold text-black mb-2">Your Cart</h1>
-      <p class="text-gray-900 text-sm">Premium products, exceptional quality</p>
-    </div>
-    <!-- Loading State -->
-    <div *ngIf="loading" class="text-center py-12">
-      <div class="animate-spin w-8 h-8 border-4 border-gray-300 border-t-black rounded-full mx-auto"></div>
-      <p class="mt-4 text-gray-600">Loading your cart...</p>
-    </div>
+    <!-- Grid Layout: 1 column on small screens, 12 cols on medium+ -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-3">
 
-    <!-- Empty Cart -->
-    <div *ngIf="!loading && cartItems.length === 0" class="text-center py-12">
-      <div class="w-16 h-16 mx-auto mb-4 bg-gray-100 rounded-full flex items-center justify-center">
-        <i class="fa-solid fa-shopping-cart text-xl text-gray-400"></i>
-      </div>
-      <h3 class="text-lg font-semibold text-gray-700 mb-2">Your cart is empty</h3>
-      <p class="text-gray-500 text-sm mb-4">Add some products to get started</p>
-      <a routerLink="/app-product-list"
-        class="bg-black text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors">
-        Shop Now
-      </a>
-    </div>
+      <!-- Left Sidebar: Filters & Header (3/12) -->
+      <div class="md:col-span-3 space-y-4">
 
-    <!-- Compact Cart Items -->
-    <div *ngIf="!loading && cartItems.length > 0">
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-        <div *ngFor="let item of cartItems"
-          class="border rounded-xl bg-gray-50 p-3 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
-          <!-- Product Image -->
-          <div class="w-full aspect-square flex items-center justify-center bg-white rounded-lg overflow-hidden mb-3">
-            <img [src]="item.product?.images?.[0]" [alt]="item.product?.name" class="object-contain w-full h-full" />
-          </div>
-
-          <!-- Info -->
-          <div class="flex flex-col md:flex-row items-start md:items-center ">
-            <div class="flex-1">
-              <h3 class="font-semibold  text-black text-sm truncate">{{ item.product.name }}</h3>
-              <p class="font-bold text-gray-600 text-lg">
-                {{ item.product.price | currency : 'INR' }}
-              </p>
-              <p class="font-semibold text-gray-500 text-xs capitalize">
-                {{ item.product.category }}
-              </p>
-              <p class="font-semibold text-gray-500 text-xs capitalize">
-                {{ item.product.stock }} Stocks
-              </p>
-              <p
-                class="font-semibold text-gray-500 text-xs capitalize bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-transparent bg-clip-text">
-                {{ item.product?.colors }}
-              </p>
-            </div>
-            <div>
-              <button (click)="increment(item)">
-                <i class="fa-solid fa-circle-plus text-yellow-500"></i>
-              </button>
-              <P class="text-black font-bold">{{item.quantity}}</P>
-              <button (click)="decrement(item)">
-                <i class="fa-solid fa-circle-minus text-yellow-500"></i>
-              </button>
-            </div>
-          </div>
-          <!-- Bottom Row -->
-          <div class="flex justify-between items-center mt-3">
-            <button (click)="buyProduct(item.product)"
-              class="bg-yellow-400 text-black px-2 py-1 rounded-full text-sm font-bold hover:text-white">
-              Buy Now
+        <!-- Page Header -->
+        <div class="mb-2">
+          <h1 class="text-2xl font-bold text-black mb-2">Apple Cart</h1>
+          <p class="text-gray-900 text-sm">Premium products, exceptional quality</p>
+        </div>
+        <!-- Compact Filters -->
+        <div
+          class="flex flex-col sm:flex-row sm:items-center sm:justify-between bg-gray-50 p-2 rounded-xl border border-gray-200 mb-4 gap-2">
+          <!-- Button Group -->
+          <div class="flex flex-wrap justify-center sm:justify-start gap-2">
+            <!-- Cart -->
+            <button routerLink="/app-cart"
+              class="flex items-center gap-2 bg-white border border-gray-300 rounded-full px-3 py-1 text-sm text-black hover:bg-gray-100 transition-colors">
+              <i class="fa-solid fa-cart-shopping fa-bounce text-blue-400"></i>
+              <span>Cart</span>
             </button>
 
-            <button (click)="removeFromCart(item.product.id)"
-              class="text-red-500 hover:text-red-700 transition-colors text-sm">
-              <i class="fa-solid fa-trash"></i>
+            <!-- Orders -->
+            <button routerLink="/app-orders"
+              class="flex items-center gap-2 bg-white border border-gray-300 rounded-full px-3 py-1 text-sm text-black hover:bg-gray-100 transition-colors">
+              <i class="fa-solid fa-box fa-bounce text-green-400"></i>
+              <span>Orders</span>
+            </button>
+
+            <!-- Filters -->
+            <button
+              class="flex items-center gap-2 bg-white border border-gray-300 rounded-full px-3 py-1 text-sm text-black hover:bg-gray-100 transition-colors">
+              <i class="fa-solid fa-filter fa-bounce text-purple-400"></i>
+              <span>Related Pd</span>
             </button>
           </div>
         </div>
+
+
+
+        <div *ngIf="!showRelated" class="hidden md:flex">
+          <img
+            src="https://plus.unsplash.com/premium_vector-1721296174128-2e0473ecf94e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=880">
+        </div>
+        <!-- Expandable Filters Section -->
+
       </div>
 
-      <!-- Cart Summary -->
-      <div class="mt-8 bg-gray-100 p-4 rounded-xl flex flex-col sm:flex-row justify-between items-center gap-3">
-        <div class="text-lg font-bold text-black">
-          Total:
+      <!-- Right Content: Products Grid (9/12) -->
+            <div class="md:col-span-9 overflow-y-auto max-h-[calc(100vh-4rem)] pr-2 hide-scrollbar">
+        <!-- Loading State -->
+        <div *ngIf="loading" class="text-center py-12">
+          <div class="animate-spin w-8 h-8 border-4 border-gray-300 border-t-black rounded-full mx-auto">
+          </div>
+          <p class="mt-4 text-gray-600">Loading your cart...</p>
         </div>
-        <button (click)="proceedToCheckout()"
-          class="bg-black text-white px-6 py-2 rounded-full font-medium hover:bg-gray-800 transition-colors w-full sm:w-auto">
-          Proceed to Checkout : <span class="font-bold">{{ TotalAmountofAllProduct | currency:'INR' }}</span>
-        </button>
+
+
+        <div class="flex justify-between pb-2">
+          <button (click)="goBack()" class="flex items-center gap-2 text-gray-600 hover:text-black transition-colors">
+            <i class="fa-solid fa-arrow-left"></i>
+            <span class=" text-sm font-medium">Back to Products</span>
+          </button>
+        </div>
+        <!-- Compact Cart Items -->
+        <div *ngIf="!loading && cartItems.length > 0">
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            <div *ngFor="let item of cartItems"
+              class="border rounded-xl bg-gray-50 p-3 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+              <!-- Product Image -->
+              <div
+                class="w-full aspect-square flex items-center justify-center bg-white rounded-lg overflow-hidden mb-3">
+                <img [src]="item.product?.images?.[0]" [alt]="item.product?.name"
+                  class="object-contain w-full h-full" />
+              </div>
+
+              <!-- Info -->
+              <div class="flex flex-col md:flex-row items-start md:items-center ">
+                <div class="flex-1">
+                  <h3 class="font-semibold  text-black text-sm truncate">{{ item.product.name }}</h3>
+                  <p class="font-bold text-gray-600 text-lg">
+                    {{ item.product.price | currency : 'INR' }}
+                  </p>
+                  <p class="font-semibold text-gray-500 text-xs capitalize">
+                    {{ item.product.category }}
+                  </p>
+                  <p class="font-semibold text-gray-500 text-xs capitalize">
+                    {{ item.product.stock }} Stocks
+                  </p>
+                  <p
+                    class="font-semibold text-gray-500 text-xs capitalize bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-transparent bg-clip-text">
+                    {{ item.product?.colors }}
+                  </p>
+                </div>
+                <div>
+                  <button (click)="increment(item)">
+                    <i class="fa-solid fa-circle-plus text-yellow-500"></i>
+                  </button>
+                  <P class="text-black font-bold">{{item.quantity}}</P>
+                  <button (click)="decrement(item)">
+                    <i class="fa-solid fa-circle-minus text-yellow-500"></i>
+                  </button>
+                </div>
+              </div>
+              <!-- Bottom Row -->
+              <div class="flex justify-between items-center mt-3">
+                <button (click)="buyProduct(item.product)"
+                  class="bg-yellow-400 text-black px-2 py-1 rounded-full text-sm font-bold hover:text-white">
+                  Buy Now
+                </button>
+
+                <button (click)="removeFromCart(item.product.id)"
+                  class="text-red-500 hover:text-red-700 transition-colors text-sm">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cart Summary -->
+          <div class="mt-8 bg-gray-100 p-4 rounded-xl flex flex-col sm:flex-row justify-between items-center gap-3">
+            <div class="text-lg font-bold text-black">
+              Total:
+            </div>
+            <button (click)="proceedToCheckout()"
+              class="bg-black text-white px-6 py-2 rounded-full font-medium hover:bg-gray-800 transition-colors w-full sm:w-auto">
+              Proceed to Checkout : <span class="font-bold">{{ TotalAmountofAllProduct | currency:'INR'
+                }}</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Empty Cart -->
+        <div *ngIf="!loading && cartItems.length === 0" class="text-center py-12">
+          <div class="w-16 h-16 mx-auto mb-4 bg-gray-100 rounded-full flex items-center justify-center">
+            <i class="fa-solid fa-shopping-cart text-xl text-gray-400"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-700 mb-2">Your cart is empty</h3>
+          <p class="text-gray-500 text-sm mb-4">Add some products to get started</p>
+          <a routerLink="/app-product-list"
+            class="bg-black text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors">
+            Shop Now
+          </a>
+        </div>
       </div>
     </div>
   </div>

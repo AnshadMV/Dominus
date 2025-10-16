@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { website_constants } from 'src/app/core/constants/app.constant';
 import { Order } from 'src/app/core/models/order.model';
 import { OrderItem } from 'src/app/core/models/orderItem.model';
@@ -21,10 +22,12 @@ export class OrdersComponent implements OnInit {
   isLoading: boolean = true;
   selectedOrder: Order | null = null;
   filterStatus: string = 'all';
+  showOrders: boolean = false;
 
   constructor(
     private http: HttpClient,
-    private toast: ToastService
+    private toast: ToastService,
+    private route:Router
   ) { }
 
   ngOnInit(): void {
@@ -120,5 +123,9 @@ export class OrdersComponent implements OnInit {
 
   getTotalItems(order: Order): number {
     return order.items.reduce((total, item) => total + item.quantity, 0);
+  }
+
+  goBack() {
+    this.route.navigate(['/app-product-list']);
   }
 }
