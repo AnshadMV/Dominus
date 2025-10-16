@@ -46,6 +46,16 @@ export class NavbarComponent implements OnInit {
   role: string = 'admin';
   fetchUserData = JSON.parse(localStorage.getItem("currentUser") || '{}');
 
+  closeMenu() {
+    this.isMenuOpen = false;
+  }
+
+  menuItems = [
+    { label: 'Shop', route: '/app-product-list' },
+    { label: 'Contact Us', route: '/app-contact-us' },
+    { label: 'About Us', route: '/app-about' },
+  ];
+
   ngOnInit() {
     this.cartBadgeService.cartItemCount$.subscribe(count => {
       this.cartItemCount = count;

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-contact-us',
@@ -7,6 +8,7 @@ import { Component } from '@angular/core';
 })
 export class ContactUsComponent {
   activeTab: string = 'general';
+  private route= inject(Router)
 
   showTab(tab: string) {
     this.activeTab = tab;

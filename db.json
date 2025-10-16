@@ -7,153 +7,24 @@
   ],
   "users": [
     {
-      "id": "fb4e",
-      "name": "shinas",
+      "id": "35e0",
+      "name": "Shinas",
       "email": "shinas@gmail.com",
       "password": "123123123",
-      "createdAt": "10/15/2025, 8:21:05 AM",
-      "role": "user",
-      "wishlist": [
-        {
-          "productId": "p3"
-        },
-        {
-          "productId": "p1"
-        },
-        {
-          "productId": "p2"
-        },
-        {
-          "productId": "p4"
-        },
-        {
-          "productId": "p7"
-        },
-        {
-          "productId": "p6"
-        },
-        {
-          "productId": "p5"
-        }
-      ],
-      "orders": [
-        {
-          "id": "order_1760543325796",
-          "userId": "fb4e",
-          "orderId": "ORD1760543325796TBWBP",
-          "orderDate": "October 15, 2025 at 09:18 PM",
-          "items": [
-            {
-              "productId": "p4",
-              "name": "iPad Air (6th Gen)",
-              "price": 59900,
-              "quantity": 1,
-              "image": "https://images.unsplash.com/photo-1661340272675-f6829791246e?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-              "color": "space gray",
-              "category": "tablet"
-            }
-          ],
-          "shippingDetails": {
-            "fullName": "shinas",
-            "address": "Not specified",
-            "city": "Not specified",
-            "state": "Not specified",
-            "pincode": "000000",
-            "phone": "Not specified",
-            "email": "shinas@gmail.com"
-          },
-          "paymentMethod": "Online Payment",
-          "totalAmount": 59900,
-          "status": "confirmed",
-          "estimatedDelivery": "October 22, 2025"
-        },
-        {
-          "id": "order_1760543872606",
-          "userId": "fb4e",
-          "orderId": "ORD17605438726066SXFN",
-          "orderDate": "October 15, 2025 at 09:27 PM",
-          "items": [
-            {
-              "productId": "p7",
-              "name": "AirPods (3rd Gen)",
-              "price": 15900,
-              "quantity": 1,
-              "image": "https://images.unsplash.com/photo-1623788736363-55d36908ab21?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGFpcnBvZHMlMjBwcm98ZW58MHx8MHx8fDA%3D",
-              "color": "white",
-              "category": "accessory"
-            }
-          ],
-          "shippingDetails": {
-            "fullName": "shinas",
-            "address": "Not specified",
-            "city": "Not specified",
-            "state": "Not specified",
-            "pincode": "000000",
-            "phone": "Not specified",
-            "email": "shinas@gmail.com"
-          },
-          "paymentMethod": "Online Payment",
-          "totalAmount": 15900,
-          "status": "confirmed",
-          "estimatedDelivery": "October 22, 2025"
-        }
-      ],
-      "cart": [
-        {
-          "productId": "p2",
-          "quantity": 5
-        },
-        {
-          "productId": "p11"
-        },
-        {
-          "productId": "p10"
-        },
-        {
-          "productId": "p9"
-        },
-        {
-          "productId": "p12"
-        },
-        {
-          "productId": "p15"
-        },
-        {
-          "productId": "p14"
-        },
-        {
-          "productId": "p13"
-        }
-      ]
-    },
-    {
-      "id": "d262",
-      "name": "Anshad Muhammed",
-      "email": "anshadvelladath123@gmail.com",
-      "password": "123123",
-      "createdAt": "10/15/2025, 8:36:01 AM",
+      "createdAt": "2025-10-16T08:44:02.094Z",
       "role": "user",
       "wishlist": [],
       "orders": []
     },
     {
-      "id": "748f",
-      "name": "shinas2",
-      "email": "sinan123@gmail.com",
-      "password": "123123123",
-      "createdAt": "10/15/2025, 2:01:44 PM",
-      "role": "user",
-      "wishlist": [
-        {
-          "productId": "p1"
-        }
-      ],
-      "orders": [],
-      "cart": [
-        {
-          "productId": "p1"
-        }
-      ]
+      "id": "3bf0",
+      "name": "admin",
+      "email": "admin@gmail.com",
+      "password": "admin",
+      "createdAt": "2025-10-16T08:44:02.094Z",
+      "role": "admin",
+      "wishlist": [],
+      "orders": []
     }
   ],
   "products": [
@@ -196,7 +67,7 @@
         "green"
       ],
       "topSelling": true,
-      "stock": 1,
+      "stock": 0,
       "category": "mobile",
       "slug": "iphone-17",
       "description": "iPhone 17, the standard variant, with dual camera, enhanced features."
@@ -434,7 +305,7 @@
         "silver"
       ],
       "topSelling": true,
-      "stock": 8,
+      "stock": 7,
       "category": "laptop",
       "slug": "macbook-pro-14-m4",
       "description": "MacBook Pro 14-inch with M4 chip and ProMotion display."
@@ -480,8 +351,6 @@
       "name": "Watches"
     }
   ],
-  "wishlist": [],
-  "orders": [],
   "topNavText": [
     {
       "text": "New iPhone 17 Pro Max launched — preorder now!",
@@ -521,5 +390,4 @@
       "learnMoreLink": "/services/interior",
       "thumbnail": "src/assets/images/Dominus_black.png"
     }
-  ]
-}
+  ]}

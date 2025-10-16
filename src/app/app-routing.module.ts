@@ -8,12 +8,12 @@ import { LoginComponent } from './features/auth/login/login.component';
 import { RegisterComponent } from './features/auth/register/register.component';
 import { CartComponent } from './features/cart/cart.component';
 import { WishlistComponent } from './features/wishlist/wishlist.component';
-import { ProfileComponent } from './features/profile/profile.component';
 import { ProductBuyComponent } from './features/products/product-buy/product-buy.component';
 import { ProductDetailComponent } from './features/products/product-detail/product-detail.component';
 import { OrdersComponent } from './features/orders/orders.component';
 import { AuthGuard } from './core/guards/auth.guards';
 import { ContactUsComponent } from './features/contact-us/contact-us.component';
+import { AdminComponent } from './admin/admin.component';
 
 const routes: Routes = [
   {
@@ -25,9 +25,10 @@ const routes: Routes = [
     path: 'app-login',
     component: LoginComponent,
   },
-  { 
-    path: 'app-register', 
-    component: RegisterComponent },
+  {
+    path: 'app-register',
+    component: RegisterComponent
+  },
 
   {
     path: 'app-home',
@@ -38,48 +39,55 @@ const routes: Routes = [
   {
     path: 'app-product-list',
     component: ProductListComponent,
-canActivate: [AuthGuard] 
+    canActivate: [AuthGuard]
   },
   {
     path: 'app-orders',
     component: OrdersComponent,
-canActivate: [AuthGuard] 
+    canActivate: [AuthGuard]
   },
 
   {
     path: 'app-wishlist',
     component: WishlistComponent,
-canActivate: [AuthGuard] 
+    canActivate: [AuthGuard]
   },
   {
     path: 'app-cart',
     component: CartComponent,
-canActivate: [AuthGuard] 
+    canActivate: [AuthGuard]
   },
   {
     path: 'app-product-buy',
     component: ProductBuyComponent,
     // canActivate: [AuthGuard] 
-canActivate: [AuthGuard] 
+    canActivate: [AuthGuard]
   },
   {
     path: 'app-contact-us',
     component: ContactUsComponent,
     // canActivate: [AuthGuard] 
-canActivate: [AuthGuard] 
+    canActivate: [AuthGuard]
   },
   {
     path: 'app-product-detail/:id',
     component: ProductDetailComponent,
-canActivate: [AuthGuard] 
+    canActivate: [AuthGuard]
   },
   {
     path: 'app-profile',
-    component: ProfileComponent,
-canActivate: [AuthGuard] 
+    loadChildren: () =>
+      import('./features/profile/profile.module').then(m => m.ProfileModule),
+    canActivate: [AuthGuard]
   },
-  
-  { path: '', redirectTo: '/app-login', pathMatch: 'full' },
+  {
+    path: 'admin',
+    loadChildren: () =>
+      import('./admin/admin.module').then(m => m.AdminModule),
+    canActivate: [AuthGuard]
+  },
+
+  { path: '', redirectTo: '/app-home', pathMatch: 'full' },
   {
     path: '**',
     component: NotFoundComponent

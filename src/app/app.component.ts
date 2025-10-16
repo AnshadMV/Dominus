@@ -14,8 +14,8 @@ export class AppComponent {
   showHeader = true;
   showFooter=true;
   showNavbarPadding=true;
-  hideOnRoutes_header = ['/app-login', '/app-register','','**']; // routes where navbar should hide
-  showOnRoutes_footer = ['/app-home','/app-about','/app-profile']; // routes where navbarshould hide
+  hideOnRoutes_header = ['/app-login', '/app-register','/admin','','**']; // routes where navbar should hide
+  showOnRoutes_footer = ['/app-home','/app-about','/app-profile','/admin',]; // routes where navbarshould hide
   hideOnRoutes_navbarPadding = ['/app-login', '/app-register','/app-home','/app-not-found']; 
   constructor(private router: Router) { }
 
@@ -25,10 +25,12 @@ export class AppComponent {
         const navEnd = event as NavigationEnd;
         // Extract base route without query parameters
         const baseRoute = navEnd.urlAfterRedirects.split('?')[0];
-        
-        this.showHeader= !this.hideOnRoutes_header.includes(baseRoute);
-        this.showFooter= this.showOnRoutes_footer.includes(baseRoute);
-        this.showNavbarPadding = !this.hideOnRoutes_navbarPadding.includes(baseRoute);
+        // Hide header/footer for admin routes
+        const isAdminRoute = baseRoute.startsWith('/admin');
+      
+        this.showHeader = !this.hideOnRoutes_header.includes(baseRoute) && !isAdminRoute;
+        this.showFooter = this.showOnRoutes_footer.includes(baseRoute) && !isAdminRoute;
+        this.showNavbarPadding = !this.hideOnRoutes_navbarPadding.includes(baseRoute) && !isAdminRoute;
       });
   }
 }

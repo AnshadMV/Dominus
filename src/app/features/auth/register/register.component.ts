@@ -1,5 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { website_constants } from 'src/app/core/constants/app.constant';
 import { ToastService } from 'src/app/core/services/toast.service';
 import { User, UserService } from 'src/app/core/services/user.service';
 
@@ -12,18 +15,13 @@ export class RegisterComponent {
   name = '';
   email = '';
   password = '';
-
   nameInvalid = false;
   emailInvalid = false;
   passwordInvalid = false;
   showPassword: any;
-
-  constructor(private userService: UserService, private router: Router, private toast: ToastService) { }
-
+  private apiUrl = "http://localhost:3000/users/email";
+  constructor(private userService: UserService, private http: HttpClient, private router: Router, private toast: ToastService) { }
   onSubmit(form: any) {
-
-
-
     if (form.invalid) {
       this.nameInvalid = form.controls.name?.invalid;
       this.emailInvalid = form.controls.email?.invalid;
@@ -33,30 +31,46 @@ export class RegisterComponent {
       setTimeout(() => {
         this.nameInvalid = this.emailInvalid = this.passwordInvalid = false;
       }, 600);
+      console.log("Some thing error in validations")
       return;
     }
 
-    const newUser: User = {
-      name: this.name,
-      email: this.email,
-      password: this.password,
-      createdAt: new Date().toLocaleString(),
-      role: 'user',
-      // cart:[],
-      wishlist: [],
-      orders: []
+    this.http.get<any[]>('http://localhost:3000/users').subscribe({
+      next: (users) => {
+        const emailExists = users.some(user => user.email === this.email);
 
-    };
+        if (emailExists) {
+          this.toast.error("Email already registered");
+          console.log("Email already exists")
+          return;
+        }
 
-    this.userService.registerUser(newUser).subscribe({
-      next: () => {
-        this.toast.success("Registration Succesfull")
-        this.router.navigate(['/app-login']);
+        // Create new user
+        const newUser: User = {
+          name: this.name,
+          email: this.email,
+          password: this.password,
+          createdAt: new Date().toISOString(),
+          role: 'user',
+          wishlist: [],
+          orders: []
+        };
+
+        this.userService.registerUser(newUser).subscribe({
+          next: () => {
+            this.toast.success("Registration Successful");
+            this.router.navigate(['/app-login']);
+          },
+          error: (error) => {
+            this.toast.error("Something went wrong. Please try again.");
+            console.error('Registration error:', error);
+          }
+        });
       },
-      error: (error) => {
-        this.toast.error(" Something went wrong. Please try again.", error)
+      error: (err) => {
+        this.toast.error("Unable to verify email. Please try again.");
+        console.error('Error fetching users:', err);
       }
     });
-
   }
 }

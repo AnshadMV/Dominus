@@ -57,12 +57,12 @@ export class ProfileComponent implements OnInit {
     this.userName = updatedUser.name;
     this.userEmail = updatedUser.email;
     this.userPassword = updatedUser.password;
-    this.toast.success('Profile updated successfully!');
+    this.toast.success('Profile updated in localStorage!');
 
     // Update in db.json via HTTP request
     this.updateUserInDatabase(updatedUser);
   }
-  
+
   private updateUserInDatabase(updatedUser: any) {
     // Make PUT request to update user in db.json
     fetch(`http://localhost:3000/users/${updatedUser.id}`, {
@@ -80,7 +80,7 @@ export class ProfileComponent implements OnInit {
       })
       .then(updatedUserFromServer => {
         console.log('User updated in database:', updatedUserFromServer);
-        this.toast.success('Profile updated successfully!');
+        this.toast.success('Profile updated successfully in server!');
       })
       .catch(error => {
         console.error('Error updating user in database:', error);

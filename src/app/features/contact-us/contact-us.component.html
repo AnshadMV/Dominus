@@ -1,132 +1,200 @@
-<div class="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex flex-col items-center px-4 py-16 space-y-24">
+<section class="bg-white py-8">
+    <div class="container mx-auto px-4">
+        <!-- Grid Layout: 1 column on small screens, 12 cols on medium+ -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-3">
 
+            <!-- Left Sidebar: Filters & Header (3/12) -->
+            <div class="md:col-span-3 space-y-4">
 
+                <!-- Page Header -->
+                <div class="mb-2">
+                    <h1 class="text-2xl font-bold text-black mb-2">Contact Us</h1>
+                    <p class="text-gray-900 text-sm">Premium products, exceptional quality</p>
+                </div>
+                <!-- Compact Filters -->
+                <div
+                    class="flex flex-col sm:flex-row sm:items-center sm:justify-between bg-gray-50 p-2 rounded-xl border border-gray-200 mb-4 gap-2">
+                    <!-- Button Group -->
+                    <div class="flex flex-wrap justify-center sm:justify-start gap-2">
+                        <!-- Cart -->
+                        <button routerLink="/app-cart"
+                            class="flex items-center gap-2 bg-white border border-gray-300 rounded-full px-3 py-1 text-sm text-black hover:bg-gray-100 transition-colors">
+                            <i class="fa-solid fa-cart-shopping fa-bounce text-blue-400"></i>
+                            <span>Cart</span>
+                        </button>
 
+                        <!-- Orders -->
+                        <button routerLink="/app-orders"
+                            class="flex items-center gap-2 bg-white border border-gray-300 rounded-full px-3 py-1 text-sm text-black hover:bg-gray-100 transition-colors">
+                            <i class="fa-solid fa-box fa-bounce text-green-400"></i>
+                            <span>Orders</span>
+                        </button>
 
-    <!-- Contact Section -->
-    <section class="w-full max-w-4xl">
-        <!-- Header -->
-        <div class="text-center mb-12">
-            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-3">
-                Contact <span class="text-blue-600">Dominus</span>
-            </h1>
-            <p class="text-gray-600 text-sm md:text-base max-w-xl mx-auto">
-                Select a category and reach out to our team for quick assistance.
-            </p>
-        </div>
-
-        <!-- Tabs -->
-        <div class="bg-white rounded-3xl shadow-xl overflow-hidden">
-            <!-- Tab Navigation -->
-            <div class="flex border-b border-gray-200 text-sm md:text-base font-medium text-gray-600">
-                <button (click)="showTab('general')"
-                    class="w-1/3 py-3 text-center border-b-2 transition-all duration-300"
-                    [ngClass]="activeTab === 'general' ? 'border-blue-600 text-blue-600' : 'border-transparent hover:text-blue-600 hover:border-blue-600'">
-                    General Inquiry
-                </button>
-
-                <button (click)="showTab('support')"
-                    class="w-1/3 py-3 text-center border-b-2 transition-all duration-300"
-                    [ngClass]="activeTab === 'support' ? 'border-blue-600 text-blue-600' : 'border-transparent hover:text-blue-600 hover:border-blue-600'">
-                    Technical Support
-                </button>
-
-                <button (click)="showTab('business')"
-                    class="w-1/3 py-3 text-center border-b-2 transition-all duration-300"
-                    [ngClass]="activeTab === 'business' ? 'border-blue-600 text-blue-600' : 'border-transparent hover:text-blue-600 hover:border-blue-600'">
-                    Business / Partnership
-                </button>
-            </div>
-
-            <!-- Tab Content -->
-            <div class="p-8 space-y-12 bg-gray-50">
-
-                <!-- General Inquiry -->
-                <div *ngIf="activeTab === 'general'" class="transition-opacity duration-500 ease-in">
-                    <div class="grid md:grid-cols-2 gap-8">
-                        <!-- Info -->
-                        <div class="space-y-4">
-                            <h2 class="text-2xl font-bold text-gray-900">Get in Touch</h2>
-                            <p class="text-gray-600">Questions about features, pricing, or anything else? Our team
-                                is ready to help.</p>
-                            <div class="space-y-2 text-gray-700">
-                                <p><i class="fa-solid fa-location-dot text-blue-600 mr-2"></i>Bengaluru, India</p>
-                                <p><i class="fa-solid fa-envelope text-blue-600 mr-2"></i>info@dominus.com</p>
-                                <p><i class="fa-solid fa-phone text-blue-600 mr-2"></i>+91 98765 43210</p>
-                            </div>
-                        </div>
-
-                        <!-- Form -->
-                        <form class="bg-white p-6 rounded-2xl shadow-md space-y-4">
-                            <input type="text" placeholder="Your Name"
-                                class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none" />
-                            <input type="email" placeholder="Email Address"
-                                class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none" />
-                            <textarea rows="4" placeholder="Message..."
-                                class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none resize-none"></textarea>
-                            <button type="submit"
-                                class="w-full bg-blue-600 text-white py-2 rounded-lg font-medium hover:bg-blue-700 transition-transform duration-200 transform hover:scale-105">
-                                Send Message
-                            </button>
-                        </form>
+                        <!-- Filters -->
+                        <button routerLink="/app-about"
+                            class="flex items-center gap-2 bg-white border border-gray-300 rounded-full px-3 py-1 text-sm text-black hover:bg-gray-100 transition-colors">
+                            <i class="fa-solid fa-phone fa-shake" style="color: #B197FC;"></i> <span>About Us</span>
+                        </button>
                     </div>
                 </div>
 
-                <!-- Technical Support -->
-                <div *ngIf="activeTab === 'support'" class="transition-opacity duration-500 ease-in">
-                    <div class="grid md:grid-cols-2 gap-8">
-                        <div class="space-y-4">
-                            <h2 class="text-2xl font-bold text-gray-900">Need Technical Help?</h2>
-                            <p class="text-gray-600">Facing issues with your order, login, or product? Our technical
-                                team is here to assist quickly.</p>
-                            <div class="space-y-2 text-gray-700">
-                                <p><i class="fa-solid fa-envelope text-blue-600 mr-2"></i>support@dominus.com</p>
-                                <p><i class="fa-solid fa-headset text-blue-600 mr-2"></i>24/7 Chat Support Available
-                                </p>
-                            </div>
-                        </div>
-                        <form class="bg-white p-6 rounded-2xl shadow-md space-y-4">
-                            <input type="text" placeholder="Order ID / Issue Title"
-                                class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none" />
-                            <input type="email" placeholder="Email"
-                                class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none" />
-                            <textarea rows="4" placeholder="Describe your issue..."
-                                class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none resize-none"></textarea>
-                            <button type="submit"
-                                class="w-full bg-green-600 text-white py-2 rounded-lg font-medium hover:bg-green-700 transition-transform duration-200 transform hover:scale-105">
-                                Submit Ticket
-                            </button>
-                        </form>
-                    </div>
-                </div>
 
-                <!-- Business / Partnership -->
-                <div *ngIf="activeTab === 'business'" class="transition-opacity duration-500 ease-in">
-                    <div class="grid md:grid-cols-2 gap-8">
-                        <div class="space-y-4">
-                            <h2 class="text-2xl font-bold text-gray-900">Business Partnerships</h2>
-                            <p class="text-gray-600">Interested in partnering with Dominus or exploring investment
-                                opportunities? Let’s build something incredible together.</p>
-                            <div class="space-y-2 text-gray-700">
-                                <p><i class="fa-solid fa-envelope text-blue-600 mr-2"></i>business@dominus.com</p>
-                                <p><i class="fa-solid fa-briefcase text-blue-600 mr-2"></i>Corporate Collaboration
-                                    Department</p>
-                            </div>
-                        </div>
-                        <form class="bg-white p-6 rounded-2xl shadow-md space-y-4">
-                            <input type="text" placeholder="Company Name"
-                                class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none" />
-                            <input type="email" placeholder="Business Email"
-                                class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none" />
-                            <textarea rows="4" placeholder="Proposal / Collaboration Details"
-                                class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none resize-none"></textarea>
-                            <button type="submit"
-                                class="w-full bg-purple-600 text-white py-2 rounded-lg font-medium hover:bg-purple-700 transition-transform duration-200 transform hover:scale-105">
-                                Send Proposal
-                            </button>
-                        </form>
-                    </div>
+
+                <div class="hidden md:flex fa-bounce">
+                    <img
+                        src="https://plus.unsplash.com/premium_vector-1721296173891-50b6a605d4f8?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDZ8fHxlbnwwfHx8fHw%3D&auto=format&fit=crop&q=60&w=400">
                 </div>
 
             </div>
+
+            <!-- Right Content: Products Grid (9/12) -->
+            <div class="md:col-span-9 overflow-y-auto max-h-[calc(100vh-4rem)] pr-2 hide-scrollbar">
+
+
+
+                <div class="flex justify-between pb-2">
+                    <button routerLink="/app-home"
+                        class="flex items-center gap-2 text-gray-600 hover:text-black transition-colors">
+                        <i class="fa-solid fa-arrow-left"></i>
+                        <span class=" text-sm font-medium">Back to Home</span>
+                    </button>
+                </div>
+                <!-- Header -->
+                <div class="text-center mb-12 mt-3">
+                    <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-3">
+                        Contact <span class="text-blue-600">Dominus</span>
+                    </h1>
+                    <p class="text-gray-600 text-sm md:text-base max-w-xl mx-auto">
+                        Select a category and reach out to our team for quick assistance.
+                    </p>
+                </div>
+
+                <!-- Tabs -->
+                <div class="bg-white rounded-3xl shadow-xl overflow-hidden">
+                    <!-- Tab Navigation -->
+                    <div class="flex border-b border-gray-200 text-sm md:text-base font-medium text-gray-600">
+                        <button (click)="showTab('general')"
+                            class="w-1/3 py-3 text-center border-b-2 transition-all duration-300"
+                            [ngClass]="activeTab === 'general' ? 'border-blue-600 text-blue-600' : 'border-transparent hover:text-blue-600 hover:border-blue-600'">
+                            General Inquiry
+                        </button>
+
+                        <button (click)="showTab('support')"
+                            class="w-1/3 py-3 text-center border-b-2 transition-all duration-300"
+                            [ngClass]="activeTab === 'support' ? 'border-blue-600 text-blue-600' : 'border-transparent hover:text-blue-600 hover:border-blue-600'">
+                            Technical Support
+                        </button>
+
+                        <button (click)="showTab('business')"
+                            class="w-1/3 py-3 text-center border-b-2 transition-all duration-300"
+                            [ngClass]="activeTab === 'business' ? 'border-blue-600 text-blue-600' : 'border-transparent hover:text-blue-600 hover:border-blue-600'">
+                            Business / Partnership
+                        </button>
+                    </div>
+
+                    <!-- Tab Content -->
+                    <div class="p-8 space-y-12 bg-gray-50">
+
+                        <!-- General Inquiry -->
+                        <div *ngIf="activeTab === 'general'" class="transition-opacity duration-500 ease-in">
+                            <div class="grid md:grid-cols-2 gap-8">
+                                <!-- Info -->
+                                <div class="space-y-4">
+                                    <h2 class="text-2xl font-bold text-gray-900">Get in Touch</h2>
+                                    <p class="text-gray-600">Questions about features, pricing, or anything else? Our
+                                        team
+                                        is ready to help.</p>
+                                    <div class="space-y-2 text-gray-700">
+                                        <p><i class="fa-solid fa-location-dot text-blue-600 mr-2"></i>Bengaluru, India
+                                        </p>
+                                        <p><i class="fa-solid fa-envelope text-blue-600 mr-2"></i>info@dominus.com</p>
+                                        <p><i class="fa-solid fa-phone text-blue-600 mr-2"></i>+91 98765 43210</p>
+                                    </div>
+                                </div>
+
+                                <!-- Form -->
+                                <form class="bg-white p-6 rounded-2xl shadow-md space-y-4">
+                                    <input type="text" placeholder="Your Name"
+                                        class="w-full border text-black border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none" />
+                                    <input type="email" placeholder="Email Address"
+                                        class="w-full border text-black border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none" />
+                                    <textarea rows="4" placeholder="Message..."
+                                        class="w-full border text-black border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none resize-none"></textarea>
+                                    <button type="submit"
+                                        class="w-full bg-blue-600 text-white py-2 rounded-lg font-medium hover:bg-blue-700 transition-transform duration-200 transform hover:scale-105">
+                                        Send Message
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <!-- Technical Support -->
+                        <div *ngIf="activeTab === 'support'" class="transition-opacity duration-500 ease-in">
+                            <div class="grid md:grid-cols-2 gap-8">
+                                <div class="space-y-4">
+                                    <h2 class="text-2xl font-bold text-gray-900">Need Technical Help?</h2>
+                                    <p class="text-gray-600">Facing issues with your order, login, or product? Our
+                                        technical
+                                        team is here to assist quickly.</p>
+                                    <div class="space-y-2 text-gray-700">
+                                        <p><i class="fa-solid fa-envelope text-blue-600 mr-2"></i>support@dominus.com
+                                        </p>
+                                        <p><i class="fa-solid fa-headset text-blue-600 mr-2"></i>24/7 Chat Support
+                                            Available
+                                        </p>
+                                    </div>
+                                </div>
+                                <form class="bg-white p-6 rounded-2xl shadow-md space-y-4">
+                                    <input type="text" placeholder="Order ID / Issue Title"
+                                        class="w-full border border-gray-300 text-black rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none" />
+                                    <input type="email" placeholder="Email"
+                                        class="w-full border border-gray-300 text-black rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none" />
+                                    <textarea rows="4" placeholder="Describe your issue..."
+                                        class="w-full border border-gray-300 text-black rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none resize-none"></textarea>
+                                    <button type="submit"
+                                        class="w-full bg-green-600 text-white py-2 rounded-lg font-medium hover:bg-green-700 transition-transform duration-200 transform hover:scale-105">
+                                        Submit Ticket
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <!-- Business / Partnership -->
+                        <div *ngIf="activeTab === 'business'" class="transition-opacity duration-500 ease-in">
+                            <div class="grid md:grid-cols-2 gap-8">
+                                <div class="space-y-4">
+                                    <h2 class="text-2xl font-bold text-gray-900">Business Partnerships</h2>
+                                    <p class="text-gray-600">Interested in partnering with Dominus or exploring
+                                        investment
+                                        opportunities? Let’s build something incredible together.</p>
+                                    <div class="space-y-2 text-gray-700">
+                                        <p><i class="fa-solid fa-envelope text-blue-600 mr-2"></i>business@dominus.com
+                                        </p>
+                                        <p><i class="fa-solid fa-briefcase text-blue-600 mr-2"></i>Corporate
+                                            Collaboration
+                                            Department</p>
+                                    </div>
+                                </div>
+                                <form class="bg-white p-6 rounded-2xl shadow-md space-y-4">
+                                    <input type="text" placeholder="Company Name"
+                                        class="w-full border border-gray-300 text-black rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none" />
+                                    <input type="email" placeholder="Business Email"
+                                        class="w-full border border-gray-300 text-black rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none" />
+                                    <textarea rows="4" placeholder="Proposal / Collaboration Details"
+                                        class="w-full border border-gray-300 text-black rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none resize-none"></textarea>
+                                    <button type="submit"
+                                        class="w-full bg-purple-600 text-white py-2 rounded-lg font-medium hover:bg-purple-700 transition-transform duration-200 transform hover:scale-105">
+                                        Send Proposal
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
         </div>
+    </div>
+</section>

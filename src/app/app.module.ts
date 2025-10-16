@@ -22,15 +22,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ToastComponent } from './shared/componants/toast/toast/toast.component';
 import { SafeUrlPipe } from './shared/pipes/angular_pipes/safe-url.pipe';
-import { ProfileComponent } from './features/profile/profile.component';
-import { ProfileEditComponent } from './features/profile/profile-edit-model/profile-edit.component';
 import { ProductBuyComponent } from './features/products/product-buy/product-buy.component';
 import { OrdersComponent } from './features/orders/orders.component';
 import { ContactUsComponent } from './features/contact-us/contact-us.component';
 
 @NgModule({
   declarations: [
-
     AppComponent,
     HomeComponent,
     CartComponent,
@@ -48,11 +45,17 @@ import { ContactUsComponent } from './features/contact-us/contact-us.component';
     AboutComponent,
     TopNavbarComponent,
     MenuModalComponent,
-    ToastComponent, SafeUrlPipe, ProfileComponent, ProfileEditComponent, ProductBuyComponent, OrdersComponent, ContactUsComponent
+    ToastComponent, 
+    SafeUrlPipe, 
+    ProductBuyComponent, 
+    OrdersComponent, 
+    ContactUsComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule, HttpClientModule, FormsModule
+    AppRoutingModule, 
+    HttpClientModule, 
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

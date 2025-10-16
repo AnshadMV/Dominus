@@ -17,9 +17,9 @@ export class LoginComponent implements OnInit {
   email = '';
   password = '';
   showPassword: boolean = false;
-    private apiUrl = website_constants.API.USERURL;
-passwordInvalid: any;
-nameInvalid: any;
+  private apiUrl = website_constants.API.USERURL;
+  passwordInvalid: any;
+  nameInvalid: any;
 
   constructor(
     private userService: UserService,
@@ -65,7 +65,7 @@ nameInvalid: any;
             id: user.id,
             name: (user as any).name,   // if your User interface doesn't have name yet
             email: user.email,
-            
+
             role: (user as any).role || 'user',
             signedTime: currentTime
 
@@ -73,7 +73,12 @@ nameInvalid: any;
 
           localStorage.setItem('currentUser', JSON.stringify(currentUser));
           console.log('Logged in user:', currentUser);
-          this.router.navigate(['/app-home']);
+          // Redirect based on user role
+          if (user.role === 'admin') {
+            this.router.navigate(['/admin/dashboard']);
+          } else {
+            this.router.navigate(['/app-home']);
+          }
         } else {
           this.toast.error('Invalid email or password!');
         }
