@@ -53,3 +53,6 @@ button, select, input {
 .hide-scrollbar::-webkit-scrollbar {
     display: none;
 }
+img.active {
+  opacity: 1;
+}

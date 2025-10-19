@@ -17,37 +17,205 @@
       "orders": []
     },
     {
-      "id": "3bf0",
-      "name": "admin",
+      "id": "a63d",
+      "name": "admin1",
       "email": "admin@gmail.com",
-      "password": "admin",
-      "createdAt": "2025-10-16T08:44:02.094Z",
+      "password": "admin123",
+      "createdAt": "2025-10-16T17:59:56.070Z",
       "role": "admin",
-      "wishlist": [],
-      "orders": []
+      "wishlist": [
+        {
+          "productId": "p1"
+        },
+        {
+          "productId": "p3"
+        },
+        {
+          "productId": "p4"
+        },
+        {
+          "productId": "p2"
+        }
+      ],
+      "orders": [
+        {
+          "id": "order_1760674947077",
+          "userId": "a63d",
+          "orderId": "ORD1760674947077Q7MNO",
+          "orderDate": "October 17, 2025 at 09:52 AM",
+          "items": [
+            {
+              "productId": "p15",
+              "name": "Apple Watch Series 11",
+              "price": 4690,
+              "quantity": 1,
+              "image": "https://images.unsplash.com/photo-1558126319-c9feecbf57ee?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+              "color": "space gray",
+              "category": "watch"
+            }
+          ],
+          "shippingDetails": {
+            "fullName": "admin1",
+            "address": "Not specified",
+            "city": "Not specified",
+            "state": "Not specified",
+            "pincode": "000000",
+            "phone": "Not specified",
+            "email": "admin@gmail.com"
+          },
+          "paymentMethod": "Online Payment",
+          "totalAmount": 4690,
+          "status": "confirmed",
+          "estimatedDelivery": "October 24, 2025"
+        },
+        {
+          "id": "order_1760695141577",
+          "userId": "a63d",
+          "orderId": "ORD17606951415778QR8K",
+          "orderDate": "October 17, 2025 at 03:29 PM",
+          "items": [
+            {
+              "productId": "p14",
+              "name": "MacBook Pro 14 (M4)",
+              "price": 149900,
+              "quantity": 6,
+              "image": "https://media.istockphoto.com/id/1478610778/photo/hcmc-vietnam-macbook-pro-14-inches-m2.jpg?s=612x612&w=0&k=20&c=Rl05e5NYO0YS9DuvgeE4AUmjJw-FgD37_mpTCKVyeng=",
+              "color": "space gray",
+              "category": "laptop"
+            }
+          ],
+          "shippingDetails": {
+            "fullName": "admin1",
+            "address": "Not specified",
+            "city": "Not specified",
+            "state": "Not specified",
+            "pincode": "000000",
+            "phone": "Not specified",
+            "email": "admin@gmail.com"
+          },
+          "paymentMethod": "Online Payment",
+          "totalAmount": 899400,
+          "status": "confirmed",
+          "estimatedDelivery": "October 24, 2025"
+        },
+        {
+          "id": "order_1760695150221",
+          "userId": "a63d",
+          "orderId": "ORD1760695150221Y1PEH",
+          "orderDate": "October 17, 2025 at 03:29 PM",
+          "items": [
+            {
+              "productId": "p14",
+              "name": "MacBook Pro 14 (M4)",
+              "price": 149900,
+              "quantity": 1,
+              "image": "https://media.istockphoto.com/id/1478610778/photo/hcmc-vietnam-macbook-pro-14-inches-m2.jpg?s=612x612&w=0&k=20&c=Rl05e5NYO0YS9DuvgeE4AUmjJw-FgD37_mpTCKVyeng=",
+              "color": "space gray",
+              "category": "laptop"
+            }
+          ],
+          "shippingDetails": {
+            "fullName": "admin1",
+            "address": "Not specified",
+            "city": "Not specified",
+            "state": "Not specified",
+            "pincode": "000000",
+            "phone": "Not specified",
+            "email": "admin@gmail.com"
+          },
+          "paymentMethod": "Online Payment",
+          "totalAmount": 149900,
+          "status": "confirmed",
+          "estimatedDelivery": "October 24, 2025"
+        },
+        {
+          "id": "order_1760695551420",
+          "userId": "a63d",
+          "orderId": "ORD17606955514200Q0U2",
+          "orderDate": "October 17, 2025 at 03:35 PM",
+          "items": [
+            {
+              "productId": "p14",
+              "name": "MacBook Pro 14 (M4)",
+              "price": 149900,
+              "quantity": 2,
+              "image": "https://media.istockphoto.com/id/1478610778/photo/hcmc-vietnam-macbook-pro-14-inches-m2.jpg?s=612x612&w=0&k=20&c=Rl05e5NYO0YS9DuvgeE4AUmjJw-FgD37_mpTCKVyeng=",
+              "color": "space gray",
+              "category": "laptop"
+            }
+          ],
+          "shippingDetails": {
+            "fullName": "admin1",
+            "address": "Not specified",
+            "city": "Not specified",
+            "state": "Not specified",
+            "pincode": "000000",
+            "phone": "Not specified",
+            "email": "admin@gmail.com"
+          },
+          "paymentMethod": "Online Payment",
+          "totalAmount": 299800,
+          "status": "confirmed",
+          "estimatedDelivery": "October 24, 2025"
+        }
+      ],
+      "signedTime": "2025-10-16T18:06:07.499Z",
+      "cart": [
+        {
+          "productId": "p1",
+          "quantity": 3
+        },
+        {
+          "productId": "p8"
+        },
+        {
+          "productId": "p12",
+          "quantity": 5
+        },
+        {
+          "productId": "p11"
+        },
+        {
+          "productId": "p10"
+        },
+        {
+          "productId": "p9",
+          "quantity": 8
+        },
+        {
+          "productId": "p3"
+        },
+        {
+          "productId": "p14",
+          "quantity": 2
+        },
+        {
+          "productId": "p13",
+          "quantity": 11
+        },
+        {
+          "productId": "009f"
+        }
+      ]
     }
   ],
   "products": [
     {
       "id": "p1",
       "name": "iPhone 17 Pro Max",
-      "price": 229900,
+      "price": 229899,
       "images": [
-        "https://images.unsplash.com/photo-1574737308581-1eb78bf8fbc1?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTJ8fGFwcGxlJTIwZ2FkZ2V0c3xlbnwwfDB8MHx8fDA%3D&auto=format&fit=crop&q=60&w=400",
+        "https://images.unsplash.com/photo-1758770478140-e45dac838d40?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aXBob25lJTIwMTclMjBwcm8lMjBtYXh8ZW58MHwyfDJ8fHww&auto=format&fit=crop&q=60&w=400",
         "https://images.unsplash.com/photo-1759203302534-c6e71c93e886?q=80&w=765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         "https://images.unsplash.com/photo-1759588071781-2c3ba9128497?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGlQaG9uZSUyMDE3fGVufDB8fDB8fHww",
         "https://images.unsplash.com/photo-1757709608566-4b9fd41a7af5?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGlQaG9uZSUyMDE3fGVufDB8fDB8fHww"
       ],
       "isStock": true,
-      "colors": [
-        "silver",
-        "graphite",
-        "gold",
-        "blue"
-      ],
+      "colors": "yellow,blue,green",
       "topSelling": true,
-      "stock": null,
+      "stock": 11,
       "category": "mobile",
+      "warranty": "1 Y",
       "slug": "iphone-17-pro-max",
       "description": "Flagship iPhone 17 Pro Max with A-series chip, triple camera system, etc."
     },
@@ -67,9 +235,10 @@
         "green"
       ],
       "topSelling": true,
-      "stock": 0,
+      "stock": 2,
       "category": "mobile",
       "slug": "iphone-17",
+      "warranty": "1 Y",
       "description": "iPhone 17, the standard variant, with dual camera, enhanced features."
     },
     {
@@ -91,9 +260,10 @@
         "purple",
         "yellow"
       ],
-      "topSelling": false,
-      "stock": null,
+      "topSelling": true,
+      "stock": 20,
       "category": "mobile",
+      "warranty": "1 Y",
       "slug": "iphone-16",
       "description": "iPhone 16 with improved battery, camera and processor."
     },
@@ -114,9 +284,10 @@
         "pink"
       ],
       "topSelling": true,
-      "stock": null,
+      "stock": 20,
       "category": "tablet",
       "slug": "ipad-air-6",
+      "warranty": "1 Y",
       "description": "iPad Air (6th Gen) with M-series chip, Ultra Wide camera, etc."
     },
     {
@@ -137,8 +308,9 @@
         "starlight"
       ],
       "topSelling": true,
-      "stock": null,
+      "stock": 20,
       "category": "laptop",
+      "warranty": "1 Y",
       "slug": "macbook-air-m4-13",
       "description": "Lightweight MacBook Air with M4 chip, long battery life."
     },
@@ -155,8 +327,9 @@
         "white"
       ],
       "topSelling": true,
-      "stock": null,
+      "stock": 20,
       "category": "accessory",
+      "warranty": "1 Y",
       "slug": "airpods-pro-2",
       "description": "AirPods Pro second generation with active noise cancellation."
     },
@@ -173,9 +346,10 @@
         "white"
       ],
       "topSelling": false,
-      "stock": null,
+      "stock": 20,
       "category": "accessory",
       "slug": "airpods-3",
+      "warranty": "1 Y",
       "description": "AirPods 3rd generation with spatial audio and better battery."
     },
     {
@@ -195,6 +369,7 @@
       "stock": 98,
       "category": "accessory",
       "slug": "magsafe-charger",
+      "warranty": "1 Y",
       "description": "MagSafe wireless charger for iPhones and accessories."
     },
     {
@@ -213,6 +388,7 @@
       "stock": 200,
       "category": "accessory",
       "slug": "usb-c-20w-adapter",
+      "warranty": "1 Y",
       "description": "Compact USB-C 20W charger for iPhones and iPads."
     },
     {
@@ -230,9 +406,10 @@
         "saddle brown"
       ],
       "topSelling": false,
-      "stock": 9,
+      "stock": 10,
       "category": "accessory",
       "slug": "iphone-leather-case",
+      "warranty": "1 Y",
       "description": "Genuine leather case for iPhone, protective and elegant."
     },
     {
@@ -251,6 +428,7 @@
       "stock": 25,
       "category": "accessory",
       "slug": "apple-pencil-usbc",
+      "warranty": "1 Y",
       "description": "Second generation Apple Pencil with USB-C charging."
     },
     {
@@ -263,12 +441,14 @@
       ],
       "isStock": true,
       "colors": [
-        "white"
+        "space gray",
+        "pink"
       ],
       "topSelling": false,
       "stock": 43,
       "category": "accessory",
       "slug": "magsafe-battery-pack",
+      "warranty": "1 Y",
       "description": "Portable MagSafe battery pack for wireless charging on the go."
     },
     {
@@ -288,6 +468,7 @@
       "stock": 11,
       "category": "tablet",
       "slug": "ipad-pro-12-9-m4",
+      "warranty": "1 Y",
       "description": "iPad Pro 12.9-inch with M4 chip, Liquid Retina XDR display."
     },
     {
@@ -305,9 +486,10 @@
         "silver"
       ],
       "topSelling": true,
-      "stock": 7,
+      "stock": 0,
       "category": "laptop",
       "slug": "macbook-pro-14-m4",
+      "warranty": "1 Y",
       "description": "MacBook Pro 14-inch with M4 chip and ProMotion display."
     },
     {
@@ -323,9 +505,10 @@
         "silver"
       ],
       "topSelling": true,
-      "stock": 3,
+      "stock": 20,
       "category": "watch",
       "slug": "Apple Watch Series 11",
+      "warranty": "1 Y",
       "description": "The ultimate watch for a healthy life."
     }
   ],
@@ -390,4 +573,5 @@
       "learnMoreLink": "/services/interior",
       "thumbnail": "src/assets/images/Dominus_black.png"
     }
-  ]}
+  ]
+}

@@ -2,21 +2,19 @@
   <div class="flex items-center justify-between px-6 py-4">
     <!-- Left Section -->
     <div class="flex items-center space-x-4">
-      <button
-        (click)="onToggleSidebar()"
-        class="p-2 rounded-lg hover:bg-gray-100 transition-colors text-gray-600">
-        <i class="fa-solid fa-bars"></i>
+      <button (click)="onToggleSidebar()" class="p-2 rounded-lg hover:bg-gray-100 transition-colors text-gray-600">
+       <i class="fa-solid fa-bars-staggered"></i>
       </button>
 
       <!-- Search Bar -->
       <div class="relative hidden md:block">
         <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-          <i class="fa-solid fa-magnifying-glass text-gray-400"></i>
+          <i class="fa-solid fa-magnifying-glass text-yellow-400"></i>
         </div>
-        <input
-          type="text"
-          class="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-64"
+        <input type="text" [(ngModel)]="searchQuery" (keyup.enter)="onSearch()"
+          class="pl-10 pr-4 py-2 text-black border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-64"
           placeholder="Search...">
+
       </div>
     </div>
 
@@ -24,27 +22,28 @@
     <div class="flex items-center space-x-4">
       <!-- Notifications -->
       <button class="relative p-2 rounded-lg hover:bg-gray-100 transition-colors text-gray-600">
-        <i class="fa-solid fa-bell"></i>
-        <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+        <i class="fa-regular fa-bell fa-bounce" style="color: #00ad79;"></i>
+        <span
+          class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center fa-bounce">
           3
         </span>
       </button>
 
       <!-- Messages -->
       <button class="relative p-2 rounded-lg hover:bg-gray-100 transition-colors text-gray-600">
-        <i class="fa-solid fa-envelope"></i>
-        <span class="absolute -top-1 -right-1 bg-blue-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+        <i class="fa-regular fa-comments fa-bounce" style="color: #FFD43B;"></i>
+        <span
+          class="absolute -top-1 -right-1 bg-blue-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center fa-bounce">
           5
         </span>
       </button>
 
       <!-- User Menu -->
       <div class="relative">
-        <button
+        <button (click)="toggleProfileDropdown()"
           class="flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-100 transition-colors">
-          <img
-            class="w-8 h-8 rounded-full"
-            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+          <img class="w-8 h-8 rounded-full"
+            src="https://plus.unsplash.com/premium_vector-1744204735077-1bd412e3e817?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=880"
             alt="Admin User">
           <span class="hidden md:block text-sm font-medium text-gray-700">
             {{ getAdminUser()?.name || 'Admin User' }}
@@ -53,18 +52,25 @@
         </button>
 
         <!-- Dropdown Menu -->
-        <div class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 z-50 border border-gray-200 hidden">
-          <a href="#" class="flex items-center space-x-3 px-4 py-2 hover:bg-gray-100 transition-colors text-gray-700">
+        <div *ngIf="showProfileDropdown"
+          class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 z-50 border border-gray-200">
+          <a routerLink="/app-home"
+            class="flex items-center space-x-3 px-4 py-2 hover:bg-gray-100 transition-colors text-red-700">
+            <i class="fa-solid fa-user text-sm"></i>
+            <span>Home</span>
+          </a>
+          <a routerLink="/app-profile"
+            class="flex items-center space-x-3 px-4 py-2 hover:bg-gray-100 transition-colors text-blue-700">
             <i class="fa-solid fa-user text-sm"></i>
             <span>Profile</span>
           </a>
-          <a href="#" class="flex items-center space-x-3 px-4 py-2 hover:bg-gray-100 transition-colors text-gray-700">
+          <a routerLink="/app-setting"
+            class="flex items-center space-x-3 px-4 py-2 hover:bg-gray-100 transition-colors text-green-700">
             <i class="fa-solid fa-cog text-sm"></i>
             <span>Settings</span>
           </a>
           <hr class="my-2">
-          <button
-            (click)="logout()"
+          <button (click)="logout()"
             class="flex items-center space-x-3 px-4 py-2 hover:bg-red-50 text-red-600 transition-colors w-full text-left">
             <i class="fa-solid fa-right-from-bracket text-sm"></i>
             <span>Logout</span>

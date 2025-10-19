@@ -3,7 +3,8 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 interface SidebarMenuItem {
   label: string;
   icon: string;
-  route: string;
+  color?: string;
+  route?: string; 
   children?: SidebarMenuItem[];
 }
 @Component({
@@ -15,48 +16,32 @@ export class AdminSidebarComponent {
   @Input() isCollapsed: boolean = false;
   @Output() toggleSidebar = new EventEmitter<void>();
 
-  menuItems: SidebarMenuItem[] = [
-    {
-      label: 'Dashboard',
-      icon: 'fa-solid fa-gauge',
-      route: '/admin/dashboard'
-    },
-    {
-      label: 'Products',
-      icon: 'fa-solid fa-box',
-      route: '/admin/products',
-      children: [
-        { label: 'All Products', icon: 'fa-solid fa-list', route: '/admin/products' },
-        { label: 'Add New', icon: 'fa-solid fa-plus', route: '/admin/products/new' },
-        { label: 'Categories', icon: 'fa-solid fa-tags', route: '/admin/products/categories' }
-      ]
-    },
-    {
-      label: 'Orders',
-      icon: 'fa-solid fa-shopping-cart',
-      route: '/admin/orders'
-    },
-    {
-      label: 'Customers',
-      icon: 'fa-solid fa-users',
-      route: '/admin/customers'
-    },
-    {
-      label: 'Inventory',
-      icon: 'fa-solid fa-warehouse',
-      route: '/admin/inventory'
-    },
-    {
-      label: 'Coupons',
-      icon: 'fa-solid fa-ticket',
-      route: '/admin/coupons'
-    },
-    {
-      label: 'Settings',
-      icon: 'fa-solid fa-cog',
-      route: '/admin/settings'
-    }
-  ];
+ menuItems = [
+  { label: 'Dashboard', icon: 'fa-solid fa-chart-line', route: '/admin/dashboard', color: '#4285F4' }, // Blue
+   { 
+    label: 'Products', 
+    icon: 'fa-solid fa-cube', 
+    color: '#34A853',
+    children: [
+      { label: 'Product List', route: '/admin/products/list', icon: 'fa-solid fa-list', color: '#34A853' },
+      { label: 'Add Product', route: '/admin/products/new', icon: 'fa-solid fa-plus', color: '#4285F4' },
+      { label: 'Categories', route: '/admin/products/categories', icon: 'fa-solid fa-tags', color: '#FBBC05' }
+    ]
+  },
+  { label: 'Users', icon: 'fa-solid fa-user-group', route: '/admin/users', color: '#34A853' }, // Green
+  { label: 'Reports', icon: 'fa-solid fa-file-lines', route: '/admin/reports', color: '#FBBC05' }, // Yellow
+  { label: 'Settings', icon: 'fa-solid fa-gear', route: '/admin/settings', color: '#EA4335' }, // Red
+  {
+    label: 'Analytics', 
+    icon: 'fa-solid fa-chart-pie', 
+    color: '#4285F4',
+    children: [
+      { label: 'Overview', route: '/admin/analytics/overview', icon: 'fa-regular fa-circle-dot', color: '#34A853' },
+      { label: 'Traffic', route: '/admin/analytics/traffic', icon: 'fa-regular fa-chart-bar', color: '#FBBC05' },
+    ]
+  }
+];
+
 
   expandedItems: Set<string> = new Set();
 

@@ -25,7 +25,7 @@ export class ProductBuyComponent implements OnInit {
   userId: string = '';
   isProcessing: boolean = false;
   isLoading = false;
-  showBuy:boolean= false
+  showBuy: boolean = false
 
   constructor(
     private router: Router,
@@ -90,10 +90,14 @@ export class ProductBuyComponent implements OnInit {
 
     // Create an array of update requests for each product
     const stockUpdateRequests = this.products.map(product => {
-      const newStock = product.stock - product.quantity;
+      // If stock is null, keep it null (unlimited stock)
+      // Otherwise, calculate new stock
+      const newStock = product.stock === null
+        ? null
+        : Math.max(0, product.stock - product.quantity);
 
-      // Check if there's enough stock
-      if (newStock < 0) {
+      // Only check stock if it's being tracked (not null)
+      if (product.stock !== null && product.stock < product.quantity) {
         throw new Error(`Not enough stock for ${product.name}`);
       }
 
@@ -223,6 +227,6 @@ export class ProductBuyComponent implements OnInit {
   }
 
   goBack() {
-    this.router.navigate(['/app-product-list']);
+    this.router.navigate(['/products']);
   }
 }

@@ -13,7 +13,6 @@ import { Category } from '../models/category.model';
 export class ProductService {
 
     private apiUrl = website_constants.API.PRODUCTURL;
-
     private categoryUrl = 'http://localhost:3000/categories';
 
     constructor(private http: HttpClient) { }
@@ -32,4 +31,15 @@ export class ProductService {
             map(products => products.find(product => product.id === id))
         );
     }
+    updateProduct(id: number | string, product: any) {
+        return this.http.put(`http://localhost:3000/products/${id}`, product);
+    }
+    deleteProduct(id: string): Observable<any> {
+        return this.http.delete<any>(`${this.apiUrl}/${id}`);
+    } 
+    createProduct(product: any) {
+        return this.http.post(this.apiUrl, product);
+    }
+
+
 }

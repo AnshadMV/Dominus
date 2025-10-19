@@ -162,6 +162,6 @@ export class WishlistComponent implements OnInit {
     this.WishlistItems = [];
   }
   goBack() {
-    this.router.navigate(['/app-product-list']);
+    this.router.navigate(['/products']);
   }
 }

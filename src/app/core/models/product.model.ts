@@ -11,4 +11,6 @@ export interface Product {
     category: string;
     slug: string;
     description: string;
+    warranty: string; 
+    isActive:boolean;
 }

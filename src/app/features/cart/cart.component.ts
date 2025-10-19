@@ -131,7 +131,7 @@ export class CartComponent implements OnInit {
       quantity: cartItem?.quantity || 1
     };
 
-    this.router.navigate(['/app-product-buy'], {
+    this.router.navigate(['/products/product-buy'], {
       state: { product: [productWithQuantity] }
     });
   }
@@ -143,7 +143,7 @@ export class CartComponent implements OnInit {
       quantity: item.quantity
     }));
 
-    this.router.navigate(['/app-product-buy'], {
+    this.router.navigate(['/products/product-buy'], {
       state: { product: selectedProducts }
     });
   }
@@ -198,6 +198,6 @@ export class CartComponent implements OnInit {
   }
 
   goBack() {
-    this.router.navigate(['/app-product-list']);
+    this.router.navigate(['/products']);
   }
 }

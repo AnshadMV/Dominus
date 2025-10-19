@@ -129,7 +129,7 @@
           <p class="text-gray-500 mb-6">
             {{ filterStatus === 'all' ? 'Start shopping to see your orders here' : 'You don\'t have any ' + filterStatus + ' orders' }}
           </p>
-          <a *ngIf="filterStatus === 'all'" routerLink="/app-product-list" 
+          <a *ngIf="filterStatus === 'all'" routerLink="/app-products/product-list" 
             class="inline-block bg-black text-white px-6 py-3 rounded-full font-medium hover:bg-gray-800 transition-colors">
             Start Shopping
           </a>

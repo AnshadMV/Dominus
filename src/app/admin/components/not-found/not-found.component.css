@@ -1,0 +1,8 @@
+/* Custom Styles */
+.lottie-iframe {
+  width: 100%;   /* Set width as per your needs, here it takes full container width */
+  max-width: 600px;  /* Max width for the iframe */
+  height: 400px;    /* Set a fixed height, adjust as needed */
+  border: none;     /* Removes default border */
+  display: block;   /* Ensures block-level display for centering */
+}

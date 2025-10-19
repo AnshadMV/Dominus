@@ -6,8 +6,6 @@ import { HomeComponent } from './features/home/home.component';
 import { CartComponent } from './features/cart/cart.component';
 import { WishlistComponent } from './features/wishlist/wishlist.component';
 import { PaymentComponent } from './features/payment/payment.component';
-import { ProductListComponent } from './features/products/product-list/product-list.component';
-import { ProductDetailComponent } from './features/products/product-detail/product-detail.component';
 import { LoginComponent } from './features/auth/login/login.component';
 import { RegisterComponent } from './features/auth/register/register.component';
 import { ButtonComponent } from './shared/componants/button/button.component';
@@ -22,9 +20,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ToastComponent } from './shared/componants/toast/toast/toast.component';
 import { SafeUrlPipe } from './shared/pipes/angular_pipes/safe-url.pipe';
-import { ProductBuyComponent } from './features/products/product-buy/product-buy.component';
 import { OrdersComponent } from './features/orders/orders.component';
 import { ContactUsComponent } from './features/contact-us/contact-us.component';
+import { ProductModule } from './features/products/product.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -33,8 +32,6 @@ import { ContactUsComponent } from './features/contact-us/contact-us.component';
     CartComponent,
     WishlistComponent,
     PaymentComponent,
-    ProductListComponent,
-    ProductDetailComponent,
     LoginComponent,
     RegisterComponent,
     ButtonComponent,
@@ -47,15 +44,14 @@ import { ContactUsComponent } from './features/contact-us/contact-us.component';
     MenuModalComponent,
     ToastComponent, 
     SafeUrlPipe, 
-    ProductBuyComponent, 
     OrdersComponent, 
-    ContactUsComponent,
+    ContactUsComponent, 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule, 
     HttpClientModule, 
-    FormsModule
+    FormsModule,ProductModule, BrowserAnimationsModule,  
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdminGuard } from './guards/admin.guard';
 import { AdminComponent } from './admin.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { AdminNotFoundComponent } from './components/not-found/not-found.component';
 
 const routes: Routes = [
     {
@@ -12,16 +13,21 @@ const routes: Routes = [
         children: [
             { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
             { path: 'dashboard', component: DashboardComponent },
-            // {
-            //     path: 'products',
-            //     loadChildren: () => import('./components/products/admin-product.module').then(m => m.AdminProductModule)
-            // },
+            {
+                path: 'products', // This is where the products path should be defined
+                loadChildren: () => import('./components/products/admin-product.module').then(m => m.AdminProductModule)
+            },
             // {
             //     path: 'orders',
             //     loadChildren: () => import('./components/orders/admin-orders.module').then(m => m.AdminOrdersModule)
             // },
 
         ]
+    },
+    {
+        path: '**',
+        component: AdminNotFoundComponent,
+        
     }
 ];
 

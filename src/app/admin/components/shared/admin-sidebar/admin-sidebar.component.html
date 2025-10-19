@@ -1,89 +1,91 @@
 <aside 
-  class="bg-gray-800 text-white transition-all duration-300 overflow-hidden"
+  class="bg-white text-gray-800 shadow-md transition-all duration-300 overflow-hidden border-r border-gray-200"
   [class.w-64]="!isCollapsed"
   [class.w-20]="isCollapsed">
-  
+
   <!-- Logo Section -->
-  <div class="p-4 border-b border-gray-700">
-    <div class="flex items-center justify-between">
-      <div class="flex items-center space-x-3" *ngIf="!isCollapsed">
-        <h1 class="text-xl font-bold text-white">Admin Panel</h1>
-      </div>
-      <div class="flex items-center" *ngIf="isCollapsed">
-        <i class="fa-solid fa-gauge text-xl"></i>
-      </div>
-      <button 
-        (click)="onToggleSidebar()"
-        class="p-1 rounded-lg hover:bg-gray-700 transition-colors">
-        <i 
-          class="fa-solid text-sm"
-          [class.fa-chevron-left]="!isCollapsed"
-          [class.fa-chevron-right]="isCollapsed"></i>
-      </button>
+  <div class="p-4 border-b border-gray-100 flex items-center justify-between">
+    <div class="flex items-center space-x-2" *ngIf="!isCollapsed">
+      <i class="fa-brands fa-d text-blue-600 text-2xl"></i>
+      <h1 class="text-lg font-semibold tracking-tight">Admin Panel</h1>
     </div>
+    <div class="flex items-center" *ngIf="isCollapsed">
+      <i class="fa-brands fa-d text-blue-600 text-2xl"></i>
+    </div>
+    <button 
+      (click)="onToggleSidebar()"
+      class="p-2 rounded-lg hover:bg-gray-100 transition-colors text-gray-500">
+      <i 
+        class="fa-solid text-sm"
+        [class.fa-chevron-left]="!isCollapsed"
+        [class.fa-chevron-right]="isCollapsed"></i>
+    </button>
   </div>
 
-  <!-- Navigation Menu -->
+  <!-- Navigation -->
   <nav class="p-4 space-y-2">
     <ng-container *ngFor="let menuItem of menuItems">
+
       <!-- Menu Item with Children -->
       <div *ngIf="hasChildren(menuItem)" class="space-y-1">
         <button
           (click)="toggleSubMenu(menuItem.label)"
-          class="w-full flex items-center justify-between p-3 rounded-lg hover:bg-gray-700 transition-colors text-left">
+          class="w-full flex items-center justify-between p-3 rounded-xl hover:bg-gray-100 transition-colors text-left">
           <div class="flex items-center space-x-3">
-            <i [class]="menuItem.icon" class="w-5 text-center"></i>
+            <i [class]="menuItem.icon" 
+               class="text-xl w-5"
+               [ngStyle]="{'color': menuItem}"></i>
             <span *ngIf="!isCollapsed" class="font-medium">{{ menuItem.label }}</span>
           </div>
           <i 
             *ngIf="!isCollapsed"
-            class="fa-solid fa-chevron-down text-xs transition-transform"
+            class="fa-solid fa-chevron-down text-xs text-gray-500 transition-transform"
             [class.rotate-180]="isExpanded(menuItem.label)"></i>
         </button>
 
         <!-- Submenu Items -->
         <div 
           *ngIf="!isCollapsed && isExpanded(menuItem.label)"
-          class="ml-6 space-y-1 border-l border-gray-600 pl-3">
+          class="ml-6 space-y-1 border-l border-gray-200 pl-3">
           <a
             *ngFor="let child of menuItem.children"
             [routerLink]="child.route"
-            routerLinkActive="bg-blue-600 text-white"
-            class="flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-700 transition-colors text-gray-300">
-            <i [class]="child.icon" class="w-4 text-center text-sm"></i>
-            <span class="text-sm">{{ child.label }}</span>
+            routerLinkActive="bg-blue-50 text-blue-700"
+            class="flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-100 transition-colors">
+            <i [class]="child.icon" class="w-4 text-center text-sm" [ngStyle]="{'color': child.color}"></i>
+            <span class="text-sm font-medium">{{ child.label }}</span>
           </a>
         </div>
       </div>
 
-      <!-- Single Menu Item (No Children) -->
+      <!-- Single Menu Item -->
       <a
         *ngIf="!hasChildren(menuItem)"
         [routerLink]="menuItem.route"
-        routerLinkActive="bg-blue-600 text-white"
-        class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-700 transition-colors">
-        <i [class]="menuItem.icon" class="w-5 text-center"></i>
+        routerLinkActive="bg-blue-50 text-blue-700"
+        class="flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-100 transition-colors">
+        <i [class]="menuItem.icon" class="text-xl w-5" [ngStyle]="{'color': menuItem.color}"></i>
         <span *ngIf="!isCollapsed" class="font-medium">{{ menuItem.label }}</span>
       </a>
     </ng-container>
   </nav>
 
   <!-- User Section -->
-  <div class="absolute bottom-0 left-0 right-0 p-4 border-t border-gray-700 bg-gray-800">
+  <div class="absolute bottom-0 left-0 right-0 p-4 border-t border-gray-100 bg-gray-50">
     <div class="flex items-center space-x-3" *ngIf="!isCollapsed">
       <img 
-        class="w-8 h-8 rounded-full"
-        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+        class="w-9 h-9 rounded-full border border-gray-200"
+        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=128&q=80"
         alt="Admin User">
       <div class="flex-1 min-w-0">
-        <p class="text-sm font-medium text-white truncate">Admin User</p>
-        <p class="text-xs text-gray-400 truncate">admin@example.com</p>
+        <p class="text-sm font-semibold text-gray-800 truncate">Admin User</p>
+        <p class="text-xs text-gray-500 truncate">admin@example.com</p>
       </div>
     </div>
     <div class="flex items-center justify-center" *ngIf="isCollapsed">
       <img 
-        class="w-8 h-8 rounded-full"
-        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+        class="w-9 h-9 rounded-full border border-gray-200"
+        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=128&q=80"
         alt="Admin User">
     </div>
   </div>

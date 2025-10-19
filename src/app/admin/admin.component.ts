@@ -16,4 +16,9 @@ export class AdminComponent {
   toggleSidebar(): void {
     this.isSidebarCollapsed = !this.isSidebarCollapsed;
   }
+  // onFabClick() {
+  //   alert('Floating Action Button clicked!');
+  //   // Open modal, navigate, or trigger action
+  // }
+
 }

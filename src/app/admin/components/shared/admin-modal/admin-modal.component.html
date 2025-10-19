@@ -1,0 +1,84 @@
+<div *ngIf="isOpen" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-md mx-4">
+        <!-- Modal Header -->
+        <div class="flex justify-between items-center mb-4">
+            <h2 class="text-xl font-bold text-gray-800">
+                {{ mode === 'edit' ? 'Edit Product' : 'Delete Product' }}
+            </h2>
+            <button (click)="onClose()" class="text-gray-500 hover:text-gray-700">
+                <i class="fa-solid fa-times fa-xl fa" style="color: #6e6e6e;"></i>
+            </button>
+        </div>
+
+        <!-- Edit Mode: Form -->
+        <form *ngIf="mode === 'edit'" [formGroup]="editForm" (ngSubmit)="onSave()">
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Name</label>
+                    <input formControlName="name" type="text"
+                        class="text-black mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Price</label>
+                    <input formControlName="price" type="number"
+                        class="text-black mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Stock</label>
+                    <input formControlName="stock" type="number"
+                        class="text-black mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 ">Category</label>
+                    <select formControlName="category"
+                        class="mt-1 text-black block w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500">
+                        <option value="">Select a category</option>
+                        <option class="text-black" *ngFor="let cat of categories" [value]="cat"
+                            [selected]="cat === editForm.get('category')?.value">{{ cat }}</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Colors (comma-separated)</label>
+                    <input formControlName="colors" type="text"
+                        class="mt-1 text-black block w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500"
+                        placeholder="e.g., Red, Blue, White">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Warranty</label>
+                    <input formControlName="warranty" type="text"
+                        class="text-black mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                <div class="flex items-center">
+                    <input formControlName="topSelling" type="checkbox"
+                        class="text-black h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                    <label class="ml-2 block text-sm text-gray-700">Top Selling</label>
+                </div>
+                <div class="flex items-center">
+                    <input formControlName="isActive" type="checkbox"
+                        class="text-black h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                    <label class="ml-2 block text-sm text-gray-700">Active</label>
+                </div>
+                <!-- Add images handling if needed (e.g., file input) -->
+            </div>
+            <div class="mt-6 flex justify-end space-x-3">
+                <button type="button" (click)="onClose()"
+                    class="bg-gray-300 hover:bg-gray-400 text-gray-800 px-4 py-2 rounded-md">Cancel</button>
+                <button type="submit"
+                    class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md">Save</button>
+            </div>
+        </form>
+
+        <!-- Delete Mode: Confirmation -->
+        <div *ngIf="mode === 'delete'">
+            <p class="text-gray-700 mb-4">Are you sure you want to delete "{{ product?.name }}"? This action cannot be
+                undone.</p>
+            <div class="flex justify-end space-x-3">
+                <button (click)="onClose()"
+                    class="bg-gray-300 hover:bg-gray-400 text-gray-800 px-4 py-2 rounded-md">Cancel</button>
+                <button (click)="onDelete()"
+                    class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>

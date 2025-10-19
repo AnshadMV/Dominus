@@ -36,11 +36,7 @@ const routes: Routes = [
     // canActivate: [AuthGuard] 
 
   },
-  {
-    path: 'app-product-list',
-    component: ProductListComponent,
-    canActivate: [AuthGuard]
-  },
+
   {
     path: 'app-orders',
     component: OrdersComponent,
@@ -57,12 +53,7 @@ const routes: Routes = [
     component: CartComponent,
     canActivate: [AuthGuard]
   },
-  {
-    path: 'app-product-buy',
-    component: ProductBuyComponent,
-    // canActivate: [AuthGuard] 
-    canActivate: [AuthGuard]
-  },
+ 
   {
     path: 'app-contact-us',
     component: ContactUsComponent,
@@ -70,8 +61,8 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'app-product-detail/:id',
-    component: ProductDetailComponent,
+    path: 'products',
+    loadChildren: () => import('./features/products/product.module').then(m => m.ProductModule),
     canActivate: [AuthGuard]
   },
   {

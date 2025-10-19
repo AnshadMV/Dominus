@@ -66,7 +66,7 @@ export class ProfileComponent implements OnInit {
   private updateUserInDatabase(updatedUser: any) {
     // Make PUT request to update user in db.json
     fetch(`http://localhost:3000/users/${updatedUser.id}`, {
-      method: 'PUT',
+      method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
       },

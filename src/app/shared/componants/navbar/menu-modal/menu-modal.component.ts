@@ -11,7 +11,7 @@ export class MenuModalComponent {
   private routes = inject(Router)
   navItems = [
     { label: 'Home', link: '/app-home' },
-    { label: 'Products', link: './app-product-list' },
+    { label: 'Products', link: './app-products/product-list' },
     { label: 'Cart', link: '/app-cart' },
     { label: 'Wishlist', link: '/app-wishlist' },
     { label: 'About', link: '/app-about' },

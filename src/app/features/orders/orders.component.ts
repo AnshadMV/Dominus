@@ -126,6 +126,6 @@ export class OrdersComponent implements OnInit {
   }
 
   goBack() {
-    this.route.navigate(['/app-product-list']);
+    this.route.navigate(['/products']);
   }
 }

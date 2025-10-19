@@ -36,7 +36,7 @@ export class AdminAuthService {
   }
 
   getAdminUser(): any {
-    const user = localStorage.getItem('admin_user');
+    const user = localStorage.getItem('currentUser');
     return user ? JSON.parse(user) : null;
   }
 

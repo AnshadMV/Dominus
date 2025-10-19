@@ -308,7 +308,7 @@ export class ProductListComponent implements OnInit {
 
             }
             else {
-                this.router.navigate(['/app-product-buy'], {
+                this.router.navigate(['/products/product-buy'], {
                     state: { product: [product] }
                 });
             }
@@ -317,7 +317,7 @@ export class ProductListComponent implements OnInit {
     }
 
     viewProductDetail(product: Product) {
-        this.router.navigate(['/app-product-detail', product.id]);
+        this.router.navigate(['products/product-detail', product.id]);
     }
 
     getAddToCartButtonClass(product: Product): string {

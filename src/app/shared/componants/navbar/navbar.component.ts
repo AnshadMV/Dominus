@@ -51,7 +51,7 @@ export class NavbarComponent implements OnInit {
   }
 
   menuItems = [
-    { label: 'Shop', route: '/app-product-list' },
+    { label: 'Shop', route: '/app-products/product-list' },
     { label: 'Contact Us', route: '/app-contact-us' },
     { label: 'About Us', route: '/app-about' },
   ];
@@ -157,8 +157,8 @@ export class NavbarComponent implements OnInit {
     this.searchService.setSearchTerm(term);
 
     // Navigate to product list if not already there and search is active
-    if (term.length > 0 && !this.router.url.includes('/app-product-list')) {
-      this.router.navigate(['/app-product-list']);
+    if (term.length > 0 && !this.router.url.includes('/app-products/product-list')) {
+      this.router.navigate(['/app-products/product-list']);
     }
   }
 

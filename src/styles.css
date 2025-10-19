@@ -73,8 +73,7 @@
 
 
 * {
-    font-family: "Special Elite", system-ui;
-  font-weight: 400;
+ 
   font-style: normal;
 
 }
@@ -82,3 +81,6 @@
 body::-webkit-scrollbar {
   display: none;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

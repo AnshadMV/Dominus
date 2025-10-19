@@ -16,6 +16,7 @@ export class ProfileEditComponent {
   }
 
   saveChanges() {
+    
     this.updateUser.emit(this.user);
     this.close();
   }
