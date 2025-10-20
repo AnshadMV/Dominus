@@ -16,7 +16,7 @@ export class AdminProductFormComponent implements OnInit {
   isSubmitting = false;
   productId: string | null = null;
   imagePreviews: string[] = [];
-  invalidImageUrls: number[] = []; // Track invalid image URLs
+  invalidImageUrls: number[] = [];
 
   categories: Category[] = [];
 
@@ -122,16 +122,16 @@ export class AdminProductFormComponent implements OnInit {
 
     const productData = {
       name: formData.name,
-      description: formData.description,
       price: Number(formData.price),
+      images: validImages,
+      isStock: formData.status === 'active',
+      colors: formData.colors.split(',').map((color: string) => color.trim()),
+      topSelling: formData.topselling === 'yes',
       stock: Number(formData.stock),
       category: formData.category,
-      isStock: formData.status === 'active',
-      topSelling: formData.topselling === 'yes',
-      colors: formData.colors.split(',').map((color: string) => color.trim()),
+      slug: this.generateSlug(formData.name),
       warranty: formData.warranty,
-      images: validImages, // Only include valid images
-      slug: this.generateSlug(formData.name)
+      description: formData.description
     };
 
     if (this.isEditMode && this.productId) {

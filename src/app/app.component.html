@@ -1,10 +1,10 @@
 <section class="fixed top-0 w-full z-50">
-  <app-top-navbar />
+  <app-top-navbar *ngIf="showHeader" (visibilityChange)="onTopNavbarVisibilityChange($event)" />
 </section>
-<!-- <div *ngIf="showNavbarPadding">
-    <div *ngFor="let item of [1,2]" class="py-8"></div>
-</div> -->
-<app-navbar *ngIf="showHeader"></app-navbar>
+<main [class.pt-6]="showHeader && showTopNavbar" [class.pt-0]="!showHeader || !showTopNavbar">
+  <app-navbar *ngIf="showHeader"></app-navbar>
+  <router-outlet />
+</main>
 <router-outlet />
 <app-toast />
 <app-footer *ngIf="showFooter"></app-footer>

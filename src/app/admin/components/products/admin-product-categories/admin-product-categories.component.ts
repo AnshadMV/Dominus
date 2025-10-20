@@ -1,16 +1,10 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { Category } from 'src/app/core/models/category.model';
+import { ProductService } from 'src/app/core/services/product.service';
+import { ToastService } from 'src/app/core/services/toast.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
-interface Category {
-  id: string;
-  name: string;
-  description: string;
-  color: string;
-  icon: string;
-  productCount: number;
-  status: 'active' | 'inactive';
-  createdAt: Date;
-}
+import { CategoriesService } from 'src/app/core/services/categories.service';
 
 @Component({
   selector: 'app-admin-product-categories',
@@ -18,213 +12,130 @@ interface Category {
   styleUrls: ['./admin-product-categories.component.css']
 })
 export class AdminProductCategoriesComponent implements OnInit {
-  categories: Category[] = [];
-  showCategoryModal = false;
-  editingCategory: Category | null = null;
+  categories: Category[] = []
   openMenuId: string | null = null;
-  categoryForm: FormGroup;
+  showCategoryModal: boolean = false;
+  totalCategories: number = 0
+  activeCategories: number = 0
+  nonactiveCategories: number = 0
 
-  constructor(private fb: FormBuilder) {
-    this.categoryForm = this.createCategoryForm();
-  }
+  // Modal properties
+  isModalOpen: boolean = false;
+  modalMode: 'edit' | 'delete' | 'add' = 'add';
+  selectedCategory: Category | null = null;
 
-  ngOnInit(): void {
+  constructor(
+    private productService: ProductService,
+    private categoriesService: CategoriesService,
+    private http: HttpClient,
+    private toast: ToastService,
+    private fb: FormBuilder) { }
+
+  ngOnInit() {
     this.loadCategories();
-    console.log('AdminProductCategoriesComponent initialized');
   }
 
-  createCategoryForm(): FormGroup {
-    return this.fb.group({
-      name: ['', [Validators.required, Validators.minLength(2)]],
-      description: [''],
-      color: ['#3B82F6'],
-      icon: ['fa-solid fa-cube'],
-      status: ['active']
+  loadCategories() {
+    this.categoriesService.getCategories().subscribe({ // Use categoriesService instead of productService
+      next: (categories) => {
+        this.categories = categories;
+        this.totalCategories = this.categories.length
+        this.activeCategories = this.categories.filter((x) => x.status == true).length
+        this.nonactiveCategories = this.categories.filter((x) => x.status !== true).length
+      },
+      error: (error) => {
+        console.error('Error loading categories:', error);
+        this.toast.error("Error loading categories")
+      }
     });
   }
 
-  loadCategories(): void {
-    // Mock data - replace with actual API call
-    this.categories = [
-      {
-        id: '1',
-        name: 'Electronics',
-        description: 'Electronic devices and accessories',
-        color: '#3B82F6',
-        icon: 'fa-solid fa-laptop',
-        productCount: 45,
-        status: 'active',
-        createdAt: new Date('2024-01-15')
-      },
-      {
-        id: '2',
-        name: 'Clothing',
-        description: 'Fashion and apparel',
-        color: '#EF4444',
-        icon: 'fa-solid fa-shirt',
-        productCount: 78,
-        status: 'active',
-        createdAt: new Date('2024-01-10')
-      },
-      {
-        id: '3',
-        name: 'Books',
-        description: 'Books and educational materials',
-        color: '#10B981',
-        icon: 'fa-solid fa-book',
-        productCount: 23,
-        status: 'active',
-        createdAt: new Date('2024-01-20')
-      },
-      {
-        id: '4',
-        name: 'Home & Garden',
-        description: 'Home decor and garden supplies',
-        color: '#F59E0B',
-        icon: 'fa-solid fa-home',
-        productCount: 34,
-        status: 'inactive',
-        createdAt: new Date('2024-01-05')
-      },
-      {
-        id: '5',
-        name: 'Sports',
-        description: 'Sports equipment and accessories',
-        color: '#8B5CF6',
-        icon: 'fa-solid fa-dumbbell',
-        productCount: 29,
-        status: 'active',
-        createdAt: new Date('2024-01-25')
-      },
-      {
-        id: '6',
-        name: 'Beauty',
-        description: 'Cosmetics and personal care',
-        color: '#EC4899',
-        icon: 'fa-solid fa-spa',
-        productCount: 56,
-        status: 'active',
-        createdAt: new Date('2024-01-18')
-      }
-    ];
+  menuOption(id: string) {
+    this.openMenuId = this.openMenuId === id ? null : id;
   }
 
-  // Statistics getters
-  get totalCategories(): number {
-    return this.categories.length;
+  openAddCategoryModal() {
+    this.modalMode = 'add';
+    this.selectedCategory = null;
+    this.isModalOpen = true;
   }
 
-  get activeCategories(): number {
-    return this.categories.filter(cat => cat.status === 'active').length;
-  }
-
-  get totalProducts(): number {
-    return this.categories.reduce((sum, cat) => sum + cat.productCount, 0);
-  }
-
-  get averageProductsPerCategory(): number {
-    return this.totalCategories > 0 ? Math.round(this.totalProducts / this.totalCategories) : 0;
-  }
-
-  // Category menu methods
-  toggleCategoryMenu(categoryId: string): void {
-    this.openMenuId = this.openMenuId === categoryId ? null : categoryId;
-  }
-
-  @HostListener('document:click')
-  closeMenuOnClick(): void {
+  openEditCategoryModal(category: Category) {
+    this.modalMode = 'edit';
+    this.selectedCategory = { ...category };
+    this.isModalOpen = true;
     this.openMenuId = null;
   }
 
-  // Modal methods
-  openAddCategoryModal(): void {
-    this.editingCategory = null;
-    this.categoryForm.reset({
-      color: '#3B82F6',
-      icon: 'fa-solid fa-cube',
-      status: 'active'
-    });
-    this.showCategoryModal = true;
-  }
-
-  editCategory(category: Category): void {
-    this.editingCategory = category;
-    this.categoryForm.patchValue({
-      name: category.name,
-      description: category.description,
-      color: category.color,
-      icon: category.icon,
-      status: category.status
-    });
-    this.showCategoryModal = true;
+  openDeleteCategoryModal(category: Category) {
+    this.modalMode = 'delete';
+    this.selectedCategory = { ...category };
+    this.isModalOpen = true;
     this.openMenuId = null;
   }
 
-  closeCategoryModal(): void {
-    this.showCategoryModal = false;
-    this.editingCategory = null;
-    this.categoryForm.reset();
+  closeModal() {
+    this.isModalOpen = false;
+    this.selectedCategory = null;
+    this.modalMode = 'add';
   }
 
-  saveCategory(): void {
-    if (this.categoryForm.invalid) {
-      this.markCategoryFormTouched();
-      return;
-    }
-
-    const formValue = this.categoryForm.value;
-
-    if (this.editingCategory) {
-      // Update existing category
-      const index = this.categories.findIndex(cat => cat.id === this.editingCategory!.id);
-      if (index !== -1) {
-        this.categories[index] = {
-          ...this.categories[index],
-          ...formValue
-        };
-      }
-    } else {
-      // Create new category
-      const newCategory: Category = {
-        id: (this.categories.length + 1).toString(),
-        ...formValue,
-        productCount: 0,
-        createdAt: new Date()
-      };
-      this.categories.push(newCategory);
-    }
-
-    this.closeCategoryModal();
+  handleSave(categoryData: Partial<Category>) {
+    console.log('Saving category:', categoryData); // Debug log
     
-    // Show success message
-    alert(`Category ${this.editingCategory ? 'updated' : 'created'} successfully!`);
-  }
-
-  deleteCategory(categoryId: string): void {
-    if (confirm('Are you sure you want to delete this category? This action cannot be undone.')) {
-      const category = this.categories.find(cat => cat.id === categoryId);
+    if (this.modalMode === 'add') {
+      // Generate a simple ID for new category
+      const newCategory = {
+        ...categoryData,
+        id: this.generateCategoryId(categoryData.name as string)
+      };
       
-      if (category && category.productCount > 0) {
-        alert('Cannot delete category with existing products. Please reassign products first.');
-        return;
-      }
-
-      this.categories = this.categories.filter(cat => cat.id !== categoryId);
-      this.openMenuId = null;
+      this.categoriesService.addCategory(newCategory).subscribe({
+        next: () => {
+          this.toast.success('Category added successfully');
+          this.closeModal();
+          this.loadCategories();
+        },
+        error: (error) => {
+          console.error('Error adding category:', error);
+          this.toast.error('Error adding category');
+        }
+      });
+    } else if (this.modalMode === 'edit' && this.selectedCategory?.id) {
+      const updatedCategory = {
+        ...categoryData,
+        id: this.selectedCategory.id // Ensure ID is preserved
+      };
       
-      alert('Category deleted successfully!');
+      this.categoriesService.updateCategory(this.selectedCategory.id, updatedCategory).subscribe({
+        next: () => {
+          this.toast.success('Category updated successfully');
+          this.closeModal();
+          this.loadCategories();
+        },
+        error: (error) => {
+          console.error('Error updating category:', error);
+          this.toast.error('Error updating category');
+        }
+      });
     }
   }
 
-  markCategoryFormTouched(): void {
-    Object.keys(this.categoryForm.controls).forEach(key => {
-      const control = this.categoryForm.get(key);
-      control?.markAsTouched();
+  handleDelete(categoryId: string) {
+    this.categoriesService.deleteCategory(categoryId).subscribe({
+      next: () => {
+        this.toast.success('Category deleted successfully');
+        this.closeModal();
+        this.loadCategories();
+      },
+      error: (error) => {
+        console.error('Error deleting category:', error);
+        this.toast.error('Error deleting category');
+      }
     });
   }
 
-  // Prevent event propagation for menu clicks
-  onMenuClick(event: Event): void {
-    event.stopPropagation();
+  private generateCategoryId(name: string): string {
+    return name.toLowerCase().replace(/\s+/g, '-');
   }
 }

@@ -67,7 +67,22 @@
       </div>
     </div>
   </div>
-
+  <!-- Search Bar -->
+  <div class="bg-white rounded-lg border border-gray-200 p-4 mb-4">
+    <div class="flex flex-col sm:flex-row gap-3 items-center justify-between">
+      <div class="relative flex-1 w-full">
+        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+          <i class="fa-solid fa-search text-gray-400"></i>
+        </div>
+        <input type="text" [(ngModel)]="searchTerm" (input)="filterProducts()"
+          placeholder="Search products by name, category, or ID..."
+          class="pl-10 text-black pr-4 py-2 w-full border border-gray-300 rounded-lg focus:border-blue-500 transition-colors">
+      </div>
+      <div class="flex items-center space-x-2 text-sm text-gray-500">
+        <span>Showing {{ filteredProducts.length }} of {{ products.length }} products</span>
+      </div>
+    </div>
+  </div>
   <!-- Product List Table -->
   <div class="bg-white rounded-lg overflow-hidden pt-4">
     <!-- Table Header -->
@@ -87,7 +102,7 @@
           </tr>
         </thead>
         <tbody class="bg-white divide-y divide-gray-200">
-          <tr *ngFor="let product of products;let i=index" class="hover:bg-gray-50 transition-colors">
+          <tr *ngFor="let product of filteredProducts;let i=index" class="hover:bg-gray-50 transition-colors">
             <td class="px-2 py-3 whitespace-nowrap text-sm text-gray-500">{{ i+1 }}</td>
             <td class="px-2 py-3 whitespace-nowrap">
               <div class="flex items-center">
@@ -98,7 +113,10 @@
                 </div>
                 <div>
                   <div class="text-sm font-medium text-gray-900">{{ product.name }}</div>
-                  <div class="text-sm text-gray-500">id: {{ product.id }}</div>
+                  <div class="text-sm text-gray-500">id: {{ product.id }} - <span
+                      [style.color]="product.isActive ? 'green' : 'red'">
+                      {{ product.isActive ? 'Active' : 'Deactive' }}
+                    </span></div>
                 </div>
               </div>
             </td>
@@ -157,8 +175,8 @@
       </table>
     </div>
     <!-- Empty State -->
-    <div *ngIf="products.length === 0" class="text-center py-12">
-      <i class="fa-solid fa-box-open text-4xl text-gray-300 mb-4"></i>
+    <div *ngIf="filteredProducts.length === 0" class="text-center py-12"> <i
+        class="fa-solid fa-box-open text-4xl text-gray-300 mb-4"></i>
       <h3 class="text-lg font-medium text-gray-700 mb-2">No products found</h3>
       <p class="text-gray-500 mb-6">Get started by adding your first product.</p>
       <button routerLink="/admin/products/new"
@@ -167,7 +185,8 @@
       </button>
     </div>
   </div>
-  <app-admin-modal [isOpen]="isModalOpen" [mode]="modalMode" [product]="selectedProduct" (close)="closeModal()"
-    (save)="handleSave($event)" (confirmDelete)="handleDelete($event)"></app-admin-modal>
+  <app-admin-modal [isOpen]="isModalOpen" [mode]="modalMode" [entityType]="'product'" [product]="selectedProduct"
+    (close)="closeModal()" (save)="handleSave($event)" (confirmDelete)="handleDelete($event)">
+  </app-admin-modal>
 
 </div>

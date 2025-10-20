@@ -208,24 +208,24 @@
                         </div>
 
                         <!-- Product Info Section -->
-                        <div class="p-4 flex-grow-0">
+                        <div class="p-2 flex-grow-0">
                             <!-- Product Name & Price -->
-                            <div class="mb-3">
+                            <div class="">
                                 <h3
-                                    class="text-lg font-bold text-gray-900 mb-2 line-clamp-2 leading-tight min-h-[2.5rem]">
+                                    class="text-lg font-bold text-gray-900 line-clamp-2 leading-tight">
                                     {{ product.name }}
                                 </h3>
                                 <div class="flex items-center justify-between">
                                     <p class="text-xl font-extrabold text-black">{{ product.price | currency:'INR' }}
                                     </p>
-                                    <span *ngIf="product.topSelling" class="text-xs text-amber-600 font-medium">
+                                    <span *ngIf="product.topSelling" class="text-sm text-amber-600 font-medium">
                                         ⭐ Popular
                                     </span>
                                 </div>
                             </div>
 
                             <!-- Product Stats -->
-                            <div class="flex justify-between items-center py-2 border-y border-gray-100 mb-3">
+                            <div class="flex justify-between items-center py-2 border-y border-gray-100">
                                 <div class="text-center flex-1">
                                     <p class="text-sm font-bold text-gray-900">{{product.stock}}</p>
                                     <p class="text-xs text-gray-500">Available</p>
@@ -247,10 +247,10 @@
                         </div>
 
                         <!-- Action Buttons -->
-                        <div class="p-4 pt-0">
+                        <div class="p-2 pt-0">
                             <div class="flex gap-3 items-center">
                                 <button (click)="viewProduct(product)"
-                                    class="flex-1 bg-black text-white px-4 py-3 rounded-xl text-sm font-semibold hover:bg-gray-800 active:scale-95 transition-all duration-200 shadow-sm">
+                                    class="flex-1 bg-black text-white px-2 py-2 rounded-xl text-xs font-semibold hover:bg-gray-800 active:scale-95 transition-all duration-200">
                                     Buy Now
                                 </button>
 

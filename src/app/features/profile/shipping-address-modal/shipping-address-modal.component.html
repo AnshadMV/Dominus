@@ -1,0 +1,66 @@
+<div *ngIf="visible" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm">
+  <div class="modal-content bg-white rounded-2xl shadow-xl w-full max-w-md mx-4 max-h-[90vh] overflow-y-auto">
+    <form (ngSubmit)="onSubmit()" class="space-y-6 p-6">
+      <h2 class="text-2xl font-bold text-gray-900 mb-6">{{ shippingDetails ? 'Edit Shipping Address' : 'Add Shipping Address' }}</h2>
+      
+      <!-- Full Name -->
+      <div>
+        <label for="fullName" class="block text-sm font-medium text-gray-700">Full Name</label>
+        <input id="fullName" type="text" [(ngModel)]="shippingDetails.fullName" name="fullName" required
+               class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+      </div>
+
+      <!-- Address -->
+      <div>
+        <label for="address" class="block text-sm font-medium text-gray-700">Address</label>
+        <input id="address" type="text" [(ngModel)]="shippingDetails.address" name="address" required
+               class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+      </div>
+
+      <!-- City -->
+      <div>
+        <label for="city" class="block text-sm font-medium text-gray-700">City</label>
+        <input id="city" type="text" [(ngModel)]="shippingDetails.city" name="city" required
+               class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+      </div>
+
+      <!-- State -->
+      <div>
+        <label for="state" class="block text-sm font-medium text-gray-700">State</label>
+        <input id="state" type="text" [(ngModel)]="shippingDetails.state" name="state" required
+               class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+      </div>
+
+      <!-- Pincode -->
+      <div>
+        <label for="pincode" class="block text-sm font-medium text-gray-700">Pincode</label>
+        <input id="pincode" type="text" [(ngModel)]="shippingDetails.pincode" name="pincode" required
+               class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+      </div>
+
+      <!-- Phone -->
+      <div>
+        <label for="phone" class="block text-sm font-medium text-gray-700">Phone</label>
+        <input id="phone" type="text" [(ngModel)]="shippingDetails.phone" name="phone" required
+               class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+      </div>
+
+      <!-- Email -->
+      <div>
+        <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+        <input id="email" type="email" [(ngModel)]="shippingDetails.email" name="email" required
+               class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+      </div>
+
+      <!-- Buttons -->
+      <div class="flex justify-end gap-4 mt-6">
+        <button type="button" (click)="onCancel()" class="px-4 py-2 bg-gray-200 text-gray-800 rounded-md hover:bg-gray-300 transition">
+          Cancel
+        </button>
+        <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">
+          {{ shippingDetails ? 'Update Address' : 'Save Address' }}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

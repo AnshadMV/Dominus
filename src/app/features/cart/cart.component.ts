@@ -11,7 +11,7 @@ import { ToastService } from 'src/app/core/services/toast.service';
 
 
 @Component({
-  selector: 'app-cart',
+  selector: 'app-cart', 
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })

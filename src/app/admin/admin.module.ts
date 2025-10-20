@@ -12,7 +12,9 @@ import { ConfirmDialogComponent } from './components/shared/confirm-dialog/confi
 import { StatsCardsComponent } from './components/shared/stats-cards/stats-cards.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from "@angular/material/icon";
-// import { AdminModalComponent } from './components/shared/admin-modal/admin-modal.component';
+import { UsersComponent } from './components/users/users.component';
+import { AdminOrdersComponent } from './components/orders/orders.component';
+
 @NgModule({
   declarations: [
     AdminComponent,
@@ -21,6 +23,8 @@ import { MatIconModule } from "@angular/material/icon";
     AdminSidebarComponent,
     ConfirmDialogComponent,
     StatsCardsComponent,
+    UsersComponent,
+    AdminOrdersComponent,
     // AdminModalComponent,
     // ProductEditModalComponent,
     // ProductDeleteModalComponent, 

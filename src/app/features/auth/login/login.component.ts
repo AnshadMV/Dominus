@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { WebsiteAssetsService } from '../services/website-assets.service';
-import { User, UserService } from 'src/app/core/services/user.service';
+import { UserService } from 'src/app/core/services/user.service';
 import { ToastService } from 'src/app/core/services/toast.service';
 import { website_constants } from 'src/app/core/constants/app.constant';
+import { User } from 'src/app/core/models/user.model';
 
 @Component({
   selector: 'app-login',
@@ -53,44 +54,58 @@ export class LoginComponent implements OnInit {
       this.toast.error('Please enter password');
       return;
     }
-
-    // Fetch users and verify credentials
-    this.http.get<User[]>(this.apiUrl).subscribe({
-      next: (users) => {
-        const user = users.find(u => u.email === this.email && u.password === this.password);
-
-        if (user) {
-          this.toast.success('Login successful!');
-          const currentUser = {
-            id: user.id,
-            name: (user as any).name,   // if your User interface doesn't have name yet
-            email: user.email,
-
-            role: (user as any).role || 'user',
-            signedTime: currentTime
-
-          };
-
-          localStorage.setItem('currentUser', JSON.stringify(currentUser));
-          console.log('Logged in user:', currentUser);
-          // Redirect based on user role
-          if (user.role === 'admin') {
-            this.router.navigate(['/admin/dashboard']);
-          } else {
-            this.router.navigate(['/app-home']);
-          }
-        } else {
-          this.toast.error('Invalid email or password!');
+    // First check if user is blocked
+    this.userService.isUserBlocked(this.email).subscribe({
+      next: (isBlocked) => {
+        if (isBlocked) {
+          this.toast.error('Your account has been blocked. Please contact support.');
+          return;
         }
+
+        // If not blocked, proceed with login
+        this.http.get<User[]>(this.apiUrl).subscribe({
+          next: (users) => {
+            const user = users.find(u => u.email === this.email && u.password === this.password);
+
+            if (user) {
+              // Check if user is blocked (additional safety check)
+              if (user.isBlocked) {
+                this.toast.error('Your account has been blocked. Please contact support.');
+                return;
+              }
+
+              this.toast.success('Login successful!');
+              const currentUser = {
+                id: user.id,
+                name: user.name,
+                email: user.email,
+                role: user.role || 'user',
+                signedTime: currentTime
+              };
+
+              localStorage.setItem('currentUser', JSON.stringify(currentUser));
+              console.log('Logged in user:', currentUser);
+
+              // Redirect based on user role
+              if (user.role === 'admin') {
+                this.router.navigate(['/admin/dashboard']);
+              } else {
+                this.router.navigate(['/app-home']);
+              }
+            } else {
+              this.toast.error('Invalid email or password!');
+            }
+          },
+          error: (err) => {
+            console.error('Error fetching users:', err);
+            this.toast.error('Something went wrong. Try again later.');
+          }
+        });
       },
       error: (err) => {
-        console.error('Error fetching users:', err);
+        console.error('Error checking user status:', err);
         this.toast.error('Something went wrong. Try again later.');
       }
     });
-
-
   }
-
-
 }

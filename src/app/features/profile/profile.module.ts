@@ -5,12 +5,14 @@ import { ProfileEditComponent } from './profile-edit-model/profile-edit.componen
 import { PasswordEditComponent } from './password-edit-model/password-edit.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ShippingAddressModalComponent } from './shipping-address-modal/shipping-address-modal.component';
 
 @NgModule({
   declarations: [
     ProfileComponent,
     ProfileEditComponent,
-    PasswordEditComponent
+    PasswordEditComponent,
+    ShippingAddressModalComponent,
   ],
   imports: [
     ProfileRoutingModule,CommonModule, FormsModule

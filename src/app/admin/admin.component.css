@@ -1,6 +1,12 @@
-*{
-    background-color: white;
+* {
+  background-color: white;
 }
+
 .admin-layout {
   font-family: 'Inter', sans-serif;
+}
+
+:host ::ng-deep .hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

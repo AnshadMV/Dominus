@@ -80,7 +80,8 @@
                                 <!-- Profile Info -->
                                 <div class="flex-1 sm:text-left">
                                     <h2 class="text-3xl font-bold text-gray-900 mb-1">{{userName}}</h2>
-                                    <p class="text-gray-500 text-sm mb-4">Your Id : <span class="text-blue-400">{{userId}}</span></p>
+                                    <p class="text-gray-500 text-sm mb-4">Your Id : <span
+                                            class="text-blue-400">{{userId}}</span></p>
 
                                     <!-- Action Buttons -->
                                     <div class="flex flex-wrap justify-center sm:justify-start gap-4">
@@ -89,16 +90,18 @@
                                             Edit Profile
                                         </button>
 
-                                        <app-profile-edit class="text-black" [visible]="showModal" [user]="userData"
-                                            (closeModal)="closeModal()" (updateUser)="onUserUpdate($event)">
-                                        </app-profile-edit>
+
 
                                         <button (click)="openPasswordModal()"
                                             class="px-6 py-2 bg-gray-100 text-gray-800 rounded-full hover:bg-gray-200 transition">
                                             Change Password
                                         </button>
-                                        <app-password-edit class="text-black" [visible]="showPasswordModal" [user]="userData"
-                                            (closePasswordModal)="closePasswordModal()" (updateUser)="onUserUpdate($event)"></app-password-edit>
+
+                                        <button (click)="openShippingModal()"
+                                            class="px-6 py-2 bg-gray-100 text-gray-800 rounded-full hover:bg-gray-200 transition">
+                                            Shipping Address
+                                        </button>
+
                                     </div>
                                 </div>
                             </div>
@@ -132,6 +135,24 @@
                                     <p class="text-gray-800">{{userRole}}</p>
                                 </div>
                             </div>
+                            <!-- Shipping Address Section -->
+                            <div class="border-t border-gray-200 my-8"></div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div
+                                    class="border border-gray-200 p-6 rounded-2xl hover:shadow-md transition-transform hover:scale-105">
+                                    <h4 class="text-gray-600 font-semibold mb-1">Shipping Address</h4>
+                                    <p class="text-gray-800">
+                                        {{ userData?.shippingDetails?.address || 'Not specified' }},
+                                        {{ userData?.shippingDetails?.city || 'Not specified' }},
+                                        {{ userData?.shippingDetails?.state || 'Not specified' }},
+                                        {{ userData?.shippingDetails?.pincode || 'Not specified' }}
+                                    </p>
+                                    <p class="text-gray-800">Phone: {{ userData?.shippingDetails?.phone || 'Not
+                                        specified' }}</p>
+                                    <p class="text-gray-800">Email: {{ userData?.shippingDetails?.email || 'Not
+                                        specified' }}</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -140,3 +161,10 @@
         </div>
     </div>
 </section>
+<app-profile-edit class="text-black" [visible]="showModal" [user]="userData" (closeModal)="closeModal()"
+    (updateUser)="onUserUpdate($event)">
+</app-profile-edit>
+<app-password-edit class="text-black" [visible]="showPasswordModal" [user]="userData"
+    (closePasswordModal)="closePasswordModal()" (updateUser)="onUserUpdate($event)"></app-password-edit>
+<app-shipping-address-modal *ngIf="showShippingModal" class="text-black" [visible]="showShippingModal" [user]="userData"
+    (closeShippingModal)="closeShippingModal()" (updateUser)="onUserUpdate($event)"></app-shipping-address-modal>

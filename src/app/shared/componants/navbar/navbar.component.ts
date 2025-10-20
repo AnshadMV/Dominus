@@ -158,7 +158,7 @@ export class NavbarComponent implements OnInit {
 
     // Navigate to product list if not already there and search is active
     if (term.length > 0 && !this.router.url.includes('/app-products/product-list')) {
-      this.router.navigate(['/app-products/product-list']);
+      this.router.navigate(['/products/product-list']);
     }
   }
 

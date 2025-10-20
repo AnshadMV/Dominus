@@ -12,13 +12,15 @@ export class AdminProductlistComponent implements OnInit {
 
   products: Product[] = [];
   activeProductsCount: number = 0;
-  lowStockCount: number = 0;
+  lowStockCount: number = 0; 
+  filteredProducts: Product[] = []; // Add this line
+  searchTerm: string = ''; // Add this line
   outOfStockCount: number = 0;
   isEditModalOpen = false;
   isDeleteModalOpen = false;
   selectedProduct: Product | null = null;
   isModalOpen = false;
-  modalMode: 'edit' | 'delete' = 'edit'; 
+  modalMode: 'edit' | 'delete' = 'edit';
   // Default to 'edit'
   constructor(private http: HttpClient, private productService: ProductService) { }
 
@@ -26,22 +28,35 @@ export class AdminProductlistComponent implements OnInit {
     console.log('AdminProductlistComponent initialized');
     this.getProducts();
   }
-  getProducts() {
-    this.productService.getProducts().subscribe({
-      next: (products) => {
-        this.products = products;
-        console.log(products)
-        this.calculateCounts();
-      },
-      error: (error) => {
-        console.error('Error loading products:', error);
-      }
-    });
-
+ getProducts() {
+  this.productService.getProducts().subscribe({
+    next: (products) => {
+      this.products = products;
+      this.filteredProducts = products; // Add this line
+      console.log(products)
+      this.calculateCounts();
+    },
+    error: (error) => {
+      console.error('Error loading products:', error);
+    }
+  });
+}
+filterProducts() {
+  if (!this.searchTerm.trim()) {
+    this.filteredProducts = this.products;
+  } else {
+    const term = this.searchTerm.toLowerCase().trim();
+    this.filteredProducts = this.products.filter(product => 
+      product.name.toLowerCase().includes(term) ||
+      product.category.toLowerCase().includes(term) ||
+      product.id.toLowerCase().includes(term) ||
+      (product.colors && product.colors.includes(term))
+    );
   }
+}
   calculateCounts() {
     this.activeProductsCount = this.products.filter(p => p.isActive).length;
-    this.lowStockCount = this.products.filter(p => p.stock > 0 && p.stock <= 10).length;
+    this.lowStockCount = this.products.filter(p => p.stock >= 0 && p.stock <= 10).length;
     this.outOfStockCount = this.products.filter(p => p.stock === 0).length;
   }
 

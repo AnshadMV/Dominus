@@ -4,6 +4,8 @@ import { AdminGuard } from './guards/admin.guard';
 import { AdminComponent } from './admin.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AdminNotFoundComponent } from './components/not-found/not-found.component';
+import { UsersComponent } from './components/users/users.component';
+import { AdminOrdersComponent } from './components/orders/orders.component';
 
 const routes: Routes = [
     {
@@ -16,6 +18,14 @@ const routes: Routes = [
             {
                 path: 'products', // This is where the products path should be defined
                 loadChildren: () => import('./components/products/admin-product.module').then(m => m.AdminProductModule)
+            },
+            {
+                path: 'users', 
+               component: UsersComponent
+            },
+            {
+                path: 'orders', 
+               component: AdminOrdersComponent
             },
             // {
             //     path: 'orders',

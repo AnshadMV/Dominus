@@ -2,7 +2,9 @@
   <!-- Logo & Toggle -->
   <div class="flex items-center justify-between w-full md:w-auto">
     <a href="/app-home">
-      <h1 class="text-2xl font-bold text-gray-900">Dominus</h1>
+      <!-- <h1 class="text-7xl font-bold text-gray-900">Dominus</h1> -->
+       <img src="./../../../../assets/images/Dominus_black.png" alt="Dominus Logo" class="w-20 md:w-14 sm:w-14 xl:w-14"
+        >
     </a>
     <!-- Mobile Menu Button -->
     <button
@@ -18,15 +20,19 @@
     <li><a routerLink="/app-about" class="hover:text-yellow-500 transition">About Us</a></li>
   </ul>
   <!-- Search Bar (Desktop only) -->
-  <div class="hidden md:flex items-center gap-4 flex-1 justify-center">
-    <div class="relative w-full max-w-lg">
-      <input
-        class="rounded-full py-2 pl-4 pr-10 w-full bg-gray-50 border border-gray-300 placeholder-gray-500 focus:ring-2 focus:ring-yellow-400 focus:outline-none"
-        placeholder="Search for iPhones, Macbook, Airpods..." />
-      <i class="fa-solid fa-magnifying-glass absolute right-4 top-1/2 -translate-y-1/2 text-gray-600"></i>
-    </div>
+  <div class="relative">
+    <input [value]="searchTerm" (input)="onSearchChange($event)"
+      class="rounded-3xl text-black py-2 px-2 w-[400px] bg-transparent placeholder-gray-300 outline-none border border-gradient-to-r from-[#FFD700] via-[#E6C200] to-[#B8860B] focus:ring-1 hidden md:block lg:block xl:block"
+      placeholder="Search for iPhones, Macbook, Airpods..." />
+    <button *ngIf="searchTerm" (click)="clearSearch()"
+      class="absolute right-10 top-1/2 transform -translate-y-1/2 text-white hover:text-yellow-400">
+      <i class="fa-solid fa-times"></i>
+    </button> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+      class="w-5 h-5 text-white absolute right-3 top-1/2 transform -translate-y-1/2 hidden md:block lg:block xl:block">
+      <path stroke-linecap="round" stroke-linejoin="round"
+        d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 104.5 4.5a7.5 7.5 0 0012.15 12.15z" />
+    </svg>
   </div>
-
   <!-- Right Section -->
   <div class="hidden md:flex xl:flex items-center gap-6">
 

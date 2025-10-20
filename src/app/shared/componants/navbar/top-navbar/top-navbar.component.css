@@ -1,0 +1,45 @@
+/* Custom animations for the announcement bars */
+:host {
+  display: block;
+}
+
+/* Smooth slide-down animation */
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Apply animation to announcement bars */
+div:first-of-type {
+  animation: slideDown 0.5s ease-out;
+}
+
+div:last-of-type {
+  animation: slideDown 0.5s ease-out 0.2s both;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .text-sm {
+    font-size: 0.75rem;
+  }
+  
+  .truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .truncate {
+    max-width: 200px;
+  }
+}

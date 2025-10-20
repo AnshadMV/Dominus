@@ -9,4 +9,7 @@ export interface User {
   // cart:string[];
   wishlist:string[];
   orders:string[];
+  isBlocked?: boolean;
+  blockedAt?: string; 
+  blockedReason?: string; 
 }

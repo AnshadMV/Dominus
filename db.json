@@ -8,13 +8,53 @@
   "users": [
     {
       "id": "35e0",
-      "name": "Shinas",
+      "name": "Shinaas",
       "email": "shinas@gmail.com",
       "password": "123123123",
       "createdAt": "2025-10-16T08:44:02.094Z",
       "role": "user",
       "wishlist": [],
-      "orders": []
+      "orders": [
+        {
+          "id": "order_1760957740123",
+          "userId": "35e0",
+          "orderId": "ORD1760957740123GCY6O",
+          "orderDate": "October 20, 2025 at 04:25 PM",
+          "items": [
+            {
+              "productId": "p1",
+              "name": "iPhone 17 Pro Max",
+              "price": 229899,
+              "quantity": 2,
+              "image": "https://images.unsplash.com/photo-1758770478140-e45dac838d40?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aXBob25lJTIwMTclMjBwcm8lMjBtYXh8ZW58MHwyfDJ8fHww&auto=format&fit=crop&q=60&w=400",
+              "color": "yellow",
+              "category": "mobile"
+            }
+          ],
+          "shippingDetails": {
+            "fullName": "Shinaas",
+            "address": "Not specified",
+            "city": "Not specified",
+            "state": "Not specified",
+            "pincode": "000000",
+            "phone": "Not specified",
+            "email": "shinas@gmail.com"
+          },
+          "paymentMethod": "Online Payment",
+          "totalAmount": 459798,
+          "status": "delivered",
+          "estimatedDelivery": "October 27, 2025"
+        }
+      ],
+      "isBlocked": false,
+      "blockedAt": null,
+      "blockedReason": "",
+      "cart": [
+        {
+          "productId": "p1",
+          "quantity": 2
+        }
+      ]
     },
     {
       "id": "a63d",
@@ -23,178 +63,100 @@
       "password": "admin123",
       "createdAt": "2025-10-16T17:59:56.070Z",
       "role": "admin",
+      "wishlist": [],
+      "orders": [],
+      "signedTime": "2025-10-19T14:40:05.319Z",
+      "cart": [],
+      "shippingDetails": {
+        "fullName": "admin1",
+        "address": "valladath",
+        "city": "Velladath House",
+        "state": "kerala",
+        "pincode": "676301",
+        "phone": "9400300166",
+        "email": "admin@gmail.com"
+      },
+      "isBlocked": false,
+      "blockedAt": null,
+      "blockedReason": ""
+    },
+    {
+      "id": "c8c3",
+      "name": "Sinan",
+      "email": "sinan@gmail.com",
+      "password": "sinan123",
+      "createdAt": "2025-10-20T02:52:50.213Z",
+      "role": "user",
+      "wishlist": [],
+      "orders": [],
+      "signedTime": "2025-10-20T02:53:15.966Z",
+      "shippingDetails": {
+        "fullName": "Sinan",
+        "address": "kinfra",
+        "city": "cali",
+        "state": "kerala",
+        "pincode": "676301",
+        "phone": "234234232342342",
+        "email": "sinan@gmail.com"
+      },
+      "cart": []
+    },
+    {
+      "id": "62c2",
+      "name": "Anshad",
+      "email": "anshad@gmail.com",
+      "password": "123123123",
+      "role": "user",
+      "createdAt": "2025-10-20T02:57:43.294Z",
       "wishlist": [
-        {
-          "productId": "p1"
-        },
         {
           "productId": "p3"
         },
         {
           "productId": "p4"
-        },
-        {
-          "productId": "p2"
         }
       ],
       "orders": [
         {
-          "id": "order_1760674947077",
-          "userId": "a63d",
-          "orderId": "ORD1760674947077Q7MNO",
-          "orderDate": "October 17, 2025 at 09:52 AM",
+          "id": "order_1760957865948",
+          "userId": "62c2",
+          "orderId": "ORD1760957865948J1PG4",
+          "orderDate": "October 20, 2025 at 04:27 PM",
           "items": [
             {
-              "productId": "p15",
-              "name": "Apple Watch Series 11",
-              "price": 4690,
+              "productId": "p2",
+              "name": "iPhone 17",
+              "price": 82900,
               "quantity": 1,
-              "image": "https://images.unsplash.com/photo-1558126319-c9feecbf57ee?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-              "color": "space gray",
-              "category": "watch"
+              "image": "https://images.unsplash.com/photo-1655022389582-f831f2128886?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+              "color": "black",
+              "category": "mobile"
             }
           ],
           "shippingDetails": {
-            "fullName": "admin1",
+            "fullName": "Anshad",
             "address": "Not specified",
             "city": "Not specified",
             "state": "Not specified",
             "pincode": "000000",
             "phone": "Not specified",
-            "email": "admin@gmail.com"
+            "email": "anshad@gmail.com"
           },
           "paymentMethod": "Online Payment",
-          "totalAmount": 4690,
-          "status": "confirmed",
-          "estimatedDelivery": "October 24, 2025"
-        },
-        {
-          "id": "order_1760695141577",
-          "userId": "a63d",
-          "orderId": "ORD17606951415778QR8K",
-          "orderDate": "October 17, 2025 at 03:29 PM",
-          "items": [
-            {
-              "productId": "p14",
-              "name": "MacBook Pro 14 (M4)",
-              "price": 149900,
-              "quantity": 6,
-              "image": "https://media.istockphoto.com/id/1478610778/photo/hcmc-vietnam-macbook-pro-14-inches-m2.jpg?s=612x612&w=0&k=20&c=Rl05e5NYO0YS9DuvgeE4AUmjJw-FgD37_mpTCKVyeng=",
-              "color": "space gray",
-              "category": "laptop"
-            }
-          ],
-          "shippingDetails": {
-            "fullName": "admin1",
-            "address": "Not specified",
-            "city": "Not specified",
-            "state": "Not specified",
-            "pincode": "000000",
-            "phone": "Not specified",
-            "email": "admin@gmail.com"
-          },
-          "paymentMethod": "Online Payment",
-          "totalAmount": 899400,
-          "status": "confirmed",
-          "estimatedDelivery": "October 24, 2025"
-        },
-        {
-          "id": "order_1760695150221",
-          "userId": "a63d",
-          "orderId": "ORD1760695150221Y1PEH",
-          "orderDate": "October 17, 2025 at 03:29 PM",
-          "items": [
-            {
-              "productId": "p14",
-              "name": "MacBook Pro 14 (M4)",
-              "price": 149900,
-              "quantity": 1,
-              "image": "https://media.istockphoto.com/id/1478610778/photo/hcmc-vietnam-macbook-pro-14-inches-m2.jpg?s=612x612&w=0&k=20&c=Rl05e5NYO0YS9DuvgeE4AUmjJw-FgD37_mpTCKVyeng=",
-              "color": "space gray",
-              "category": "laptop"
-            }
-          ],
-          "shippingDetails": {
-            "fullName": "admin1",
-            "address": "Not specified",
-            "city": "Not specified",
-            "state": "Not specified",
-            "pincode": "000000",
-            "phone": "Not specified",
-            "email": "admin@gmail.com"
-          },
-          "paymentMethod": "Online Payment",
-          "totalAmount": 149900,
-          "status": "confirmed",
-          "estimatedDelivery": "October 24, 2025"
-        },
-        {
-          "id": "order_1760695551420",
-          "userId": "a63d",
-          "orderId": "ORD17606955514200Q0U2",
-          "orderDate": "October 17, 2025 at 03:35 PM",
-          "items": [
-            {
-              "productId": "p14",
-              "name": "MacBook Pro 14 (M4)",
-              "price": 149900,
-              "quantity": 2,
-              "image": "https://media.istockphoto.com/id/1478610778/photo/hcmc-vietnam-macbook-pro-14-inches-m2.jpg?s=612x612&w=0&k=20&c=Rl05e5NYO0YS9DuvgeE4AUmjJw-FgD37_mpTCKVyeng=",
-              "color": "space gray",
-              "category": "laptop"
-            }
-          ],
-          "shippingDetails": {
-            "fullName": "admin1",
-            "address": "Not specified",
-            "city": "Not specified",
-            "state": "Not specified",
-            "pincode": "000000",
-            "phone": "Not specified",
-            "email": "admin@gmail.com"
-          },
-          "paymentMethod": "Online Payment",
-          "totalAmount": 299800,
-          "status": "confirmed",
-          "estimatedDelivery": "October 24, 2025"
+          "totalAmount": 82900,
+          "status": "delivered",
+          "estimatedDelivery": "October 27, 2025"
         }
       ],
-      "signedTime": "2025-10-16T18:06:07.499Z",
+      "isBlocked": true,
+      "blockedAt": "2025-10-20T11:00:36.406Z",
+      "blockedReason": "illegal",
       "cart": [
-        {
-          "productId": "p1",
-          "quantity": 3
-        },
-        {
-          "productId": "p8"
-        },
-        {
-          "productId": "p12",
-          "quantity": 5
-        },
-        {
-          "productId": "p11"
-        },
-        {
-          "productId": "p10"
-        },
-        {
-          "productId": "p9",
-          "quantity": 8
-        },
         {
           "productId": "p3"
         },
         {
-          "productId": "p14",
-          "quantity": 2
-        },
-        {
-          "productId": "p13",
-          "quantity": 11
-        },
-        {
-          "productId": "009f"
+          "productId": "p4"
         }
       ]
     }
@@ -211,13 +173,20 @@
         "https://images.unsplash.com/photo-1757709608566-4b9fd41a7af5?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGlQaG9uZSUyMDE3fGVufDB8fDB8fHww"
       ],
       "isStock": true,
-      "colors": "yellow,blue,green",
+      "colors": [
+        "yellow",
+        "blue",
+        "green"
+      ],
       "topSelling": true,
-      "stock": 11,
+      "stock": 0,
       "category": "mobile",
       "warranty": "1 Y",
+      "isActive": true,
       "slug": "iphone-17-pro-max",
-      "description": "Flagship iPhone 17 Pro Max with A-series chip, triple camera system, etc."
+      "description": "Flagship iPhone 17 Pro Max with A-series chip, triple camera system, etc.",
+      "color": "#000000",
+      "status": true
     },
     {
       "id": "p2",
@@ -235,10 +204,11 @@
         "green"
       ],
       "topSelling": true,
-      "stock": 2,
+      "stock": 0,
       "category": "mobile",
       "slug": "iphone-17",
       "warranty": "1 Y",
+      "isActive": true,
       "description": "iPhone 17, the standard variant, with dual camera, enhanced features."
     },
     {
@@ -261,10 +231,11 @@
         "yellow"
       ],
       "topSelling": true,
-      "stock": 20,
+      "stock": 5,
       "category": "mobile",
       "warranty": "1 Y",
       "slug": "iphone-16",
+      "isActive": true,
       "description": "iPhone 16 with improved battery, camera and processor."
     },
     {
@@ -284,10 +255,11 @@
         "pink"
       ],
       "topSelling": true,
-      "stock": 20,
+      "stock": 3,
       "category": "tablet",
       "slug": "ipad-air-6",
       "warranty": "1 Y",
+      "isActive": true,
       "description": "iPad Air (6th Gen) with M-series chip, Ultra Wide camera, etc."
     },
     {
@@ -312,6 +284,7 @@
       "category": "laptop",
       "warranty": "1 Y",
       "slug": "macbook-air-m4-13",
+      "isActive": true,
       "description": "Lightweight MacBook Air with M4 chip, long battery life."
     },
     {
@@ -331,6 +304,7 @@
       "category": "accessory",
       "warranty": "1 Y",
       "slug": "airpods-pro-2",
+      "isActive": true,
       "description": "AirPods Pro second generation with active noise cancellation."
     },
     {
@@ -348,6 +322,7 @@
       "topSelling": false,
       "stock": 20,
       "category": "accessory",
+      "isActive": true,
       "slug": "airpods-3",
       "warranty": "1 Y",
       "description": "AirPods 3rd generation with spatial audio and better battery."
@@ -366,7 +341,8 @@
         "white"
       ],
       "topSelling": false,
-      "stock": 98,
+      "stock": 34,
+      "isActive": true,
       "category": "accessory",
       "slug": "magsafe-charger",
       "warranty": "1 Y",
@@ -385,6 +361,7 @@
         "white"
       ],
       "topSelling": false,
+      "isActive": true,
       "stock": 200,
       "category": "accessory",
       "slug": "usb-c-20w-adapter",
@@ -408,6 +385,7 @@
       "topSelling": false,
       "stock": 10,
       "category": "accessory",
+      "isActive": true,
       "slug": "iphone-leather-case",
       "warranty": "1 Y",
       "description": "Genuine leather case for iPhone, protective and elegant."
@@ -428,6 +406,7 @@
       "stock": 25,
       "category": "accessory",
       "slug": "apple-pencil-usbc",
+      "isActive": true,
       "warranty": "1 Y",
       "description": "Second generation Apple Pencil with USB-C charging."
     },
@@ -447,6 +426,7 @@
       "topSelling": false,
       "stock": 43,
       "category": "accessory",
+      "isActive": true,
       "slug": "magsafe-battery-pack",
       "warranty": "1 Y",
       "description": "Portable MagSafe battery pack for wireless charging on the go."
@@ -465,8 +445,9 @@
         "silver"
       ],
       "topSelling": true,
-      "stock": 11,
+      "stock": 10,
       "category": "tablet",
+      "isActive": true,
       "slug": "ipad-pro-12-9-m4",
       "warranty": "1 Y",
       "description": "iPad Pro 12.9-inch with M4 chip, Liquid Retina XDR display."
@@ -486,11 +467,14 @@
         "silver"
       ],
       "topSelling": true,
-      "stock": 0,
+      "stock": 3,
       "category": "laptop",
+      "isActive": true,
       "slug": "macbook-pro-14-m4",
       "warranty": "1 Y",
-      "description": "MacBook Pro 14-inch with M4 chip and ProMotion display."
+      "description": "MacBook Pro 14-inch with M4 chip and ProMotion display.",
+      "color": "#000000",
+      "status": true
     },
     {
       "id": "p15",
@@ -505,7 +489,8 @@
         "silver"
       ],
       "topSelling": true,
-      "stock": 20,
+      "stock": 18,
+      "isActive": true,
       "category": "watch",
       "slug": "Apple Watch Series 11",
       "warranty": "1 Y",
@@ -515,23 +500,38 @@
   "categories": [
     {
       "id": "mobile",
-      "name": "Mobile"
+      "name": "Mobile",
+      "color": "#3B82F6",
+      "icon": "https://images.unsplash.com/photo-1595572779040-caaa90307599?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=626",
+      "status": true
     },
     {
       "id": "tablet",
-      "name": "Tablets"
+      "name": "Tablets",
+      "color": "#10B981",
+      "icon": "https://images.unsplash.com/photo-1682939894427-59594fac6b06?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=764",
+      "status": true
     },
     {
       "id": "laptop",
-      "name": "Laptops"
-    },
-    {
-      "id": "accessory",
-      "name": "Accessories"
+      "name": "Laptops",
+      "color": "#8B5CF6",
+      "icon": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=600&q=80",
+      "status": true
     },
     {
       "id": "watch",
-      "name": "Watches"
+      "name": "Watches",
+      "color": "#F59E0B",
+      "icon": "https://images.unsplash.com/photo-1598900785046-724f0370f319?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=880",
+      "status": true
+    },
+    {
+      "id": "accessory",
+      "name": "Accessories",
+      "color": "#EF4444",
+      "icon": "https://images.unsplash.com/photo-1522273400909-fd1a8f77637e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDB8fGFwcGxlJTIwd2F0Y2glMjByZWR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=400",
+      "status": true
     }
   ],
   "topNavText": [

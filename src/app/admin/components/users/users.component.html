@@ -1,0 +1,313 @@
+<!-- users.component.html -->
+<div class="p-6">
+    <!-- Header -->
+    <div class="flex justify-between items-center mb-6">
+        <div>
+            <h1 class="text-2xl font-bold text-gray-800">User Management</h1>
+            <p class="text-gray-600">Manage your system users and their permissions</p>
+        </div>
+        <button (click)="openAddModal()"
+            class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center space-x-2 transition-colors">
+            <i class="fa-solid fa-plus"></i>
+            <span>Add New User</span>
+        </button>
+    </div>
+
+    <!-- Search and Filters -->
+    <div class="bg-white rounded-lg shadow p-4 mb-6">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between space-y-4 md:space-y-0">
+            <div class="flex-1 max-w-md">
+                <div class="relative">
+                    <i class="fa-solid fa-search absolute left-3 top-3 text-gray-400"></i>
+                    <input type="text" [(ngModel)]="searchTerm" (input)="onSearch()"
+                        placeholder="Search users by name, email, or role..."
+                        class="w-full text-black pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                </div>
+            </div>
+            <div class="flex items-center space-x-4">
+                <span class="text-sm text-gray-600">
+                    {{ filteredUsers.length }} user(s) found
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Users Table -->
+    <div class="bg-white rounded-lg shadow overflow-hidden">
+        <!-- Loading State -->
+        <div *ngIf="loading" class="p-8 text-center">
+            <i class="fa-solid fa-spinner fa-spin text-2xl text-blue-600 mb-2"></i>
+            <p class="text-gray-600">Loading users...</p>
+        </div>
+
+        <!-- Users List -->
+        <div *ngIf="!loading">
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                User
+                            </th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Role
+                            </th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Created
+                            </th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Actions
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        <tr *ngFor="let user of filteredUsers" class="hover:bg-gray-50">
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="flex items-center">
+                                    <div
+                                        class="flex-shrink-0 h-10 w-10 bg-gray-300 rounded-full flex items-center justify-center">
+                                        <span class="text-gray-600 font-medium">
+                                            {{ user.name?.charAt(0) | uppercase}}
+                                        </span>
+                                    </div>
+                                    <div class="ml-4">
+                                        <div class="text-sm font-medium text-gray-900">{{ user.name }}</div>
+                                        <div class="text-sm text-gray-500">{{ user.email }}</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span
+                                    [class]="'px-2 inline-flex text-xs leading-5 font-semibold rounded-full ' + getRoleBadgeClass(user.role)">
+                                    {{ user.role }}
+                                </span>
+                                <span *ngIf="user.isBlocked"
+                                    [class]="'ml-2 px-2 inline-flex text-xs leading-5 font-semibold rounded-full ' + getBlockStatusBadgeClass(user.isBlocked)">
+                                    Blocked
+                                </span>
+                            </td>
+
+                            
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                {{ user.createdAt | date:'mediumDate' }}
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                <div class="flex items-center space-x-2">
+                                    <button (click)="openEditModal(user)"
+                                        class="text-blue-600 hover:text-blue-900 transition-colors" title="Edit User">
+                                        <i class="fa-solid fa-edit"></i>
+                                    </button>
+
+                                    <!-- Block/Unblock Buttons -->
+                                    <button *ngIf="!user.isBlocked" (click)="openBlockModal(user)"
+                                        class="text-green-600 hover:text-green-900 transition-colors"
+                                        title="Block User">
+                                        <i class="fa-solid fa-check"></i>
+                                    </button>
+                                    <button *ngIf="user.isBlocked" (click)="unblockUser(user)"
+                                        class="text-orange-600 hover:text-orange-900 transition-colors"
+                                        title="Unblock User"><i class="fa-solid fa-ban"></i>
+                                        
+                                    </button>
+
+                                    <button (click)="openDeleteModal(user)"
+                                        class="text-red-600 hover:text-red-900 transition-colors" title="Delete User">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Empty State -->
+            <div *ngIf="filteredUsers.length === 0 && !loading" class="text-center py-12">
+                <i class="fa-solid fa-users text-4xl text-gray-300 mb-4"></i>
+                <h3 class="text-lg font-medium text-gray-900 mb-2">No users found</h3>
+                <p class="text-gray-500 mb-4">Get started by adding your first user.</p>
+                <button (click)="openAddModal()"
+                    class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors">
+                    Add New User
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add User Modal -->
+<div *ngIf="showAddModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+    <div class="bg-white rounded-lg shadow-xl max-w-md w-full">
+        <div class="flex items-center justify-between p-4 border-b">
+            <h3 class="text-lg font-semibold text-black ">Add New User</h3>
+            <button (click)="closeAddModal()" class="text-gray-400 hover:text-gray-600">
+                <i class="fa-solid fa-times"></i>
+            </button>
+        </div>
+
+        <div class="p-6 space-y-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                <input type="text" [(ngModel)]="newUser.name"
+                    class="w-full px-3 py-2 border border-gray-300 rounded-lg text-black focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    placeholder="Enter full name">
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                <input type="email" [(ngModel)]="newUser.email"
+                    class="w-full px-3 py-2 border border-gray-300 text-black rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    placeholder="Enter email address">
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                <input type="password" [(ngModel)]="newUser.password"
+                    class="w-full px-3 py-2 border border-gray-300 text-black rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    placeholder="Enter password">
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Role</label>
+                <select [(ngModel)]="newUser.role"
+                    class="w-full px-3 py-2 border border-gray-300 text-black rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                    <option value="user">User</option>
+                    <option value="admin">Admin</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="flex justify-end space-x-3 p-6 border-t">
+            <button (click)="closeAddModal()" class="px-4 py-2 text-gray-600 hover:text-gray-800 transition-colors">
+                Cancel
+            </button>
+            <button (click)="addUser()" [disabled]="!newUser.name || !newUser.email || !newUser.password"
+                class="bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white px-4 py-2 rounded-lg transition-colors">
+                Add User
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Edit User Modal -->
+<div *ngIf="showEditModal && selectedUser"
+    class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+    <div class="bg-white rounded-lg shadow-xl max-w-md w-full">
+        <div class="flex items-center justify-between p-6 border-b">
+            <h3 class="text-lg font-semibold text-black">Edit User</h3>
+            <button (click)="closeEditModal()" class="text-gray-400 hover:text-gray-600">
+                <i class="fa-solid fa-times"></i>
+            </button>
+        </div>
+
+        <div class="p-6 space-y-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                <input type="text" [(ngModel)]="selectedUser.name"
+                    class="w-full px-3 py-2 text-black border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                <input type="email" [(ngModel)]="selectedUser.email"
+                    class="w-full px-3 py-2 text-black border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                <input type="password" [(ngModel)]="selectedUser.password" placeholder="Leave blank to keep current"
+                    class="w-full px-3 py-2 text-black border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Role</label>
+                <select [(ngModel)]="selectedUser.role"
+                    class="w-full px-3 py-2 text-black border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                    <option value="user">User</option>
+                    <option value="admin">Admin</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="flex justify-end space-x-3 p-6 border-t">
+            <button (click)="closeEditModal()" class="px-4 py-2 text-gray-600 hover:text-gray-800 transition-colors">
+                Cancel
+            </button>
+            <button (click)="updateUser()" [disabled]="!selectedUser.name || !selectedUser.email"
+                class="bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white px-4 py-2 rounded-lg transition-colors">
+                Update User
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Confirmation Modal -->
+<div *ngIf="showDeleteModal && selectedUser"
+    class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+    <div class="bg-white rounded-lg shadow-xl max-w-md w-full">
+        <div class="p-6">
+            <div class="flex items-center space-x-3 mb-4">
+                <div class="flex-shrink-0 w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
+                    <i class="fa-solid fa-exclamation-triangle text-red-600"></i>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-black ">Delete User</h3>
+                    <p class="text-gray-600">This action cannot be undone.</p>
+                </div>
+            </div>
+
+            <p class="text-gray-700 mb-4">
+                Are you sure you want to delete <strong>{{ selectedUser.name }}</strong>?
+                All their data will be permanently removed.
+            </p>
+        </div>
+
+        <div class="flex justify-end space-x-3 p-6 border-t">
+            <button (click)="closeDeleteModal()" class="px-4 py-2 text-gray-600 hover:text-gray-800 transition-colors">
+                Cancel
+            </button>
+            <button (click)="confirmDelete()"
+                class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg transition-colors">
+                Delete User
+            </button>
+        </div>
+    </div>
+</div>
+<div *ngIf="showBlockModal && userToBlock"
+    class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+    <div class="bg-white rounded-lg shadow-xl max-w-md w-full">
+        <div class="flex items-center space-x-3 p-6 border-b">
+            <div class="flex-shrink-0 w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center">
+                <i class="fa-solid fa-ban text-orange-600"></i>
+            </div>
+            <div>
+                <h3 class="text-lg font-semibold text-black">Block User</h3>
+                <p class="text-gray-600 text-sm">This will prevent the user from logging in.</p>
+            </div>
+        </div>
+
+        <div class="p-6">
+            <p class="text-gray-700 mb-4">
+                Are you sure you want to block <strong>{{ userToBlock.name }}</strong>?
+                Please provide a reason for blocking this user.
+            </p>
+
+            <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700 mb-2 ">Block Reason</label>
+                <textarea [(ngModel)]="blockReason" placeholder="Enter reason for blocking this user..." rows="3"
+                    class="w-full px-3 py-2 border text-black border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 resize-none"></textarea>
+                <p class="text-xs text-gray-500 text-black mt-1">This reason will be stored for reference.</p>
+            </div>
+        </div>
+
+        <div class="flex justify-end space-x-3 p-6 border-t">
+            <button (click)="closeBlockModal()" class="px-4 py-2 text-gray-600 hover:text-gray-800 transition-colors">
+                Cancel
+            </button>
+            <button (click)="confirmBlock()" [disabled]="!blockReason.trim()"
+                class="bg-orange-600 hover:bg-orange-700 disabled:bg-gray-400 text-white px-4 py-2 rounded-lg transition-colors">
+                Block User
+            </button>
+        </div>
+    </div>
+</div>

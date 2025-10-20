@@ -17,6 +17,7 @@ export class ProfileComponent implements OnInit {
   userSignedTime: string = ''
   showModal: boolean = false;
   showPasswordModal: boolean = false;
+  showShippingModal: boolean = false;
 
   constructor(private router: Router, private toast: ToastService) { }
   ngOnInit() {
@@ -41,11 +42,17 @@ export class ProfileComponent implements OnInit {
   openPasswordModal() {
     this.showPasswordModal = true
   }
+  openShippingModal() {
+    this.showShippingModal = true;
+  }
   closeModal() {
     this.showModal = false;
   }
   closePasswordModal() {
     this.showPasswordModal = false
+  }
+  closeShippingModal() {
+    this.showShippingModal = false;
   }
   onUserUpdate(updatedUser: any) {
     // Update localStorage immediately

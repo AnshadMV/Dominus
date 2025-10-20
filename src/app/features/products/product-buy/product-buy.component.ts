@@ -10,8 +10,6 @@ import { ProductWithQuantity } from 'src/app/core/models/productwithquantity.mod
 import { ShippingDetails } from 'src/app/core/models/shippingDetails.model';
 import { ToastService } from 'src/app/core/services/toast.service';
 
-
-
 @Component({
   selector: 'app-product-buy',
   templateUrl: './product-buy.component.html',
@@ -25,7 +23,7 @@ export class ProductBuyComponent implements OnInit {
   userId: string = '';
   isProcessing: boolean = false;
   isLoading = false;
-  showBuy: boolean = false
+  showBuy: boolean = false;
 
   constructor(
     private router: Router,
@@ -65,7 +63,7 @@ export class ProductBuyComponent implements OnInit {
 
   confirmPurchace(): void {
     if (this.isProcessing) {
-      return; // Prevent multiple clicks
+      return;
     }
 
     if (!this.products || this.products.length === 0) {
@@ -73,9 +71,19 @@ export class ProductBuyComponent implements OnInit {
       return;
     }
 
+    // Add debugging logs
+    console.log('=== STOCK DEBUG INFO ===');
+    this.products.forEach(product => {
+      console.log(`Product: ${product.name}, Current Stock: ${product.stock}, Quantity: ${product.quantity}, New Stock: ${product.stock === null ? 'unlimited' : (Number(product.stock) - Number(product.quantity || 1))}`);
+    });
+
+    // Treat null (or undefined) stock as "unlimited" => not out of stock
     const outOfStockProducts = this.products.filter(product => {
-      const availableStock = product.stock || 0;
-      const requestedQuantity = product.quantity || 1;
+      if (product.stock == null) { // null or undefined = unlimited
+        return false;
+      }
+      const availableStock = Number(product.stock) || 0;
+      const requestedQuantity = Number(product.quantity) || 1;
       return availableStock < requestedQuantity;
     });
 
@@ -85,49 +93,71 @@ export class ProductBuyComponent implements OnInit {
       return;
     }
 
-
     this.isProcessing = true;
 
-    // Create an array of update requests for each product
+    // Create an array of update requests for each product that actually tracks stock.
+    // Skip products with null/undefined stock (unlimited).
     const stockUpdateRequests = this.products.map(product => {
-      // If stock is null, keep it null (unlimited stock)
-      // Otherwise, calculate new stock
-      const newStock = product.stock === null
-        ? null
-        : Math.max(0, product.stock - product.quantity);
+      if (product.stock == null) {
+        // No request for unlimited stock items (keep as null on server)
+        console.log(`Skipping stock update for ${product.name} (unlimited)`);
+        return null;
+      }
 
-      // Only check stock if it's being tracked (not null)
-      if (product.stock !== null && product.stock < product.quantity) {
+      const availableStock = Number(product.stock) || 0;
+      const requestedQuantity = Number(product.quantity) || 1;
+
+      if (availableStock < requestedQuantity) {
+        // Shouldn't happen because of earlier check, but guard anyway
         throw new Error(`Not enough stock for ${product.name}`);
       }
 
-      return this.http.patch(`${this.productsUrl}/${product.id}`, {
-        stock: newStock
+      const newStock = availableStock - requestedQuantity;
+      console.log(`Updating ${product.name}: ${availableStock} - ${requestedQuantity} = ${newStock}`);
+
+      return this.http.patch(`${this.productsUrl}/${product.id}`, { stock: newStock });
+    }).filter(req => req !== null) as any[]; // filter out nulls
+
+    const proceedWithOrder = () => {
+      return this.createOrder();
+    };
+
+    if (stockUpdateRequests.length === 0) {
+      // No stock updates required (all unlimited) — proceed directly
+      proceedWithOrder().subscribe({
+        next: () => {
+          this.toast.success("Purchase Confirmed Successfully!");
+          this.isProcessing = false;
+          this.router.navigate(['/app-orders']);
+        },
+        error: (err) => {
+          console.error('Error during purchase:', err);
+          this.toast.error("Purchase failed. Please try again.");
+          this.isProcessing = false;
+        }
       });
-    });
-
-    // Execute all stock updates
-    forkJoin(stockUpdateRequests).pipe(
-      switchMap(() => {
-        // After stock updates, create the order
-        return this.createOrder();
-
-      }),
-
-    ).subscribe({
-      next: () => {
-        this.toast.success("Purchase Confirmed Successfully!");
-        this.isProcessing = false;
-        // Navigate to orders page
-        this.router.navigate(['/app-orders']);
-      },
-      error: (err) => {
-        console.error('Error during purchase:', err);
-        this.toast.error("Purchase failed. Please try again.");
-        this.isProcessing = false;
-      }
-    });
+    } else {
+      // Execute all stock updates then create order
+      forkJoin(stockUpdateRequests).pipe(
+        switchMap((responses) => {
+          console.log('Stock update responses:', responses);
+          return proceedWithOrder();
+        }),
+      ).subscribe({
+        next: () => {
+          this.toast.success("Purchase Confirmed Successfully!");
+          this.isProcessing = false;
+          this.router.navigate(['/app-orders']);
+        },
+        error: (err) => {
+          console.error('Error during purchase:', err);
+          this.toast.error("Purchase failed. Please try again.");
+          this.isProcessing = false;
+        }
+      });
+    }
   }
+
   createOrder() {
     // Get user details for shipping information
     return this.http.get<any>(`${this.usersUrl}/${this.userId}`).pipe(
@@ -146,15 +176,15 @@ export class ProductBuyComponent implements OnInit {
         // Generate order ID
         const orderId = 'ORD' + Date.now() + Math.random().toString(36).substr(2, 5).toUpperCase();
 
-        // Create shipping details from user profile (you might want to add these fields to user profile)
-        const shippingDetails: ShippingDetails = {
+        // Use user's shippingDetails if available, otherwise provide defaults
+        const shippingDetails: ShippingDetails = user.shippingDetails || {
           fullName: user.name || 'Customer',
-          address: user.address || 'Not specified',
-          city: user.city || 'Not specified',
-          state: user.state || 'Not specified',
-          pincode: user.pincode || '000000',
-          phone: user.phone || 'Not specified',
-          email: user.email
+          address: 'Not specified',
+          city: 'Not specified',
+          state: 'Not specified',
+          pincode: '000000',
+          phone: 'Not specified',
+          email: user.email || 'Not specified'
         };
 
         // Create new order
@@ -187,6 +217,7 @@ export class ProductBuyComponent implements OnInit {
       })
     );
   }
+
   calculateEstimatedDelivery(): string {
     const deliveryDate = new Date();
     deliveryDate.setDate(deliveryDate.getDate() + 7); // 7 days from now
