@@ -16,7 +16,7 @@ import { NotFoundComponent } from './features/not-found/not-found.component';
 import { AboutComponent } from './features/about/about.component';
 import { TopNavbarComponent } from './shared/componants/navbar/top-navbar/top-navbar.component';
 import { MenuModalComponent } from './shared/componants/navbar/menu-modal/menu-modal.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ToastComponent } from './shared/componants/toast/toast/toast.component';
 import { SafeUrlPipe } from './shared/pipes/angular_pipes/safe-url.pipe';
@@ -24,6 +24,7 @@ import { OrdersComponent } from './features/orders/orders.component';
 import { ContactUsComponent } from './features/contact-us/contact-us.component';
 import { ProductModule } from './features/products/product.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BlockedUserInterceptor } from './core/interceptors/blocked-user.interceptor';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule, 
     FormsModule,ProductModule, BrowserAnimationsModule,  
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: BlockedUserInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

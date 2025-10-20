@@ -186,6 +186,9 @@ export class UsersComponent implements OnInit {
           }
           this.toast.success('User blocked successfully');
           this.closeBlockModal();
+
+          // Optional: You might want to make an API call to notify the blocked user
+          // This would require a real-time solution like WebSockets for immediate effect
         },
         error: (error) => {
           console.error('Error blocking user:', error);
@@ -195,6 +198,7 @@ export class UsersComponent implements OnInit {
       });
     }
   }
+
 
   // Utility function to validate user data
   private isValidUser(user: Partial<User>): boolean {
@@ -212,7 +216,7 @@ export class UsersComponent implements OnInit {
         return 'bg-gray-100 text-gray-800';
     }
   }
-  
+
 
   unblockUser(user: User): void {
     this.userService.unblockUser(user.id!.toString()).subscribe({

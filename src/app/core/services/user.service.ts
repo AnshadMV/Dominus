@@ -50,6 +50,7 @@ export class UserService {
     return this.http.patch<User>(`${this.apiUrl}/${id}`, blockData);
   }
 
+
   // Add unblock user method
   unblockUser(id: string): Observable<User> {
     const unblockData = {
@@ -69,6 +70,9 @@ export class UserService {
       })
     );
   }
+
+
+
 }
 
 // Remove this line: export { User };
