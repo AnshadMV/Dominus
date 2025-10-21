@@ -4,45 +4,12 @@ import { HttpClient } from '@angular/common/http';
 import { ProductService } from 'src/app/core/services/product.service';
 import { UserService } from 'src/app/core/services/user.service';
 import { Chart, ChartConfiguration, registerables } from 'chart.js';
+import { DashboardStats } from '../../modals/dashboardStats';
+import { RecentOrder } from '../../modals/recentOrder';
+import { ProductAnalysis } from '../../modals/productAnanlysis';
+import { SalesData } from '../../modals/salesData';
+import { RecentActivity } from '../../modals/recentActivity';
 
-interface DashboardStats {
-  title: string;
-  value: string | number;
-  change: string;
-  icon: string;
-  color: string;
-  description?: string;
-}
-
-interface RecentOrder {
-  id: string;
-  customer: string;
-  amount: number;
-  status: string;
-  date: string;
-}
-
-interface ProductAnalysis {
-  totalProducts: number;
-  activeProducts: number;
-  lowStockProducts: number;
-  outOfStockProducts: number;
-  topSellingProducts: number;
-}
-
-interface SalesData {
-  totalRevenue: number;
-  dailyRevenue: number;
-  revenueChange: number;
-  averageOrderValue: number;
-}
-
-interface RecentActivity {
-  action: string;
-  time: string;
-  type: 'order' | 'stock' | 'user' | 'system';
-  timestamp: number;
-}
 
 Chart.register(...registerables);
 

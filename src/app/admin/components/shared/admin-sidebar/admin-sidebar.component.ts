@@ -1,13 +1,7 @@
 import { Component, EventEmitter, Input, Output, HostListener } from '@angular/core';
+import { SidebarMenuItem } from 'src/app/admin/modals/sideBarMenuItem';
 import { AdminAuthService } from 'src/app/admin/services/admin-auth.service';
 
-interface SidebarMenuItem {
-  label: string;
-  icon: string;
-  color?: string;
-  route?: string;
-  children?: SidebarMenuItem[];
-}
 
 @Component({
   selector: 'app-admin-sidebar',

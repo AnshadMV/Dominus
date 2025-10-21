@@ -46,9 +46,9 @@
           "estimatedDelivery": "October 27, 2025"
         }
       ],
-      "isBlocked": true,
-      "blockedAt": "2025-10-20T11:35:21.958Z",
-      "blockedReason": "asdas",
+      "isBlocked": false,
+      "blockedAt": null,
+      "blockedReason": "",
       "cart": [
         {
           "productId": "p1",

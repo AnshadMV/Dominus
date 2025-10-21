@@ -175,6 +175,7 @@ export class UsersComponent implements OnInit {
       });
     }
   }
+  // In users.component.ts - UPDATE confirmBlock method
   confirmBlock(): void {
     if (this.userToBlock && this.userToBlock.id) {
       this.userService.blockUser(this.userToBlock.id.toString(), this.blockReason).subscribe({
@@ -187,8 +188,8 @@ export class UsersComponent implements OnInit {
           this.toast.success('User blocked successfully');
           this.closeBlockModal();
 
-          // Optional: You might want to make an API call to notify the blocked user
-          // This would require a real-time solution like WebSockets for immediate effect
+          // The blocked user will be automatically logged out immediately
+          // through the auth service and interceptor
         },
         error: (error) => {
           console.error('Error blocking user:', error);
