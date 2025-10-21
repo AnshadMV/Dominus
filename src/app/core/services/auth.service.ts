@@ -6,6 +6,8 @@ import { tap, switchMap, take } from 'rxjs/operators';
 import { UserService } from './user.service';
 import { Router } from '@angular/router';
 import { website_constants } from '../constants/app.constant';
+import { Toast } from '../models/toast.model';
+import { ToastService } from './toast.service';
 
 @Injectable({
     providedIn: 'root'
@@ -18,7 +20,8 @@ export class AuthService {
     constructor(
         private http: HttpClient,
         private userService: UserService,
-        private router: Router
+        private router: Router,
+        private toast: ToastService
     ) {
         this.currentUserSubject = new BehaviorSubject<any>(JSON.parse(localStorage.getItem('currentUser') || 'null'));
         this.currentUser = this.currentUserSubject.asObservable();
@@ -47,10 +50,8 @@ export class AuthService {
     // Add this method to handle blocked user
     private handleUserBlocked(): void {
         this.logout();
-        // Use toast service if available, or redirect directly
         this.router.navigate(['/app-login']);
-        // You might want to show a message to the user
-        alert('Your account has been blocked. Please contact administrator.');
+        this.toast.error('Your account has been blocked. Please contact administrator.');
     }
 
     // Update login method to store email for blocked checks

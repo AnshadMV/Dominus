@@ -5,36 +5,38 @@ import { RouterModule } from '@angular/router';
 
 import { AdminRoutingModule } from './admin-routing.module';
 import { AdminComponent } from './admin.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { AdminHeaderComponent } from './components/shared/admin-header/admin-header.component';
-import { AdminSidebarComponent } from './components/shared/admin-sidebar/admin-sidebar.component';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from "@angular/material/icon";
+import { AdminHeaderComponent } from './shared/admin-header/admin-header.component';
+import { AdminSidebarComponent } from './shared/admin-sidebar/admin-sidebar.component';
 import { UsersComponent } from './components/users/users.component';
 import { AdminOrdersComponent } from './components/orders/orders.component';
+import { DashBoardModule } from './components/dashboard/dashboard.module';
 
 @NgModule({
   declarations: [
     AdminComponent,
-    DashboardComponent,
     AdminHeaderComponent,
     AdminSidebarComponent,
-   
     UsersComponent,
     AdminOrdersComponent,
 
-    
+
   ],
   imports: [
     CommonModule,
-    FormsModule,
     ReactiveFormsModule,
     RouterModule,
-    AdminRoutingModule, MatButtonModule,
-    MatIconModule ,FormsModule
-  ], exports: [
+    AdminRoutingModule,
+    FormsModule, DashBoardModule
+
+
+
+
+  ],
+
+  exports: [
     AdminHeaderComponent,
-    AdminSidebarComponent, 
-  ]
+    AdminSidebarComponent,
+  ],
+  bootstrap: [AdminComponent]
 })
 export class AdminModule { }

@@ -89,7 +89,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
         this.initializeCharts();
       }, 500);
       this.isLoading = false;
-    }).catch(error => {
+    }).catch((error) => {
       console.error('Error loading dashboard data:', error);
       this.isLoading = false;
     });

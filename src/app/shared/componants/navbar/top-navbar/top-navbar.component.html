@@ -1,15 +1,13 @@
-
-<!-- Shipping Announcement -->
 <div *ngIf="showSecondAnnouncement" class="bg-gradient-to-r from-green-600 to-emerald-700 text-white py-2 px-4">
-    <div class="max-w-7xl mx-auto">
-        <div class="flex items-center justify-center space-x-3">
-            <i class="fa-solid fa-shipping-fast animate-pulse"></i>
-            <span class="text-sm font-medium">FREE Shipping on orders over $50 • </span>
-            <span class="text-sm font-bold underline cursor-pointer">Learn More</span>
-            <button (click)="closeFirstAnnouncement()"
-                class="absolute top-2 right-2 sm:relative sm:top-0 sm:right-0 w-6 h-6 rounded-full hover:bg-white/20 transition-colors flex items-center justify-center">
-                <i class="fa-solid fa-times text-xs"></i>
-            </button>
-        </div>
+  <div class="max-w-7xl mx-auto">
+    <div class="flex items-center justify-center space-x-3 relative">
+      <i class="fa-solid fa-shipping-fast animate-pulse"></i>
+      <span class="text-sm font-medium">FREE Shipping on orders over $50 • </span>
+      <span class="text-sm font-bold underline cursor-pointer">Learn More</span>
+      <button (click)="closeAnnouncement()"
+        class="absolute top-2 right-2 sm:static w-6 h-6 rounded-full hover:bg-white/20 transition-colors flex items-center justify-center">
+        <i class="fa-solid fa-times text-xs"></i>
+      </button>
     </div>
+  </div>
 </div>

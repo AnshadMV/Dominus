@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { Subscription, switchMap } from 'rxjs';
+import { map, Subscription, switchMap } from 'rxjs';
 import { ProductService } from 'src/app/core/services/product.service';
 import { ToastService } from 'src/app/core/services/toast.service';
 import { SearchService } from 'src/app/core/services/navbar_search.service';
 import { Product } from 'src/app/core/models/product.model';
 import { Category } from 'src/app/core/models/category.model';
+import { website_constants } from 'src/app/core/constants/app.constant';
 @Component({
     selector: 'app-product-list',
     templateUrl: './product-list.component.html',
@@ -22,15 +23,15 @@ export class ProductListComponent implements OnInit {
     filteredProducts: Product[] = [];
     categories: Category[] = [];
     isLoading = true;
-
     searchTerm: string = '';
     selectedCategory: string = 'all';
     sortBy: string = 'name';
     sortDirection: 'asc' | 'desc' = 'asc';
     showFilters: boolean = false;
     private searchSubscription!: Subscription;
-
-    // filter
+    private usersUrl = website_constants.API.USERURL;
+    userId: string | null = null;
+    isBlockedUser: boolean = false;
     priceRange: [number, number] = [0, 100000];
     minPrice: number = 0;
     maxPrice: number = 1000000;
@@ -39,7 +40,8 @@ export class ProductListComponent implements OnInit {
     showOnlyPopular: boolean = false;
     showOnlyInStock: boolean = false;
     UserDataforChecking = JSON.parse(localStorage.getItem("currentUser") || '{}');
-
+    currentPage: number = 1;
+    itemsPerPage: number = 8;
     ngOnInit() {
         this.loadProducts();
         this.loadCategories();
@@ -192,7 +194,30 @@ export class ProductListComponent implements OnInit {
         if (this.showOnlyInStock) count++;
         return count;
     }
+    get paginatedProducts(): Product[] {
+        const start = (this.currentPage - 1) * this.itemsPerPage;
+        const end = start + this.itemsPerPage;
+        return this.filteredProducts.slice(start, end);
+    }
 
+    get totalPages(): number {
+        return Math.ceil(this.filteredProducts.length / this.itemsPerPage);
+    }
+
+    // Navigate pages
+    goToPage(page: number) {
+        if (page >= 1 && page <= this.totalPages) {
+            this.currentPage = page;
+        }
+    }
+
+    nextPage() {
+        if (this.currentPage < this.totalPages) this.currentPage++;
+    }
+
+    prevPage() {
+        if (this.currentPage > 1) this.currentPage--;
+    }
 
 
 
@@ -295,26 +320,36 @@ export class ProductListComponent implements OnInit {
 
 
     viewProduct(product: Product) {
+        const user = JSON.parse(localStorage.getItem("currentUser") || '{}');
+        this.userId = user?.id || null;
+
         if (product.stock <= 0) {
-            console.log('⚠️ Out of stock');
-            return this.toast.info("⚠️ Out of stock")
+            this.toast.info("⚠️ Out of stock");
+            return;
+        }
 
-        } else
-            if (!this.UserDataforChecking.id) {
-                console.error("User not logged in");
-                this.toast.error("User not logged in")
+        if (!this.userId) {
+            this.toast.error("User not logged in");
+            return;
+        }
 
-                return;
-
+        this.http.get<any>(`${this.usersUrl}/${this.userId}`).subscribe({
+            next: (userData) => {
+                if (userData.isBlocked) {
+                    this.toast.error("User is blocked. Please contact administrator");
+                } else {
+                    this.router.navigate(['/products/product-buy'], {
+                        state: { product: [product] }
+                    });
+                }
+            },
+            error: (err) => {
+                console.error("Error fetching user data:", err);
+                this.toast.error("Failed to verify user status");
             }
-            else {
-                this.router.navigate(['/products/product-buy'], {
-                    state: { product: [product] }
-                });
-            }
-
-        console.log(product)
+        });
     }
+
 
     viewProductDetail(product: Product) {
         this.router.navigate(['products/product-detail', product.id]);

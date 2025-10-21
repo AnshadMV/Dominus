@@ -1,26 +1,3 @@
-// import { Component, HostListener } from '@angular/core';
-
-// @Component({
-//   selector: 'app-navbar',
-//   templateUrl: './navbar.component.html',
-//   styleUrls: ['./navbar.component.css']
-// })
-// export class NavbarComponent {
-//   isNavbarCollapsed = true;
-
-//   navLinks = [
-//     { path: '', label: 'Home', icon: 'bi bi-house-door' },
-//     { path: '/shop', label: 'Shop', icon: 'bi bi-shop' },
-//     { path: '/cart', label: 'Cart', icon: 'bi bi-cart' },
-//     { path: '/login', label: 'Login', icon: 'bi bi-person' }
-//   ];
-
-//   closeNavbar() {
-//     this.isNavbarCollapsed = true;
-//   }
-// }
-
-
 import { HttpClient } from '@angular/common/http';
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -51,7 +28,7 @@ export class NavbarComponent implements OnInit {
   }
 
   menuItems = [
-    { label: 'Shop', route: '/app-products/product-list' },
+    { label: 'Shop', route: '/products' },
     { label: 'Contact Us', route: '/app-contact-us' },
     { label: 'About Us', route: '/app-about' },
   ];

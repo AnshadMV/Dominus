@@ -13,7 +13,14 @@
       "password": "123123123",
       "createdAt": "2025-10-16T08:44:02.094Z",
       "role": "user",
-      "wishlist": [],
+      "wishlist": [
+        {
+          "productId": "p2"
+        },
+        {
+          "productId": "p1"
+        }
+      ],
       "orders": [
         {
           "id": "order_1760957740123",
@@ -52,7 +59,7 @@
       "cart": [
         {
           "productId": "p1",
-          "quantity": 2
+          "quantity": 4
         },
         {
           "productId": "p15"
@@ -61,107 +68,66 @@
     },
     {
       "id": "a63d",
-      "name": "admin1",
+      "name": "admin",
       "email": "admin@gmail.com",
       "password": "admin123",
       "createdAt": "2025-10-16T17:59:56.070Z",
       "role": "admin",
       "wishlist": [],
-      "orders": [],
-      "signedTime": "2025-10-19T14:40:05.319Z",
-      "cart": [],
-      "shippingDetails": {
-        "fullName": "admin1",
-        "address": "valladath",
-        "city": "Velladath House",
-        "state": "kerala",
-        "pincode": "676301",
-        "phone": "9400300166",
-        "email": "admin@gmail.com"
-      },
-      "isBlocked": false,
-      "blockedAt": null,
-      "blockedReason": ""
-    },
-    {
-      "id": "c8c3",
-      "name": "Sinan",
-      "email": "sinan@gmail.com",
-      "password": "sinan123",
-      "createdAt": "2025-10-20T02:52:50.213Z",
-      "role": "user",
-      "wishlist": [],
-      "orders": [],
-      "signedTime": "2025-10-20T02:53:15.966Z",
-      "shippingDetails": {
-        "fullName": "Sinan",
-        "address": "kinfra",
-        "city": "cali",
-        "state": "kerala",
-        "pincode": "676301",
-        "phone": "234234232342342",
-        "email": "sinan@gmail.com"
-      },
-      "cart": []
-    },
-    {
-      "id": "62c2",
-      "name": "Anshad",
-      "email": "anshad@gmail.com",
-      "password": "123123123",
-      "role": "user",
-      "createdAt": "2025-10-20T02:57:43.294Z",
-      "wishlist": [
-        {
-          "productId": "p3"
-        },
-        {
-          "productId": "p4"
-        }
-      ],
       "orders": [
         {
-          "id": "order_1760957865948",
-          "userId": "62c2",
-          "orderId": "ORD1760957865948J1PG4",
-          "orderDate": "October 20, 2025 at 04:27 PM",
+          "id": "order_1761030917550",
+          "userId": "a63d",
+          "orderId": "ORD17610309175506QJ1D",
+          "orderDate": "October 21, 2025 at 12:45 PM",
           "items": [
             {
-              "productId": "p2",
-              "name": "iPhone 17",
-              "price": 82900,
+              "productId": "p3",
+              "name": "iPhone 16 Pro Max",
+              "price": 69900,
               "quantity": 1,
-              "image": "https://images.unsplash.com/photo-1655022389582-f831f2128886?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+              "image": "https://images.unsplash.com/photo-1666702737580-a927434257d5?w=300&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE4fHx8ZW58MHx8fHx8",
               "color": "black",
               "category": "mobile"
             }
           ],
           "shippingDetails": {
-            "fullName": "Anshad",
+            "fullName": "admin",
             "address": "Not specified",
             "city": "Not specified",
             "state": "Not specified",
             "pincode": "000000",
             "phone": "Not specified",
-            "email": "anshad@gmail.com"
+            "email": "admin@gmail.com"
           },
           "paymentMethod": "Online Payment",
-          "totalAmount": 82900,
+          "totalAmount": 69900,
           "status": "delivered",
-          "estimatedDelivery": "October 27, 2025"
+          "estimatedDelivery": "October 28, 2025"
         }
       ],
-      "isBlocked": true,
-      "blockedAt": "2025-10-20T11:19:28.430Z",
-      "blockedReason": "as",
+      "signedTime": "2025-10-19T14:40:05.319Z",
       "cart": [
         {
-          "productId": "p3"
+          "productId": "p3",
+          "quantity": 11
         },
         {
-          "productId": "p4"
+          "productId": "p6"
+        },
+        {
+          "productId": "p14"
+        },
+        {
+          "productId": "p13"
+        },
+        {
+          "productId": "p7"
         }
-      ]
+      ],
+      "isBlocked": false,
+      "blockedAt": null,
+      "blockedReason": ""
     }
   ],
   "products": [
@@ -182,7 +148,7 @@
         "green"
       ],
       "topSelling": true,
-      "stock": 0,
+      "stock": 20,
       "category": "mobile",
       "warranty": "1 Y",
       "isActive": true,
@@ -234,7 +200,7 @@
         "yellow"
       ],
       "topSelling": true,
-      "stock": 5,
+      "stock": 4,
       "category": "mobile",
       "warranty": "1 Y",
       "slug": "iphone-16",

@@ -1,8 +1,6 @@
 import { Component, HostListener } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
-import { filter } from 'rxjs';
 import { navigationEndFilter } from './shared/pipes/rxjs_pipes/navigation-end-filter';
-import { CartBadgeService } from './core/services/cartBadge.service';
 
 @Component({
   selector: 'app-root',

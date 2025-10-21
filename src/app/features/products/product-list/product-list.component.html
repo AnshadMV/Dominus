@@ -155,6 +155,7 @@
                     <div class="text-gray-800 text-sm font-medium">Total {{ filteredProducts.length }} products
                         Found
                     </div>
+
                     <div class="flex items-center gap-3">
                         <span class="text-gray-800 text-sm whitespace-nowrap">Sort by:</span>
                         <select [(ngModel)]="sortBy" (change)="onSortChange(sortBy)"
@@ -173,9 +174,8 @@
                 <!-- Products Grid -->
                 <div *ngIf="!isLoading" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
 
-                    <div *ngFor="let product of filteredProducts"
+                    <div *ngFor="let product of paginatedProducts"
                         class="bg-white rounded-xl overflow-hidden border border-gray-200 hover:shadow-lg transition-all duration-300 group flex flex-col h-full">
-
                         <!-- Product Image Section -->
                         <div (click)="viewProductDetail(product)" class="cursor-pointer flex-grow">
                             <div class="aspect-square bg-gray-50 relative overflow-hidden">
@@ -211,8 +211,7 @@
                         <div class="p-2 flex-grow-0">
                             <!-- Product Name & Price -->
                             <div class="">
-                                <h3
-                                    class="text-lg font-bold text-gray-900 line-clamp-2 leading-tight">
+                                <h3 class="text-lg font-bold text-gray-900 line-clamp-2 leading-tight">
                                     {{ product.name }}
                                 </h3>
                                 <div class="flex items-center justify-between">
@@ -275,6 +274,20 @@
                     </div>
                 </div>
 
+                <!-- Pagination Controls -->
+                <div *ngIf="totalPages > 1" class="flex justify-center items-center gap-2 mt-6 mb-6">
+                    <button (click)="prevPage()" [disabled]="currentPage === 1"
+                        class="px-3 py-1 rounded bg-gray-200 hover:bg-gray-300 disabled:opacity-50 text-black">Prev</button>
+
+                    <button *ngFor="let page of [].constructor(totalPages); let i = index" (click)="goToPage(i+1)"
+                        [ngClass]="{'bg-black text-white': currentPage === i+1, 'bg-gray-200 text-gray-800 hover:bg-gray-300': currentPage !== i+1}"
+                        class="px-3 py-1 rounded transition-colors">
+                        {{ i + 1 }}
+                    </button>
+
+                    <button (click)="nextPage()" [disabled]="currentPage === totalPages"
+                        class="px-3 py-1 text-black bg-gray-200 hover:bg-gray-300 disabled:opacity-50">Next</button>
+                </div>
                 <!-- Empty State -->
                 <div *ngIf="!isLoading && filteredProducts.length === 0" class="text-center py-12">
                     <div class="w-16 h-16 mx-auto mb-4 bg-gray-100 rounded-full flex items-center justify-center">
