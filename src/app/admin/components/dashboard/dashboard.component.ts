@@ -67,7 +67,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   private startRealtimeUpdates(): void {
     this.refreshInterval = setInterval(() => {
       this.loadDashboardData();
-    }, 30000); // Refresh every 30 seconds
+    }, 30000);
   }
 
   private stopRealtimeUpdates(): void {
@@ -82,7 +82,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
     Promise.all([
       this.loadProductsData(),
       this.loadUsersData(),
-      this.loadOrdersData()  // ← Remove loadSalesData() - it's calculated in processOrdersData
+      this.loadOrdersData()
     ]).then(() => {
       this.updateStats();
       setTimeout(() => {
@@ -143,7 +143,15 @@ export class DashboardComponent implements OnInit, OnDestroy {
     });
   }
 
-
+  public calculateUserStats(): any {
+    return {
+      totalUsers: this.allUsers.length,
+      activeUsers: this.allUsers.filter(user => user.isActive !== false).length,
+      newUsersToday: this.allUsers.filter(user =>
+        user.createdAt && this.isToday(user.createdAt)
+      ).length
+    };
+  }
 
   private identifyTopSellingProducts(products: any[]): void {
     this.topSellingProducts = products
@@ -375,6 +383,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
   }
 
   private updateStats(): void {
+    const userStats = this.calculateUserStats();
+
     this.stats = [
       {
         title: 'Total Revenue',
@@ -400,13 +410,21 @@ export class DashboardComponent implements OnInit, OnDestroy {
         color: 'bg-purple-500',
         description: `${this.productAnalysis.topSellingProducts} top selling`
       },
+      // {
+      //   title: 'Stock Alert',
+      //   value: this.productAnalysis.lowStockProducts + this.productAnalysis.outOfStockProducts,
+      //   change: `${this.productAnalysis.outOfStockProducts} out of stock`,
+      //   icon: 'fa-solid fa-exclamation-triangle',
+      //   color: 'bg-orange-500',
+      //   description: `${this.productAnalysis.lowStockProducts} low stock`
+      // }
       {
-        title: 'Stock Alert',
-        value: this.productAnalysis.lowStockProducts + this.productAnalysis.outOfStockProducts,
-        change: `${this.productAnalysis.outOfStockProducts} out of stock`,
-        icon: 'fa-solid fa-exclamation-triangle',
-        color: 'bg-orange-500',
-        description: `${this.productAnalysis.lowStockProducts} low stock`
+        title: 'Total Users',  // CHANGED FROM 'Stock Alert'
+        value: userStats.totalUsers,
+        change: `${userStats.newUsersToday} new today`,  // CHANGED
+        icon: 'fa-solid fa-users',  // CHANGED ICON
+        color: 'bg-indigo-500',  // CHANGED COLOR
+        description: `${userStats.activeUsers} active users`  // CHANGED
       }
     ];
   }

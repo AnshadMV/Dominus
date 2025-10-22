@@ -9,6 +9,7 @@ import { ToastService } from 'src/app/core/services/toast.service';
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.css']
 })
+
 export class UsersComponent implements OnInit {
   users: User[] = [];
   filteredUsers: User[] = [];

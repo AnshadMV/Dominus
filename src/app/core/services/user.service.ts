@@ -46,12 +46,13 @@ export class UserService {
       isBlocked: true,
       blockedAt: new Date().toISOString(),
       blockedReason: reason
+
+      
     };
     return this.http.patch<User>(`${this.apiUrl}/${id}`, blockData);
   }
 
 
-  // Add unblock user method
   unblockUser(id: string): Observable<User> {
     const unblockData = {
       isBlocked: false,

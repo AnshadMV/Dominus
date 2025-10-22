@@ -7,36 +7,27 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { AdminComponent } from './admin.component';
 import { AdminHeaderComponent } from './shared/admin-header/admin-header.component';
 import { AdminSidebarComponent } from './shared/admin-sidebar/admin-sidebar.component';
-import { UsersComponent } from './components/users/users.component';
-import { AdminOrdersComponent } from './components/orders/orders.component';
-import { DashBoardModule } from './components/dashboard/dashboard.module';
+import { AdminFeatureModule } from './components/admin-feature.module';
+import { AdminSharedModule } from './shared/admin-shared.module';
 
 @NgModule({
   declarations: [
     AdminComponent,
-    AdminHeaderComponent,
-    AdminSidebarComponent,
-    UsersComponent,
-    AdminOrdersComponent,
-
-
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     RouterModule,
     AdminRoutingModule,
-    FormsModule, DashBoardModule
+    FormsModule,
 
+    //Modules - Shared and Feature
+    AdminFeatureModule, 
+    AdminSharedModule
 
 
 
   ],
 
-  exports: [
-    AdminHeaderComponent,
-    AdminSidebarComponent,
-  ],
-  bootstrap: [AdminComponent]
 })
 export class AdminModule { }

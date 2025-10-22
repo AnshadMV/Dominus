@@ -3,17 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './features/about/about.component';
 import { HomeComponent } from './features/home/home.component';
 import { NotFoundComponent } from './features/not-found/not-found.component';
-import { ProductListComponent } from './features/products/product-list/product-list.component';
 import { LoginComponent } from './features/auth/login/login.component';
 import { RegisterComponent } from './features/auth/register/register.component';
 import { CartComponent } from './features/cart/cart.component';
 import { WishlistComponent } from './features/wishlist/wishlist.component';
-import { ProductBuyComponent } from './features/products/product-buy/product-buy.component';
-import { ProductDetailComponent } from './features/products/product-detail/product-detail.component';
 import { OrdersComponent } from './features/orders/orders.component';
 import { AuthGuard } from './core/guards/auth.guards';
 import { ContactUsComponent } from './features/contact-us/contact-us.component';
-import { AdminComponent } from './admin/admin.component';
 
 const routes: Routes = [
   {
@@ -29,7 +25,6 @@ const routes: Routes = [
     path: 'app-register',
     component: RegisterComponent
   },
-
   {
     path: 'app-home',
     component: HomeComponent,

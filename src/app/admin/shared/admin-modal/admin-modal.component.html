@@ -14,14 +14,14 @@
         <form *ngIf="mode !== 'delete'" [formGroup]="editForm" (ngSubmit)="onSave()">
             <div class="space-y-4">
                 
-                <!-- Common Fields -->
+                <!--its Common Fields -->
                 <div>
                     <label class="block text-sm font-medium text-gray-700">Name *</label>
                     <input formControlName="name" type="text"
                         class="text-black mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500">
                 </div>
 
-                <!-- Product Specific Fields -->
+                <!--here Product Specific Fields -->
                 <div *ngIf="entityType === 'product'">
                     <div>
                         <label class="block text-sm font-medium text-gray-700">Price</label>

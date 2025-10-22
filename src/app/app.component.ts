@@ -1,6 +1,8 @@
+// Modified app.component.ts with AuthService injection for polling initialization
 import { Component, HostListener } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { navigationEndFilter } from './shared/pipes/rxjs_pipes/navigation-end-filter';
+import { AuthService } from './core/services/auth.service';  // Add this import
 
 @Component({
   selector: 'app-root',
@@ -17,7 +19,9 @@ export class AppComponent {
   hideOnRoutes_header = ['/app-login', '/app-register', '/admin', '', '**']; // routes where navbar should hide
   showOnRoutes_footer = ['/app-home', '/app-about', '/app-profile', '/admin',]; // routes where navbarshould hide
   hideOnRoutes_navbarPadding = ['/app-login', '/app-register', '/app-home', '/app-not-found'];
-  constructor(private router: Router) { this.router.events.subscribe((event) => {
+  
+  constructor(private router: Router, private authService: AuthService) {  // Inject AuthService here to ensure polling starts
+    this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         const currentRoute = this.router.url;
         
@@ -30,7 +34,8 @@ export class AppComponent {
           this.showFooter = true;
         }
       }
-    }); }
+    }); 
+  }
 
   ngOnInit() {
     navigationEndFilter(this.router.events)
@@ -50,5 +55,3 @@ export class AppComponent {
     this.showTopNavbar = visible;
   }
 }
-
-

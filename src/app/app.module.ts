@@ -6,9 +6,9 @@ import { HomeComponent } from './features/home/home.component';
 import { CartComponent } from './features/cart/cart.component';
 import { WishlistComponent } from './features/wishlist/wishlist.component';
 import { PaymentComponent } from './features/payment/payment.component';
-import { LoginComponent } from './features/auth/login/login.component';
-import { RegisterComponent } from './features/auth/register/register.component';
-import { ButtonComponent } from './shared/componants/button/button.component';
+// import { LoginComponent } from './features/auth/login/login.component';
+// import { RegisterComponent } from './features/auth/register/register.component';
+// import { ButtonComponent } from './shared/componants/button/button.component';x
 import { CardComponent } from './shared/componants/card/card.component';
 import { NavbarComponent } from './shared/componants/navbar/navbar.component';
 import { FooterComponent } from './shared/componants/footer/footer.component';
@@ -25,34 +25,24 @@ import { ContactUsComponent } from './features/contact-us/contact-us.component';
 import { ProductModule } from './features/products/product.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { AuthModule } from './features/auth/auth.module';
+import { CoreModule } from './core/core.module';
+import { FeaturesModule } from './features/features.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    CartComponent,
-    WishlistComponent,
-    PaymentComponent,
-    LoginComponent,
-    RegisterComponent,
-    ButtonComponent,
-    CardComponent,
-    NavbarComponent,
-    FooterComponent,  
-    NotFoundComponent,
-    AboutComponent,
-    TopNavbarComponent,
-    MenuModalComponent,
-    ToastComponent, 
-    SafeUrlPipe, 
-    OrdersComponent, 
-    ContactUsComponent, 
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule, 
     HttpClientModule, 
-    FormsModule,ProductModule, BrowserAnimationsModule,  NgxPaginationModule
+    FormsModule, BrowserAnimationsModule,  NgxPaginationModule, 
+    
+    
+    CoreModule ,AuthModule, ProductModule, FeaturesModule , SharedModule
   ],
   providers: [
     

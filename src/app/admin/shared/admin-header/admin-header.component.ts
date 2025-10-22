@@ -2,6 +2,7 @@ import { Component, ElementRef, EventEmitter, HostListener, Output } from '@angu
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { AdminAuthService } from '../../services/admin-auth.service';
+import { ToastService } from 'src/app/core/services/toast.service';
 
 @Component({
   selector: 'app-admin-header',
@@ -13,12 +14,13 @@ export class AdminHeaderComponent {
   searchQuery: string = '';
 
   @Output() toggleSidebar = new EventEmitter<void>();
-  @Output() search = new EventEmitter<string>(); // Optional search emitter
+  @Output() search = new EventEmitter<string>(); 
 
   constructor(
     private authService: AdminAuthService,
     private router: Router,
-    private eRef: ElementRef
+    private eRef: ElementRef,
+    private toast:ToastService
   ) {}
 
   toggleProfileDropdown() {
@@ -31,6 +33,11 @@ export class AdminHeaderComponent {
 
   logout(): void {
     this.authService.logout();
+    localStorage.removeItem('currentUser');
+    this.showProfileDropdown = false;
+    this.router.navigate(['/app-login']);
+    console.log("Logout and cleared Data")
+    this.toast.error("Logout Succefully")
     this.router.navigate(['/app-login']);
   }
 

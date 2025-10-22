@@ -142,8 +142,11 @@ export class AdminOrdersComponent implements OnInit {
     });
   }
 
-  getStatusColor(status: string): string {
-    const colors: { [key: string]: string } = {
+  getStatusColor(status: string): string 
+  {
+    const colors: 
+    { [key: string]: string } = 
+    {
       'pending': 'bg-yellow-100 text-yellow-800 border-yellow-200',
       'confirmed': 'bg-blue-100 text-blue-800 border-blue-200',
       'shipped': 'bg-purple-100 text-purple-800 border-purple-200',

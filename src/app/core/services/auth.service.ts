@@ -1,4 +1,4 @@
-// In auth.service.ts - Add these methods
+// Modified auth.service.ts with adjusted interval and corrected comment
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, interval } from 'rxjs';
@@ -6,7 +6,6 @@ import { tap, switchMap, take } from 'rxjs/operators';
 import { UserService } from './user.service';
 import { Router } from '@angular/router';
 import { website_constants } from '../constants/app.constant';
-import { Toast } from '../models/toast.model';
 import { ToastService } from './toast.service';
 
 @Injectable({
@@ -15,7 +14,7 @@ import { ToastService } from './toast.service';
 export class AuthService {
     private currentUserSubject: BehaviorSubject<any>;
     public currentUser: Observable<any>;
-    private checkInterval = 1000; // Check every 30 seconds
+    private checkInterval = 0; 
     private apiUrl = website_constants.API.PRODUCTURL;
     constructor(
         private http: HttpClient,
@@ -25,17 +24,16 @@ export class AuthService {
     ) {
         this.currentUserSubject = new BehaviorSubject<any>(JSON.parse(localStorage.getItem('currentUser') || 'null'));
         this.currentUser = this.currentUserSubject.asObservable();
-
         // Start periodic blocked status checks
         this.startBlockedStatusChecks();
     }
 
-    // Add this method to start periodic checks
+    // For start periodic checks
     private startBlockedStatusChecks(): void {
         interval(this.checkInterval).pipe(
             switchMap(() => {
                 const user = this.currentUserValue;
-                if (user && user.email) {
+                if (user && user.email && user.role !== 'admin') {  // Optional: Skip checks for admins to avoid self-kick
                     return this.userService.isUserBlocked(user.email);
                 }
                 return [false];

@@ -31,10 +31,9 @@ export class AdminModalComponent implements OnChanges {
     private categoriesService: CategoriesService
   ) {
     this.editForm = this.fb.group({
-      // Common fields
       name: ['', Validators.required],
 
-      // Product fields
+      //fileds related to Products
       price: [0],
       stock: [0],
       category: [''],

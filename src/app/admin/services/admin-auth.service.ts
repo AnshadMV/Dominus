@@ -27,6 +27,7 @@ export class AdminAuthService {
   logout(): void {
     localStorage.removeItem('admin_token');
     localStorage.removeItem('admin_user');
+    localStorage.removeItem('currentUser');
     this.isAuthenticated.next(false);
   }
 

@@ -19,9 +19,84 @@
         },
         {
           "productId": "p1"
+        },
+        {
+          "productId": "p5"
+        },
+        {
+          "productId": "p8"
         }
       ],
       "orders": [
+        {
+          "id": "order_1761065625211",
+          "userId": "35e0",
+          "orderId": "ORD1761065625211NJ8K1",
+          "orderDate": "October 21, 2025 at 10:23 PM",
+          "items": [
+            {
+              "productId": "p1",
+              "name": "iPhone 17 Pro Max",
+              "price": 229899,
+              "quantity": 1,
+              "image": "https://images.unsplash.com/photo-1758770478140-e45dac838d40?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aXBob25lJTIwMTclMjBwcm8lMjBtYXh8ZW58MHwyfDJ8fHww&auto=format&fit=crop&q=60&w=400",
+              "color": "yellow",
+              "category": "mobile"
+            }
+          ],
+          "shippingDetails": {
+            "fullName": "Shinaas",
+            "address": "Not specified",
+            "city": "Not specified",
+            "state": "Not specified",
+            "pincode": "000000",
+            "phone": "Not specified",
+            "email": "shinas@gmail.com"
+          },
+          "paymentMethod": "Online Payment",
+          "totalAmount": 229899,
+          "status": "cancelled",
+          "estimatedDelivery": "October 28, 2025"
+        },
+        {
+          "id": "order_1761063898169",
+          "userId": "35e0",
+          "orderId": "ORD17610638981695Z908",
+          "orderDate": "October 21, 2025 at 09:54 PM",
+          "items": [
+            {
+              "productId": "p1",
+              "name": "iPhone 17 Pro Max",
+              "price": 229899,
+              "quantity": 4,
+              "image": "https://images.unsplash.com/photo-1758770478140-e45dac838d40?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aXBob25lJTIwMTclMjBwcm8lMjBtYXh8ZW58MHwyfDJ8fHww&auto=format&fit=crop&q=60&w=400",
+              "color": "yellow",
+              "category": "mobile"
+            },
+            {
+              "productId": "p15",
+              "name": "Apple Watch Series 11",
+              "price": 4690,
+              "quantity": 1,
+              "image": "https://images.unsplash.com/photo-1558126319-c9feecbf57ee?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+              "color": "space gray",
+              "category": "watch"
+            }
+          ],
+          "shippingDetails": {
+            "fullName": "Shinaas",
+            "address": "Not specified",
+            "city": "Not specified",
+            "state": "Not specified",
+            "pincode": "000000",
+            "phone": "Not specified",
+            "email": "shinas@gmail.com"
+          },
+          "paymentMethod": "Online Payment",
+          "totalAmount": 924286,
+          "status": "confirmed",
+          "estimatedDelivery": "October 28, 2025"
+        },
         {
           "id": "order_1760957740123",
           "userId": "35e0",
@@ -51,6 +126,36 @@
           "totalAmount": 459798,
           "status": "delivered",
           "estimatedDelivery": "October 27, 2025"
+        },
+        {
+          "id": "order_1761101618380",
+          "userId": "35e0",
+          "orderId": "ORD1761101618380LCXZ8",
+          "orderDate": "October 22, 2025 at 08:23 AM",
+          "items": [
+            {
+              "productId": "p15",
+              "name": "Apple Watch Series 11",
+              "price": 4690,
+              "quantity": 1,
+              "image": "https://images.unsplash.com/photo-1558126319-c9feecbf57ee?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+              "color": "space gray",
+              "category": "watch"
+            }
+          ],
+          "shippingDetails": {
+            "fullName": "Shinaas",
+            "address": "Not specified",
+            "city": "Not specified",
+            "state": "Not specified",
+            "pincode": "000000",
+            "phone": "Not specified",
+            "email": "shinas@gmail.com"
+          },
+          "paymentMethod": "Online Payment",
+          "totalAmount": 4690,
+          "status": "shipped",
+          "estimatedDelivery": "October 29, 2025"
         }
       ],
       "isBlocked": false,
@@ -63,6 +168,9 @@
         },
         {
           "productId": "p15"
+        },
+        {
+          "productId": "p4"
         }
       ]
     },
@@ -73,7 +181,14 @@
       "password": "admin123",
       "createdAt": "2025-10-16T17:59:56.070Z",
       "role": "admin",
-      "wishlist": [],
+      "wishlist": [
+        {
+          "productId": "p4"
+        },
+        {
+          "productId": "p3"
+        }
+      ],
       "orders": [
         {
           "id": "order_1761030917550",
@@ -123,6 +238,12 @@
         },
         {
           "productId": "p7"
+        },
+        {
+          "productId": "p1"
+        },
+        {
+          "productId": "p5"
         }
       ],
       "isBlocked": false,
@@ -148,7 +269,7 @@
         "green"
       ],
       "topSelling": true,
-      "stock": 20,
+      "stock": 15,
       "category": "mobile",
       "warranty": "1 Y",
       "isActive": true,
@@ -458,7 +579,7 @@
         "silver"
       ],
       "topSelling": true,
-      "stock": 18,
+      "stock": 16,
       "isActive": true,
       "category": "watch",
       "slug": "Apple Watch Series 11",

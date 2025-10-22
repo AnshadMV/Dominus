@@ -33,7 +33,7 @@
           </p>
           <p *ngIf="stat.description" class="text-xs text-gray-500 mt-2">{{ stat.description }}</p>
         </div>
-        <div [class]="stat.color + ' rounded-lg p-3'">
+        <div [class]="stat.color + ' rounded-lg p-3 border'">
           <i [class]="stat.icon + ' text-white text-lg'"></i>
         </div>
       </div>
@@ -125,57 +125,96 @@
         </div>
       </div>
 
-     <!-- Top Selling Products -->
-<div class="bg-white rounded-lg shadow-sm border border-gray-200">
-  <!-- Header -->
-  <div class="px-4 py-3 border-b border-gray-200">
-    <h3 class="text-md font-medium text-gray-900">Top Selling Products</h3>
-  </div>
+      <!-- Top Selling Products -->
+      <div class="bg-white rounded-lg shadow-sm border border-gray-200">
+        <!-- Header -->
+        <div class="px-4 py-3 border-b border-gray-200">
+          <h3 class="text-md font-medium text-gray-900">Top Selling Products</h3>
+        </div>
 
-  <!-- Product List -->
-  <div class="p-4 space-y-3">
-    <div
-      *ngFor="let product of topSellingProducts; let i = index"
-      class="flex flex-col sm:flex-row sm:items-center sm:justify-between p-3 bg-gray-50 rounded-lg gap-2 sm:gap-0"
-    >
-      <!-- Product Info -->
-      <div class="flex items-center space-x-3 min-w-0">
-        <span
-          class="w-6 h-6 bg-blue-500 text-white rounded-full text-xs flex items-center justify-center flex-shrink-0"
-        >
-          {{ i + 1 }}
-        </span>
-        <div class="min-w-0">
-          <p
-            class="text-sm font-medium text-gray-900 truncate max-w-[150px] sm:max-w-[200px] md:max-w-[250px]"
-          >
-            {{ product.name }}
-          </p>
-          <p class="text-xs text-gray-500">{{ product.sales }} sold</p>
+        <!-- Product List -->
+        <div class="p-4 space-y-3">
+          <div *ngFor="let product of topSellingProducts; let i = index"
+            class="flex flex-col sm:flex-row sm:items-center sm:justify-between p-3 bg-gray-50 rounded-lg gap-2 sm:gap-0">
+            <!-- Product Info -->
+            <div class="flex items-center space-x-3 min-w-0">
+              <span
+                class="w-6 h-6 bg-blue-500 text-white rounded-full text-xs flex items-center justify-center flex-shrink-0">
+                {{ i + 1 }}
+              </span>
+              <div class="min-w-0">
+                <p class="text-sm font-medium text-gray-900 truncate max-w-[150px] sm:max-w-[200px] md:max-w-[250px]">
+                  {{ product.name }}
+                </p>
+                <p class="text-xs text-gray-500">{{ product.sales }} sold</p>
+              </div>
+            </div>
+
+            <!-- Revenue + Stock -->
+            <div class="text-left sm:text-right">
+              <p class="text-sm font-medium text-gray-900">
+                {{ product.revenue | currency:'INR' }}
+              </p>
+              <span
+                [class]="'px-2 py-1 text-xs rounded-full inline-block mt-1 sm:mt-0 ' + getStockStatusClass(product.stock)">
+                Stock: {{ product.stock }}
+              </span>
+            </div>
+          </div>
+
+          <!-- Empty State -->
+          <div *ngIf="topSellingProducts.length === 0" class="text-center py-4">
+            <p class="text-gray-500 text-sm">No top selling products</p>
+          </div>
         </div>
       </div>
 
-      <!-- Revenue + Stock -->
-      <div class="text-left sm:text-right">
-        <p class="text-sm font-medium text-gray-900">
-          {{ product.revenue | currency:'INR' }}
-        </p>
-        <span
-          [class]="'px-2 py-1 text-xs rounded-full inline-block mt-1 sm:mt-0 ' + getStockStatusClass(product.stock)"
-        >
-          Stock: {{ product.stock }}
-        </span>
+      <!-- Total Users Card -->
+      <div class="bg-white rounded-lg shadow-sm border border-gray-200">
+        <div class="px-4 py-3 border-b border-gray-200">
+          <h3 class="text-md font-medium text-gray-900">User Summary</h3>
+        </div>
+        <div class="p-4 space-y-3">
+          <div class="flex justify-between items-center p-3 bg-indigo-50 rounded-lg">
+            <div class="flex items-center space-x-3">
+              <i class="fa-solid fa-users text-indigo-600"></i>
+              <div>
+                <p class="text-sm font-medium text-gray-900">Total Users</p>
+                <p class="text-xs text-gray-500">Registered accounts</p>
+              </div>
+            </div>
+            <span class="text-lg font-bold text-indigo-600">
+              {{ calculateUserStats().totalUsers }}
+            </span>
+          </div>
+
+          <div class="flex justify-between items-center p-3 bg-green-50 rounded-lg">
+            <div class="flex items-center space-x-3">
+              <i class="fa-solid fa-user-check text-green-600"></i>
+              <div>
+                <p class="text-sm font-medium text-gray-900">Active Users</p>
+                <p class="text-xs text-gray-500">Currently active</p>
+              </div>
+            </div>
+            <span class="text-lg font-bold text-green-600">
+              {{ calculateUserStats().activeUsers }}
+            </span>
+          </div>
+
+          <div class="flex justify-between items-center p-3 bg-blue-50 rounded-lg">
+            <div class="flex items-center space-x-3">
+              <i class="fa-solid fa-user-plus text-blue-600"></i>
+              <div>
+                <p class="text-sm font-medium text-gray-900">New Today</p>
+                <p class="text-xs text-gray-500">Recent signups</p>
+              </div>
+            </div>
+            <span class="text-lg font-bold text-blue-600">
+              {{ calculateUserStats().newUsersToday }}
+            </span>
+          </div>
+        </div>
       </div>
-    </div>
-
-    <!-- Empty State -->
-    <div *ngIf="topSellingProducts.length === 0" class="text-center py-4">
-      <p class="text-gray-500 text-sm">No top selling products</p>
-    </div>
-  </div>
-</div>
-
-
       <!-- Low Stock Alert -->
       <div class="bg-white rounded-lg shadow-sm border border-gray-200">
         <div class="px-4 py-3 border-b border-gray-200">
@@ -205,7 +244,7 @@
     </div>
     <div class="p-4">
       <div *ngIf="recentActivities.length > 0" class="space-y-3">
-        <div *ngFor="let activity of recentActivities" 
+        <div *ngFor="let activity of recentActivities"
           class="flex items-start space-x-3 p-3 rounded-lg border border-gray-100 hover:bg-gray-50 transition-colors">
           <div [class]="'mt-1 w-2 h-2 rounded-full flex-shrink-0 ' + 
                           (activity.type === 'order' ? 'bg-blue-500' : 
