@@ -16,6 +16,7 @@ import { MenuModalComponent } from './componants/navbar/menu-modal/menu-modal.co
 import { ToastComponent } from './componants/toast/toast/toast.component';
 import { SafeUrlPipe } from './pipes/angular_pipes/safe-url.pipe';
 import { AppRoutingModule } from '../app-routing.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,7 @@ import { AppRoutingModule } from '../app-routing.module';
   imports: [
     BrowserModule,
     CommonModule,
-     AppRoutingModule, 
+     AppRoutingModule, RouterModule,
     HttpClientModule, 
     FormsModule, BrowserAnimationsModule,  NgxPaginationModule, 
     

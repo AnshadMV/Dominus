@@ -54,7 +54,7 @@ export class LoginComponent implements OnInit {
       this.toast.error('Please enter password');
       return;
     }
-    // First check if user is blocked
+    //  if user is blocked - return
     this.userService.isUserBlocked(this.email).subscribe({
       next: (isBlocked) => {
         if (isBlocked) {
@@ -62,13 +62,13 @@ export class LoginComponent implements OnInit {
           return;
         }
 
-        // If not blocked, proceed with login
+        // If not blocked
         this.http.get<User[]>(this.apiUrl).subscribe({
           next: (users) => {
             const user = users.find(u => u.email === this.email && u.password === this.password);
 
             if (user) {
-              // Check if user is blocked (additional safety check)
+              //  safety check
               if (user.isBlocked) {
                 this.toast.error('Your account has been blocked. Please contact support.');
                 return;
@@ -104,7 +104,7 @@ export class LoginComponent implements OnInit {
       },
       error: (err) => {
         console.error('Error checking user status:', err);
-        this.toast.error('Something went wrong. Try again later.');
+        this.toast.error('Error checking user status');
       }
     });
   }

@@ -6,6 +6,7 @@ import { PasswordEditComponent } from './password-edit-model/password-edit.compo
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ShippingAddressModalComponent } from './shipping-address-modal/shipping-address-modal.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,7 @@ import { ShippingAddressModalComponent } from './shipping-address-modal/shipping
     ShippingAddressModalComponent,
   ],
   imports: [
-    ProfileRoutingModule,CommonModule, FormsModule
+    ProfileRoutingModule,CommonModule, FormsModule,RouterModule,
   ]
 })
 export class ProfileModule {}

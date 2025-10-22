@@ -29,7 +29,9 @@ export class RegisterComponent {
       this.emailInvalid = form.controls.email?.invalid;
       this.passwordInvalid = form.controls.password?.invalid;
 
-      // Reset shake after short delay
+      // when takes more time - Reset shake after short delay
+
+
       setTimeout(() => {
         this.nameInvalid = this.emailInvalid = this.passwordInvalid = false;
       }, 600);
@@ -37,7 +39,7 @@ export class RegisterComponent {
       return;
     }
 
-    // First check if email belongs to a blocked user
+    // 1rst check if email belongs to a blocked user
     this.userService.isUserBlocked(this.email).subscribe({
       next: (isBlocked) => {
         if (isBlocked) {
@@ -65,7 +67,7 @@ export class RegisterComponent {
               role: 'user',
               wishlist: [],
               orders: [],
-              isBlocked: false // Explicitly set to false for new users
+              isBlocked: false // set to false for new users
             };
 
             this.userService.registerUser(newUser).subscribe({

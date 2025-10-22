@@ -15,6 +15,18 @@ export class AdminProductlistComponent implements OnInit {
   lowStockCount: number = 0;
   filteredProducts: Product[] = [];
 
+
+  // //pagination 
+  // pagedProducts: Product[] = [];
+  // // pagination state
+  // currentPage = 1;
+  // pageSize = 10;         // default items per page
+  // pageSizeOptions = [5, 10, 25, 50];
+  // totalItems = 0;
+  // totalPages = 0;
+  // pages: number[] = [];
+
+
   searchTerm: string = '';
 
   outOfStockCount: number = 0;
@@ -43,6 +55,8 @@ export class AdminProductlistComponent implements OnInit {
       next: (products) => {
         this.products = products;
         this.filteredProducts = products;
+        // this.totalItems = this.filteredProducts.length;
+        // this.updatePagination();
         console.log(products)
         this.calculateCounts();
       },
@@ -70,6 +84,24 @@ export class AdminProductlistComponent implements OnInit {
       );
     }
   }
+  // // Filtering/search: resets to page 1
+  // filterProducts() {
+  //   if (!this.searchTerm.trim()) {
+  //     this.filteredProducts = [...this.products];
+  //   } else {
+  //     const term = this.searchTerm.toLowerCase().trim();
+  //     this.filteredProducts = this.products.filter(product =>
+  //       product.name?.toLowerCase().includes(term) ||
+  //       product.category?.toLowerCase().includes(term) ||
+  //       product.id?.toLowerCase().includes(term) ||
+  //       (Array.isArray(product.colors) ? product.colors.join(' ').toLowerCase().includes(term) : (product.colors || '').toLowerCase().includes(term))
+  //     );
+  //   }
+  //   this.currentPage = 1;
+  //   this.totalItems = this.filteredProducts.length;
+  //   this.updatePagination();
+  // }
+
   calculateCounts() {
     this.activeProductsCount = this.products.filter(p => p.isActive).length;
     this.lowStockCount = this.products.filter(p => p.stock >= 0 && p.stock <= 10).length;
@@ -134,5 +166,52 @@ export class AdminProductlistComponent implements OnInit {
       });
     }
   }
+
+
+
+//  // Core pagination logic (client-side)
+//   updatePagination() {
+//     this.totalItems = this.filteredProducts.length;
+//     this.totalPages = Math.max(1, Math.ceil(this.totalItems / this.pageSize));
+//     // clamp current page
+//     if (this.currentPage > this.totalPages) { this.currentPage = this.totalPages; }
+//     if (this.currentPage < 1) { this.currentPage = 1; }
+
+//     // page numbers array for template
+//     this.pages = Array.from({length: this.totalPages}, (_, i) => i + 1);
+
+//     const startIndex = (this.currentPage - 1) * this.pageSize;
+//     const endIndex = startIndex + this.pageSize;
+//     this.pagedProducts = this.filteredProducts.slice(startIndex, endIndex);
+//   }
+
+//   goToPage(page: number) {
+//     if (page < 1 || page > this.totalPages) return;
+//     this.currentPage = page;
+//     this.updatePagination();
+//   }
+
+//   prevPage() {
+//     if (this.currentPage > 1) {
+//       this.currentPage--;
+//       this.updatePagination();
+//     }
+//   }
+
+//   nextPage() {
+//     if (this.currentPage < this.totalPages) {
+//       this.currentPage++;
+//       this.updatePagination();
+//     }
+//   }
+
+//   onPageSizeChange(size: number) {
+//     this.pageSize = Number(size);
+//     this.currentPage = 1;
+//     this.updatePagination();
+//   }
+
+
+
 
 }

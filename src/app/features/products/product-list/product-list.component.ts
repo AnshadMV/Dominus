@@ -14,11 +14,15 @@ import { website_constants } from 'src/app/core/constants/app.constant';
     styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
+
     private productService = inject(ProductService);
     private router = inject(Router);
     private http = inject(HttpClient);
     private toast = inject(ToastService)
     private searchService = inject(SearchService);
+    
+    
+    
     products: Product[] = [];
     filteredProducts: Product[] = [];
     categories: Category[] = [];
@@ -45,7 +49,8 @@ export class ProductListComponent implements OnInit {
     ngOnInit() {
         this.loadProducts();
         this.loadCategories();
-        // Subscribe to global search term changes
+
+        // global searching system (from navbar)
         this.searchSubscription = this.searchService.searchTerm$.subscribe(term => {
             this.searchTerm = term;
             this.applyFilters();

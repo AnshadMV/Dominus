@@ -185,6 +185,38 @@
       </button>
     </div>
   </div>
+
+  <!-- Pagination Controls -->
+
+  <!-- <div class="flex items-center justify-between px-4 py-3 bg-white border-t border-gray-200">
+    <div class="flex items-center space-x-2 text-sm text-gray-600">
+      <span>Show</span>
+      <select [(ngModel)]="pageSize" (change)="onPageSizeChange(pageSize)" class="border rounded px-2 py-1">
+        <option *ngFor="let s of pageSizeOptions" [value]="s">{{ s }}</option>
+      </select>
+      <span>per page</span>
+    </div>
+
+    <div class="flex items-center space-x-1">
+      <button (click)="prevPage()" [disabled]="currentPage === 1"
+        class="px-2 py-1 rounded border disabled:opacity-50">Prev</button>
+
+      <ng-container *ngFor="let p of pages">
+        <button (click)="goToPage(p)" [class.font-bold]="p === currentPage" class="px-2 py-1 rounded border">
+          {{ p }}
+        </button>
+      </ng-container>
+
+      <button (click)="nextPage()" [disabled]="currentPage === totalPages"
+        class="px-2 py-1 rounded border disabled:opacity-50">Next</button>
+    </div>
+
+    <div class="text-sm text-gray-600">
+      Showing <strong>{{ (currentPage-1)*pageSize + 1 }}</strong> -
+      <strong>{{ Math.min(currentPage*pageSize, totalItems) }}</strong> of <strong>{{ totalItems }}</strong>
+    </div>
+  </div> -->
+
   <app-admin-modal [isOpen]="isModalOpen" [mode]="modalMode" [entityType]="'product'" [product]="selectedProduct"
     (close)="closeModal()" (save)="handleSave($event)" (confirmDelete)="handleDelete($event)">
   </app-admin-modal>

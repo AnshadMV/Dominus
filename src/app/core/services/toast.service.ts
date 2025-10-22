@@ -14,7 +14,7 @@ export class ToastService {
 
   constructor() { }
 
-  show(message: string, type: Toast['type'] = 'info', duration = 3000) {
+  show(message: string, type: Toast['type'] = 'info', duration = 4000) {
     const toast: Toast = {
       id: ++this.counter,
       message,

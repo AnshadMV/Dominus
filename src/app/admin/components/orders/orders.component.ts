@@ -10,8 +10,8 @@ import { AdminOrder } from 'src/app/admin/modals/adminOrder-models';
 @Component({
   selector: 'app-admin-orders',
   templateUrl: './orders.component.html',
-  styleUrls: ['./orders.component.css']
 })
+
 export class AdminOrdersComponent implements OnInit {
   private usersUrl = 'http://localhost:3000/users';
 

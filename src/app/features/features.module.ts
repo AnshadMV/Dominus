@@ -19,6 +19,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { AuthModule } from './auth/auth.module';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from '../shared/shared.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
     declarations: [
@@ -37,7 +38,7 @@ import { SharedModule } from '../shared/shared.module';
     ],
     imports: [
          CommonModule,
-        
+        RouterModule,
         HttpClientModule,
         FormsModule, ProductModule, BrowserAnimationsModule, NgxPaginationModule, AuthModule ,SharedModule
     ],
