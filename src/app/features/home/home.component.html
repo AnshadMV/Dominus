@@ -1,19 +1,16 @@
-<div class="flex flex-col min-h-screen bg-white text-gray-900">
+<div class="flex flex-col min-h-screen bg-white text-gray-900 page-transition">
     <!-- Main Hero Content -->
-    <section
-        class="relative flex flex-col items-center justify-center min-h-screen bg-white text-gray-900 px-4 md:px-16">
+    <section class="relative flex flex-col items-center justify-center min-h-screen bg-white text-gray-900 px-4 md:px-16 fade-in">
         
         <!-- Hero Text -->
         <div class="relative z-10 flex flex-col items-center text-center max-w-3xl">
             <!-- Absolute Responsive Logo -->
-
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 text-black pt-24 md:pt-32 lg:pt-32 sm:px-16">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 text-black pt-24 md:pt-32 lg:pt-32 sm:px-16 slide-in-left">
                 <img src="./../../../assets/images/Dominus_black.png" alt="Dominus Logo Decoration"
-                    class="absolute -top-10 left-1/2 -translate-x-1/2 w-32 sm:w-40 md:w-48 lg:w-56 h-auto opacity-70 z-0 animate-pulse" />
-
+                    class="absolute -top-10 left-1/2 -translate-x-1/2 w-32 sm:w-40 md:w-48 lg:w-56 h-auto opacity-70 z-0 animate-pulse float" />
             </h1>
 
-            <p class="text-sm md:text-base mb-8 bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 bg-clip-text text-transparent font-medium">
+            <p class="text-sm md:text-base mb-8 bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 bg-clip-text text-transparent font-medium gradient-text slide-in-right">
                 Discover the latest in Apple innovation — from the power of the MacBook to the brilliance of the iPhone
                 and the immersive sound of AirPods. Explore gadgets that redefine performance, elegance, and creativity
                 for the modern lifestyle.
@@ -23,47 +20,44 @@
         <!-- Illustration Section -->
         <div class="mt-16 w-full flex flex-col md:flex-row items-center justify-between gap-8 z-10">
             <!-- Left Illustration -->
-            <div class="w-full md:w-1/3 flex justify-center">
+            <div class="w-full md:w-1/3 flex justify-center scale-in">
                 <img src="https://plus.unsplash.com/premium_vector-1721296174065-171be100c680?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=880"
-                    alt="Investor Illustration" class="max-w-xs w-full h-auto animate-pulse" />
+                    alt="Investor Illustration" class="max-w-xs w-full h-auto animate-pulse hover-lift" />
             </div>
 
             <!-- Middle Stats -->
-            <div class="w-full md:w-1/3 flex flex-col items-center text-center">
+            <div class="w-full md:w-1/3 flex flex-col items-center text-center fade-in">
                 <div class="flex items-center justify-center gap-2 mb-2">
                     <div class="flex -space-x-2">
-                        <div
-                            class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center text-xs font-bold">
+                        <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center text-xs font-bold float" style="animation-delay: 0s;">
                             V
                         </div>
-                        <div
-                            class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center text-xs font-bold">
+                        <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center text-xs font-bold float" style="animation-delay: 0.2s;">
                             C
                         </div>
-                        <div
-                            class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center text-xs font-bold">
+                        <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center text-xs font-bold float" style="animation-delay: 0.4s;">
                             TX
                         </div>
                     </div>
-                    <p class="text-sm font-medium text-gray-700 ml-2">100+ Strategic investors</p>
+                    <p class="text-sm font-medium text-gray-700 ml-2 slide-in-left">100+ Strategic investors</p>
                 </div>
-                <p class="text-sm text-gray-500 mb-2">4.8/5 App Rating</p>
+                <p class="text-sm text-gray-500 mb-2 fade-in">4.8/5 App Rating</p>
                 <button routerLink="/app-products/product-list"
-                    class="bg-black text-white px-12 py-2 rounded-full text-sm font-medium hover:bg-gray-900 transition">
+                    class="bg-black text-white px-12 py-2 rounded-full text-sm font-medium hover:bg-gray-900 transition pulse-cta">
                     Shop Now
                 </button>
             </div>
 
             <!-- Right Illustration -->
-            <div class="w-full md:w-1/3 flex justify-center">
+            <div class="w-full md:w-1/3 flex justify-center scale-in">
                 <img src="https://plus.unsplash.com/premium_vector-1736874280012-0593e042677c?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=880"
-                    alt="Observer Illustration" class="max-w-xs w-full h-auto animate-pulse" />
+                    alt="Observer Illustration" class="max-w-xs w-full h-auto animate-pulse hover-lift" />
             </div>
         </div>
     </section>
 
-    <!-- 2 section -->
-    <div class="relative w-full h-[90vh] sm:h-screen overflow-hidden min-h-screen">
+    <!-- Video Section -->
+    <div class="relative w-full h-[90vh] sm:h-screen overflow-hidden min-h-screen fade-in">
         <video #bgVideo autoplay muted loop playsinline preload="auto"
             class="absolute top-0 left-0 w-full h-full object-cover opacity-0 transition-opacity duration-700"
             (canplaythrough)="onVideoLoaded()">
@@ -74,30 +68,31 @@
         <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/60"></div>
 
         <div class="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-4">
-            <img src="./../../../../assets/images/Dominus_white.png" class="w-40 sm:w-56 md:w-64 logo mb-6"
+            <img src="./../../../../assets/images/Dominus_white.png" 
+                class="w-40 sm:w-56 md:w-64 logo mb-6 scale-in"
                 alt="Dominus Logo" />
 
-            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl  mb-4 tracking-tight">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-4 tracking-tight slide-in-left">
                 The Future is
-                <span class="bg-gradient-to-r from-[#FFD700] via-[#E6C200] to-[#B8860B] bg-clip-text text-transparent">
+                <span class="bg-gradient-to-r from-[#FFD700] via-[#E6C200] to-[#B8860B] bg-clip-text text-transparent gradient-text">
                     Here
                 </span>
             </h1>
 
-            <p id="bltext" class="text-lg sm:text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl">
+            <p id="bltext" class="text-lg sm:text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl slide-in-right">
                 Experience innovation redefined with the latest Apple technology
             </p>
 
-            <div class="flex flex-col sm:flex-row gap-4 mt-6">
+            <div class="flex flex-col sm:flex-row gap-4 mt-6 fade-in">
                 <div routerLink="/app-products/product-list"
-                    class="relative flex items-center bg-transparent border-1 border-white rounded-full py-2 px-6">
+                    class="relative flex items-center bg-transparent border-1 border-white rounded-full py-2 px-6 hover-lift">
                     <input type="text" placeholder="Search Your Dream..."
                         class="bg-transparent text-white border-none outline-none w-full pr-10" />
                     <i class="fa-solid fa-magnifying-glass absolute right-3 text-white"></i>
                 </div>
 
                 <button routerLink="/app-products/product-list"
-                    class="bg-white text-black px-8 py-3 rounded-full font-semibold text-lg hover:bg-black hover:text-white transition-all duration-300 transform hover:scale-105 flex items-center gap-2">
+                    class="bg-white text-black px-8 py-3 rounded-full font-semibold text-lg hover:bg-black hover:text-white transition-all duration-300 transform hover:scale-105 flex items-center gap-2 pulse-cta">
                     Discover Collection
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="w-4 h-4">
@@ -106,31 +101,48 @@
                 </button>
             </div>
 
-            <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-pulse">
+            <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-pulse float">
                 <i class="fa-solid fa-chevron-down text-3xl text-white/70"></i>
             </div>
-
-
-
         </div>
     </div>
 
+    <!-- Recently Launched Section -->
     <section class="bg-white py-20">
         <div class="container mx-auto px-4">
             <!-- Header -->
-            <div class="flex flex-col sm:flex-row justify-between items-center mb-10 space-y-4 sm:space-y-0">
+            <div class="flex flex-col sm:flex-row justify-between items-center mb-10 space-y-4 sm:space-y-0 slide-in-left">
                 <h2 class="text-3xl font-bold text-black text-center sm:text-left">Recently Launched</h2>
                 <button routerLink="/app-products/product-list"
-                    class="bg-black text-white px-6 py-2 rounded-full hover:bg-gray-800 transition">
+                    class="bg-black text-white px-6 py-2 rounded-full hover:bg-gray-800 transition hover-lift">
                     All Collection
                 </button>
             </div>
 
-            <!-- Responsive Grid -->
+            <!-- Skeleton Loading -->
+            <div *ngIf="showSkeleton" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div *ngFor="let item of getSkeletonArray(productCount)" 
+                     class="bg-white shadow-lg rounded-2xl overflow-hidden border border-gray-200">
+                    <div class="p-6">
+                        <div class="skeleton h-4 w-20 mb-4"></div>
+                        <div class="skeleton h-6 w-3/4 mb-2"></div>
+                        <div class="skeleton h-8 w-1/2 mb-4"></div>
+                        <div class="flex justify-between mb-4">
+                            <div class="skeleton h-4 w-16"></div>
+                            <div class="skeleton h-4 w-16"></div>
+                            <div class="skeleton h-4 w-16"></div>
+                        </div>
+                    </div>
+                    <div class="h-56 bg-gray-200 skeleton"></div>
+                </div>
+            </div>
+
+            <!-- Product Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Product Card Loop -->
                 <div *ngFor="let p of products; let i = index"
-                    class="bg-white shadow-lg rounded-2xl overflow-hidden border border-gray-200">
+                    class="bg-white shadow-lg rounded-2xl overflow-hidden border border-gray-200 product-card hover-lift fade-in"
+                    [style.animation-delay]="i * 0.1 + 's'">
                     <!-- Card Top Section -->
                     <div class="px-6 pt-6">
                         <div class="text-sm bg-black text-white px-3 py-1 rounded-full w-fit mb-4">
@@ -158,32 +170,30 @@
 
                     <!-- Image Section -->
                     <div class="h-56 bg-black flex items-center justify-center">
-                        <img [src]="p.images" [alt]="p.name" class="h-full object-contain" />
+                        <img [src]="p.images" [alt]="p.name" class="h-full object-contain transition-transform duration-500 hover:scale-105" />
                     </div>
                 </div>
             </div>
-
-
         </div>
-
     </section>
+
     <!-- Scrollable Service Cards Section -->
     <section class="py-40 bg-black text-white">
         <div class="container mx-auto px-4">
             <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-10 gap-10">
 
                 <!-- Left Content -->
-                <div class="lg:w-1/3 flex-shrink-0 text-left">
+                <div class="lg:w-1/3 flex-shrink-0 text-left slide-in-left">
                     <div class="flex items-center mb-6">
-                        <div class="w-12 h-12 border border-white rounded-full flex items-center justify-center">
+                        <div class="w-12 h-12 border border-white rounded-full flex items-center justify-center hover-lift">
                             <i class="fa-solid fa-arrow-down text-white text-xl"></i>
                         </div>
                     </div>
                     <h2 class="text-3xl sm:text-4xl font-bold mb-4">Elevate your Standard</h2>
-                    <p class="text-base sm:text-lg text-gray-300 mb-2">
+                    <p class="text-base sm:text-lg text-gray-300 mb-2 fade-in">
                         At Dominus, we give everything you want.
                     </p>
-                    <p class="text-base sm:text-lg text-gray-300">
+                    <p class="text-base sm:text-lg text-gray-300 fade-in">
                         Take your buy to the next level with us.
                     </p>
                 </div>
@@ -192,19 +202,21 @@
                 <div class="lg:w-2/3 w-full overflow-x-auto hide-scrollbar">
                     <div class="flex space-x-6">
                         <!-- Dynamic Service Cards -->
-                        <div *ngFor="let s of services"
-                            class="flex-shrink-0 w-64 sm:w-72 rounded-xl overflow-hidden bg-white text-black">
+                        <div *ngFor="let s of services; let i = index"
+                            class="flex-shrink-0 w-64 sm:w-72 rounded-xl overflow-hidden bg-white text-black service-card hover-lift slide-in-right"
+                            [style.animation-delay]="i * 0.15 + 's'">
                             <div class="h-40 sm:h-48 bg-gray-800 flex items-center justify-center">
                                 <!-- Temporary placeholder - remove safeUrl pipe for now -->
-                                <iframe class="w-full h-full object-cover" [src]="s.videoUrl | safeUrl"
+                                <iframe class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" 
+                                    [src]="s.videoUrl | safeUrl"
                                     [title]="s.title" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen
                                     controls=0>
                                 </iframe>
                             </div>
                             <div class="p-4">
                                 <h3 class="text-lg sm:text-xl font-semibold mb-2">{{ s.title }}</h3>
-                                <a [href]="s.learnMoreLink" class="text-black font-semibold flex items-center gap-2">
-                                    Learn More <i class="fa-solid fa-arrow-right"></i>
+                                <a [href]="s.learnMoreLink" class="text-black font-semibold flex items-center gap-2 hover:text-gray-600 transition-colors">
+                                    Learn More <i class="fa-solid fa-arrow-right transition-transform hover:translate-x-1"></i>
                                 </a>
                             </div>
                         </div>
@@ -214,19 +226,19 @@
         </div>
     </section>
 
-
     <!-- Accessories Section -->
     <section class="py-20 bg-white">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
+            <div class="text-center mb-16 fade-in">
                 <h2 class="text-4xl md:text-5xl font-bold text-black mb-4">Essential Accessories</h2>
                 <p class="text-xl text-gray-600 max-w-2xl mx-auto">Complete your setup with premium Apple accessories.
                 </p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div
-                    class="bg-gray-50 rounded-2xl p-6 border border-gray-200 hover:border-yellow-400 transition-all duration-300 group">
+                <!-- Accessory Card 1 -->
+                <div class="bg-gray-50 rounded-2xl p-6 border border-gray-200 hover:border-yellow-400 transition-all duration-300 group hover-lift scale-in"
+                    style="animation-delay: 0s">
                     <div class="relative overflow-hidden rounded-xl mb-4">
                         <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MX0K2?wid=572&hei=572&fmt=jpeg&qlt=95&.v=1661979507133"
                             alt="AirPods Pro"
@@ -237,14 +249,15 @@
                     <div class="flex justify-between items-center">
                         <span class="text-yellow-600 font-bold">$249</span>
                         <button
-                            class="bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-white px-4 py-1 rounded-full text-sm hover:bg-gray-800 transition-colors">
+                            class="bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-white px-4 py-1 rounded-full text-sm hover:bg-gray-800 transition-colors hover-lift">
                             Offer
                         </button>
                     </div>
                 </div>
 
-                <div
-                    class="bg-gray-50 rounded-2xl p-6 border border-gray-200 hover:border-yellow-400 transition-all duration-300 group">
+                <!-- Accessory Card 2 -->
+                <div class="bg-gray-50 rounded-2xl p-6 border border-gray-200 hover:border-yellow-400 transition-all duration-300 group hover-lift scale-in"
+                    style="animation-delay: 0.1s">
                     <div class="relative overflow-hidden rounded-xl mb-4">
                         <img src="https://images.dailyobjects.com/marche/product-images/1801/charcoal-braided-solo-loop-apple-watchband-42-44mm-images/Charcoal-Braided-Solo-Loop-Apple-WatchBand-Vw.png?tr=cm-pad_resize,v-3,w-768,h-694,dpr-2"
                             alt="Apple Watch Band"
@@ -255,14 +268,15 @@
                     <div class="flex justify-between items-center">
                         <span class="text-yellow-600 font-bold">$49</span>
                         <button
-                            class="bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-white px-4 py-1 rounded-full text-sm hover:bg-gray-800 transition-colors">
+                            class="bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-white px-4 py-1 rounded-full text-sm hover:bg-gray-800 transition-colors hover-lift">
                             Offer
                         </button>
                     </div>
                 </div>
 
-                <div
-                    class="bg-gray-50 rounded-2xl p-6 border border-gray-200 hover:border-yellow-400 transition-all duration-300 group">
+                <!-- Accessory Card 3 -->
+                <div class="bg-gray-50 rounded-2xl p-6 border border-gray-200 hover:border-yellow-400 transition-all duration-300 group hover-lift scale-in"
+                    style="animation-delay: 0.2s">
                     <div class="relative overflow-hidden rounded-xl mb-4">
                         <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MX0K2?wid=572&hei=572&fmt=jpeg&qlt=95&.v=1661979507133"
                             alt="MagSafe Charger"
@@ -273,14 +287,15 @@
                     <div class="flex justify-between items-center">
                         <span class="text-yellow-600 font-bold">$39</span>
                         <button
-                            class="bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-white px-4 py-1 rounded-full text-sm hover:bg-gray-800 transition-colors">
+                            class="bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-white px-4 py-1 rounded-full text-sm hover:bg-gray-800 transition-colors hover-lift">
                             Offer
                         </button>
                     </div>
                 </div>
 
-                <div
-                    class="bg-gray-50 rounded-2xl p-6 border border-gray-200 hover:border-yellow-400 transition-all duration-300 group">
+                <!-- Accessory Card 4 -->
+                <div class="bg-gray-50 rounded-2xl p-6 border border-gray-200 hover:border-yellow-400 transition-all duration-300 group hover-lift scale-in"
+                    style="animation-delay: 0.3s">
                     <div class="relative overflow-hidden rounded-xl mb-4">
                         <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MMMR3?wid=572&hei=572&fmt=jpeg&qlt=95&.v=1645138676484"
                             alt="iPhone Case"
@@ -291,7 +306,7 @@
                     <div class="flex justify-between items-center">
                         <span class="text-yellow-600 font-bold">$59</span>
                         <button
-                            class="bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-white px-4 py-1 rounded-full text-sm hover:bg-gray-800 transition-colors">
+                            class="bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-white px-4 py-1 rounded-full text-sm hover:bg-gray-800 transition-colors hover-lift">
                             Offer
                         </button>
                     </div>
@@ -300,43 +315,41 @@
         </div>
     </section>
 
+    <!-- Ecosystem Section -->
     <section class="py-20 bg-black">
         <div class="container mx-auto px-4">
             <div class="flex flex-col lg:flex-row items-center">
-                <div class="lg:w-1/2 mb-10 lg:mb-0">
+                <div class="lg:w-1/2 mb-10 lg:mb-0 slide-in-left">
                     <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">The Complete Apple Ecosystem</h2>
-                    <p class="text-xl text-gray-400 mb-8">Seamlessly connect all your Apple devices for a unified
-                        experience
-                        that works together like nothing else.</p>
+                    <p class="text-xl text-gray-400 mb-8 fade-in">Seamlessly connect all your Apple devices for a unified
+                        experience that works together like nothing else.</p>
                     <ul class="space-y-4">
-                        <li class="flex items-start">
+                        <li class="flex items-start fade-in" style="animation-delay: 0.1s">
                             <i class="fa-solid fa-check text-white mt-1 mr-3"></i>
                             <span class="text-gray-300">Handoff tasks between iPhone, iPad, and Mac</span>
                         </li>
-                        <li class="flex items-start">
+                        <li class="flex items-start fade-in" style="animation-delay: 0.2s">
                             <i class="fa-solid fa-check text-white mt-1 mr-3"></i>
-                            <span class="text-gray-300">Universal Clipboard for copying and pasting across
-                                devices</span>
+                            <span class="text-gray-300">Universal Clipboard for copying and pasting across devices</span>
                         </li>
-                        <li class="flex items-start">
+                        <li class="flex items-start fade-in" style="animation-delay: 0.3s">
                             <i class="fa-solid fa-check text-white mt-1 mr-3"></i>
                             <span class="text-gray-300">AirDrop to share files instantly</span>
                         </li>
-                        <li class="flex items-start">
+                        <li class="flex items-start fade-in" style="animation-delay: 0.4s">
                             <i class="fa-solid fa-check text-white mt-1 mr-3"></i>
                             <span class="text-gray-300">iCloud keeps everything up to date across all devices</span>
                         </li>
                     </ul>
                     <button class="mt-8 bg-white text-black px-8 py-3 rounded-full font-medium text-lg border border-black
-         hover:text-white hover:bg-black hover:border-white transition-all duration-300">
+         hover:text-white hover:bg-black hover:border-white transition-all duration-300 pulse-cta">
                         Explore Ecosystem
                     </button>
-
                 </div>
-                <div class="lg:w-1/2 flex justify-center">
+                <div class="lg:w-1/2 flex justify-center scale-in">
                     <div class="relative">
                         <img src="https://static0.makeuseofimages.com/wordpress/wp-content/uploads/2022/08/apple-ecosystem-hero.jpg"
-                            alt="Apple Ecosystem" class="rounded-2xl w-full max-w-lg">
+                            alt="Apple Ecosystem" class="rounded-2xl w-full max-w-lg hover-lift transition-transform duration-500">
                     </div>
                 </div>
             </div>

@@ -156,11 +156,41 @@
           "totalAmount": 4690,
           "status": "delivered",
           "estimatedDelivery": "October 29, 2025"
+        },
+        {
+          "id": "order_1761130854141",
+          "userId": "35e0",
+          "orderId": "ORD1761130854141DEYAI",
+          "orderDate": "October 22, 2025 at 04:30 PM",
+          "items": [
+            {
+              "productId": "p1",
+              "name": "iPhone 17 Pro Max",
+              "price": 229899,
+              "quantity": 1,
+              "image": "https://images.unsplash.com/photo-1758770478140-e45dac838d40?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aXBob25lJTIwMTclMjBwcm8lMjBtYXh8ZW58MHwyfDJ8fHww&auto=format&fit=crop&q=60&w=400",
+              "color": "yellow",
+              "category": "mobile"
+            }
+          ],
+          "shippingDetails": {
+            "fullName": "Shinaas",
+            "address": "Not specified",
+            "city": "Not specified",
+            "state": "Not specified",
+            "pincode": "000000",
+            "phone": "Not specified",
+            "email": "shinas@gmail.com"
+          },
+          "paymentMethod": "Online Payment",
+          "totalAmount": 229899,
+          "status": "confirmed",
+          "estimatedDelivery": "October 29, 2025"
         }
       ],
-      "isBlocked": true,
-      "blockedAt": "2025-10-22T08:27:23.961Z",
-      "blockedReason": "fsadfsd",
+      "isBlocked": false,
+      "blockedAt": "null",
+      "blockedReason": "",
       "cart": [
         {
           "productId": "p1",
@@ -171,6 +201,9 @@
         },
         {
           "productId": "p4"
+        },
+        {
+          "productId": "p7"
         }
       ]
     },
@@ -279,7 +312,7 @@
         "green"
       ],
       "topSelling": true,
-      "stock": 15,
+      "stock": 14,
       "category": "mobile",
       "warranty": "1 Y",
       "isActive": true,
