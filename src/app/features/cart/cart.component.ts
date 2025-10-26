@@ -119,9 +119,9 @@ export class CartComponent implements OnInit {
 
   AmoutCalculator() {
     this.TotalAmountofAllProduct = this.cartItems.reduce((total, item) => {
-      return total + (item.product?.price || 0) * item.quantity; // Include quantity in calculation
+      return total + (item.product.price || 0) * item.quantity; // Include quantity in calculation
     }, 0);
-  }
+  }      
 
   // indivitual product passing
   buyProduct(products: Product) {

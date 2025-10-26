@@ -74,7 +74,7 @@
               <!-- Product Image -->
               <div
                 class="relative w-full pb-[100%] bg-gray-50 rounded-xl overflow-hidden mb-4 flex items-center justify-center">
-                <img [src]="item.product?.images?.[0]" [alt]="item.product?.name"
+                <img [src]="item.product.images[0]" [alt]="item.product.name"
                   class="absolute top-0 left-0 w-full h-full object-contain group-hover:scale-105 transition-transform duration-300" />
               </div>
 
@@ -95,7 +95,7 @@
                   </p>
                   <p
                     class="text-xs font-medium bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-transparent bg-clip-text mt-1">
-                    {{ item.product?.colors }}
+                    {{ item.product.colors }}
                   </p>
                 </div>
 
