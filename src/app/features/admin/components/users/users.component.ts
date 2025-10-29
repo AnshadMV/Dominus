@@ -1,8 +1,8 @@
 // users.component.ts
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../../core/services/user.service';
-import { User } from '../../../core/models/user.model';
+import { User } from 'src/app/core/models/user.model';
 import { ToastService } from 'src/app/core/services/toast.service';
+import { UserService } from 'src/app/core/services/user.service';
 
 @Component({
   selector: 'app-users',

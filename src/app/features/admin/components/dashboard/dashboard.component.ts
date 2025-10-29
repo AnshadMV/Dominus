@@ -4,17 +4,17 @@ import { HttpClient } from '@angular/common/http';
 import { ProductService } from 'src/app/core/services/product.service';
 import { UserService } from 'src/app/core/services/user.service';
 import { Chart, ChartConfiguration, registerables } from 'chart.js';
-import { DashboardStats } from '../../modals/dashboardStats';
-import { RecentOrder } from '../../modals/recentOrder';
-import { ProductAnalysis } from '../../modals/productAnanlysis';
-import { SalesData } from '../../modals/salesData';
-import { RecentActivity } from '../../modals/recentActivity';
+import { DashboardStats } from '../../../../core/models/admin-models/dashboardStats';
+import { RecentOrder } from '../../../../core/models/admin-models/recentOrder';
+import { ProductAnalysis } from '../../../../core/models/admin-models/productAnanlysis';
+import { SalesData } from '../../../../core/models/admin-models/salesData';
+import { RecentActivity } from '../../../../core/models/admin-models/recentActivity';
 
 
 Chart.register(...registerables);
 
 @Component({
-  selector: 'app-dashboard',
+  selector: 'dashboard',
   templateUrl: './dashboard.component.html',
   // styleUrls: ['./dashboard.component.css']
 })

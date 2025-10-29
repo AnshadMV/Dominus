@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output, HostListener } from '@angular/core';
-import { SidebarMenuItem } from 'src/app/admin/modals/sideBarMenuItem';
-import { AdminAuthService } from 'src/app/admin/services/admin-auth.service';
+import { SidebarMenuItem } from 'src/app/core/models/admin-models/sideBarMenuItem';
+import { AdminAuthService } from 'src/app/core/services/admin-auth.service';
 
 
 @Component({

@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 // import { LoginComponent } from './features/auth/login/login.component';
 // import { RegisterComponent } from './features/auth/register/register.component';
 // import { ButtonComponent } from './shared/componants/button/button.component';
@@ -15,8 +14,9 @@ import { TopNavbarComponent } from './componants/navbar/top-navbar/top-navbar.co
 import { MenuModalComponent } from './componants/navbar/menu-modal/menu-modal.component';
 import { ToastComponent } from './componants/toast/toast/toast.component';
 import { SafeUrlPipe } from './pipes/angular_pipes/safe-url.pipe';
-import { AppRoutingModule } from '../app-routing.module';
 import { RouterModule } from '@angular/router';
+import { AdminSidebarComponent } from './componants/admin-sidebar/admin-sidebar.component';
+import { AdminHeaderComponent } from './componants/admin-header/admin-header.component';
 
 @NgModule({
   declarations: [
@@ -31,12 +31,12 @@ import { RouterModule } from '@angular/router';
     MenuModalComponent,
     ToastComponent, 
     SafeUrlPipe, 
-    
+    AdminHeaderComponent,
+        AdminSidebarComponent,
   ],
   imports: [
-    BrowserModule,
     CommonModule,
-     AppRoutingModule, RouterModule,
+   RouterModule,
     HttpClientModule, 
     FormsModule, BrowserAnimationsModule,  NgxPaginationModule, 
     
@@ -47,8 +47,9 @@ import { RouterModule } from '@angular/router';
     FooterComponent,  
     TopNavbarComponent,
     MenuModalComponent,
-    ToastComponent, 
-    SafeUrlPipe, 
+    ToastComponent, RouterModule, 
+    SafeUrlPipe, AdminHeaderComponent,
+        AdminSidebarComponent,
   ]
 })
 

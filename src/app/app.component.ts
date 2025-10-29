@@ -16,15 +16,15 @@ export class AppComponent {
   showNavbarPadding = true;
   showTopNavbar = true; // Add this property
 
-  hideOnRoutes_header = ['/app-login', '/app-register', '/admin', '', '**']; // routes where navbar should hide
+  hideOnRoutes_header = ['/app-login', '/app-register', '/admin', '', '/admin/**']; // routes where navbar should hide
   showOnRoutes_footer = ['/app-home', '/app-about', '/app-profile', '/admin',]; // routes where navbarshould hide
-  hideOnRoutes_navbarPadding = ['/app-login', '/app-register', '/app-home', '/app-not-found'];
-  
+  hideOnRoutes_navbarPadding = ['/app-login', '/app-register', '/app-home', '/app-not-found', '/admin/**'];
+
   constructor(private router: Router, private authService: AuthService) {  // Inject AuthService here to ensure polling starts
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         const currentRoute = this.router.url;
-        
+
         // Hide header on login page
         if (currentRoute.includes('/app-login')) {
           this.showHeader = false;
@@ -34,23 +34,24 @@ export class AppComponent {
           this.showFooter = true;
         }
       }
-    }); 
+    });
   }
 
   ngOnInit() {
     navigationEndFilter(this.router.events)
       .subscribe(event => {
         const navEnd = event as NavigationEnd;
-        // Extract base route without query parameters
         const baseRoute = navEnd.urlAfterRedirects.split('?')[0];
-        // Hide header/footer for admin routes
-        const isAdminRoute = baseRoute.startsWith('/admin');
+
+        // ✅ Improved admin route detection
+        const isAdminRoute = baseRoute.startsWith('/admin') || baseRoute.includes('/admin/');
 
         this.showHeader = !this.hideOnRoutes_header.includes(baseRoute) && !isAdminRoute;
         this.showFooter = this.showOnRoutes_footer.includes(baseRoute) && !isAdminRoute;
         this.showNavbarPadding = !this.hideOnRoutes_navbarPadding.includes(baseRoute) && !isAdminRoute;
       });
-  } // Add this method to handle top navbar visibility changes
+  }
+   // Add this method to handle top navbar visibility changes
   onTopNavbarVisibilityChange(visible: boolean) {
     this.showTopNavbar = visible;
   }

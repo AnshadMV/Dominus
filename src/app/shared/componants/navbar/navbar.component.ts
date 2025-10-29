@@ -34,18 +34,40 @@ export class NavbarComponent implements OnInit {
   ];
 
   ngOnInit() {
-    this.cartBadgeService.cartItemCount$.subscribe(count => {
-      this.cartItemCount = count;
+    const currentUser = JSON.parse(localStorage.getItem("currentUser") || '{}');
+    this.role = currentUser.role || '';  // ✅ Dynamic role
 
-      this.loadCartCount();
+    // ✅ Load counts ONCE (no loop!)
+    this.loadCartCount();
+    this.loadwishlistCount();
+
+    this.cartBadgeService.cartItemCount$.subscribe(count => {
+      this.cartItemCount = count;  // Remove loadCartCount() here!
     });
     this.WishlistBadgeService.WishlistItemCount$.subscribe(count => {
-      this.wishListItemCount = count;
-      this.loadwishlistCount();
-    }); this.searchService.searchTerm$.subscribe(term => {
+      this.wishListItemCount = count;  // Remove loadwishlistCount()!
+    });
+    this.searchService.searchTerm$.subscribe(term => {
       this.searchTerm = term;
     });
   }
+
+  // In navbar.component.ts - navigation method
+  navigation() {
+    console.log('1. Navigation method called');
+    console.log('2. Current user:', this.fetchUserData);
+    console.log('3. User role:', this.fetchUserData.role);
+
+    this.router.navigate(['/admin/dashboard']).then(success => {
+      console.log('4. Navigation result:', success);
+      if (success) {
+        this.closeProfileDropdown();
+      }
+    }).catch(error => {
+      console.log('5. Navigation error:', error);
+    });
+  }
+
   toggleModal() {
     this.isModalOpen = !this.isModalOpen;
   }
@@ -143,5 +165,7 @@ export class NavbarComponent implements OnInit {
     this.searchTerm = '';
     this.searchService.clearSearch();
   }
+
+
 
 }

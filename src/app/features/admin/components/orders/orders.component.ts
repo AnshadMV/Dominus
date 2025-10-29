@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ToastService } from 'src/app/core/services/toast.service';
 import { Order } from 'src/app/core/models/order.model';
-import { AdminOrder } from 'src/app/admin/modals/adminOrder-models';
+import { AdminOrder } from 'src/app/core/models/admin-models/adminOrder-models';
 
 // Extended interface for admin orders with user info
 

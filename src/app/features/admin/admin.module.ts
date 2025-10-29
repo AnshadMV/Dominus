@@ -5,10 +5,8 @@ import { RouterModule } from '@angular/router';
 
 import { AdminRoutingModule } from './admin-routing.module';
 import { AdminComponent } from './admin.component';
-import { AdminHeaderComponent } from './shared/admin-header/admin-header.component';
-import { AdminSidebarComponent } from './shared/admin-sidebar/admin-sidebar.component';
 import { AdminFeatureModule } from './components/admin-feature.module';
-import { AdminSharedModule } from './shared/admin-shared.module';
+import { SharedModule } from "src/app/shared/shared.module";
 
 @NgModule({
   declarations: [
@@ -20,14 +18,8 @@ import { AdminSharedModule } from './shared/admin-shared.module';
     RouterModule,
     AdminRoutingModule,
     FormsModule,
-
-    //Modules - Shared and Feature
-    AdminFeatureModule, 
-    AdminSharedModule
-
-
-
+    AdminFeatureModule,
+    SharedModule
   ],
-
 })
 export class AdminModule { }

@@ -13,14 +13,7 @@
       "password": "123123123",
       "createdAt": "2025-10-16T08:44:02.094Z",
       "role": "user",
-      "wishlist": [
-        {
-          "productId": "p12"
-        },
-        {
-          "productId": "p7"
-        }
-      ],
+      "wishlist": [],
       "orders": [
         {
           "id": "order_1761065625211",
@@ -287,10 +280,10 @@
       "role": "admin",
       "wishlist": [
         {
-          "productId": "p4"
+          "productId": "p3"
         },
         {
-          "productId": "p3"
+          "productId": "p7"
         }
       ],
       "orders": [
@@ -348,6 +341,9 @@
         },
         {
           "productId": "p5"
+        },
+        {
+          "productId": "p4"
         }
       ],
       "isBlocked": false,
@@ -389,7 +385,6 @@
       "isActive": true,
       "slug": "iphone-17-pro-max",
       "description": "Flagship iPhone 17 Pro Max with A-series chip, triple camera system, etc.",
-      "color": "#000000",
       "status": true
     },
     {

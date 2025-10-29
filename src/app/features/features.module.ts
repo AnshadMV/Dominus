@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 // import { LoginComponent } from './features/auth/login/login.component';
 // import { RegisterComponent } from './features/auth/register/register.component';
 // import { ButtonComponent } from './shared/componants/button/button.component';
@@ -18,8 +17,9 @@ import { OrdersComponent } from './orders/orders.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { AuthModule } from './auth/auth.module';
 import { CommonModule } from '@angular/common';
-import { SharedModule } from '../shared/shared.module';
 import { RouterModule } from '@angular/router';
+import { AdminModule } from './admin/admin.module';
+import { SharedModule } from "../shared/shared.module";
 
 @NgModule({
     declarations: [
@@ -37,11 +37,12 @@ import { RouterModule } from '@angular/router';
         ContactUsComponent,
     ],
     imports: [
-         CommonModule,
-        RouterModule,
-        HttpClientModule,
-        FormsModule, ProductModule, BrowserAnimationsModule, NgxPaginationModule, AuthModule ,SharedModule
-    ],
+    CommonModule,
+    RouterModule,
+    HttpClientModule,
+    FormsModule, ProductModule, BrowserAnimationsModule, NgxPaginationModule, AuthModule, 
+    SharedModule
+],
     exports: [ 
         HomeComponent,
         CartComponent,

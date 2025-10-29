@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ProductService } from './../../../../core/services/product.service';
-import { Category } from './../../../../core/models/category.model';
+import { Category } from 'src/app/core/models/category.model';
+import { ProductService } from 'src/app/core/services/product.service';
 import { ToastService } from 'src/app/core/services/toast.service';
 
 @Component({
